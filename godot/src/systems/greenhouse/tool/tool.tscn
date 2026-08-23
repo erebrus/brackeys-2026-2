@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dei07vw678a71"]
+
+[ext_resource type="Script" uid="uid://ckx2s452aghcv" path="res://src/systems/greenhouse/tool/tool.gd" id="1_ice2y"]
+[ext_resource type="PackedScene" uid="uid://dkoie3iuvce86" path="res://src/systems/mouse_controller/pickable_area.tscn" id="1_t8p1y"]
+[ext_resource type="Texture2D" uid="uid://cbfsi8nhbaem7" path="res://assets/gfx/watering_can.png" id="2_34vid"]
+[ext_resource type="PackedScene" uid="uid://miodiicp4en1" path="res://src/systems/greenhouse/interaction_area/interaction_area.tscn" id="4_yrgom"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo5td"]
+size = Vector2(73, 101)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uo5td"]
+radius = 12.0415945
+
+[node name="Tool" type="Node2D" unique_id=1737244878]
+script = ExtResource("1_ice2y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=514892687]
+position = Vector2(50, 9)
+texture = ExtResource("2_34vid")
+
+[node name="PickableArea" parent="." unique_id=94634173 node_paths=PackedStringArray("target") instance=ExtResource("1_t8p1y")]
+position = Vector2(65, 13)
+collision_layer = 4
+collision_mask = 0
+target = NodePath("..")
+is_clickable = null
+is_draggable = true
+snap_on_hover = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea" unique_id=283360304]
+position = Vector2(8.5, 9.5)
+shape = SubResource("RectangleShape2D_uo5td")
+
+[node name="InteractionArea" parent="." unique_id=1503144043 node_paths=PackedStringArray("target") instance=ExtResource("4_yrgom")]
+collision_layer = 0
+collision_mask = 64
+target = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1881849974]
+shape = SubResource("CircleShape2D_uo5td")

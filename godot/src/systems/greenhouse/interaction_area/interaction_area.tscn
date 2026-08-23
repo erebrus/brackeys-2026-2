@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://miodiicp4en1"]
+
+[ext_resource type="Script" uid="uid://cbxfjs6c67ygd" path="res://src/systems/greenhouse/interaction_area/interaction_area.gd" id="1_xbqyx"]
+
+[node name="InteractionArea" type="Area2D" unique_id=1503144043]
+script = ExtResource("1_xbqyx")

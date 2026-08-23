@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cdc2xp21q8nvu"]
+
+[ext_resource type="Script" uid="uid://un8tya3ldmv1" path="res://src/systems/mouse_controller/drop_area.gd" id="1_fdfhp"]
+
+[node name="DropArea" type="Area2D" unique_id=94634173]
+script = ExtResource("1_fdfhp")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dkoie3iuvce86"]
+
+[ext_resource type="Script" uid="uid://whqxs5ere50m" path="res://src/systems/mouse_controller/pickable_area.gd" id="1_5vw86"]
+
+[node name="PickableArea" type="Area2D" unique_id=94634173]
+script = ExtResource("1_5vw86")
