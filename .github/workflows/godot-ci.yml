@@ -5,9 +5,9 @@ on:
       - '[0-9]+.[0-9]+.[0-9]+'
 
 env:
-  GODOT_VERSION: 4.7.1.stable
+  GODOT_VERSION: 4.7.2.stable
   EXPORT_NAME: replace_export_name
-  ITCH_GAME: itch-game-name
+  ITCH_GAME: brackeys-2026-2
   ITCH_USER: erebrus
 
 jobs:
