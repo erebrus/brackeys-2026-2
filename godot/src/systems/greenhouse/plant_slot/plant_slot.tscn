@@ -8,6 +8,10 @@ size = Vector2(42, 46)
 
 [node name="PlantSlot" type="Node2D" unique_id=1520109860]
 script = ExtResource("1_y1u3t")
+stats = Dictionary[int, float]({
+0: 0.0,
+1: 0.0
+})
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1614614779]
 offset_left = -21.0

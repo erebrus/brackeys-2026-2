@@ -14,14 +14,34 @@ offset_top = 157.0
 offset_right = 976.0
 offset_bottom = 362.0
 
-[node name="PlantSlot" parent="." unique_id=1520109860 instance=ExtResource("4_mo2dc")]
-position = Vector2(231, 233)
+[node name="SunnyCold" parent="." unique_id=1520109860 instance=ExtResource("4_mo2dc")]
+position = Vector2(125, 159)
+stats = Dictionary[int, float]({
+0: 100.0,
+1: 0.0
+})
 
-[node name="PlantSlot2" parent="." unique_id=1672525172 instance=ExtResource("4_mo2dc")]
-position = Vector2(304, 233)
+[node name="SunnyHot" parent="." unique_id=1271708430 instance=ExtResource("4_mo2dc")]
+position = Vector2(246, 159)
+stats = Dictionary[int, float]({
+0: 100.0,
+1: 100.0
+})
+
+[node name="DarkCold" parent="." unique_id=1263456809 instance=ExtResource("4_mo2dc")]
+position = Vector2(130, 301)
+
+[node name="DarkHot" parent="." unique_id=1552616304 instance=ExtResource("4_mo2dc")]
+position = Vector2(246, 301)
+stats = Dictionary[int, float]({
+0: 0.0,
+1: 100.0
+})
 
 [node name="Plant" parent="." unique_id=1928706633 instance=ExtResource("3_orbt0")]
 position = Vector2(466, 378)
 
 [node name="Tool" parent="." unique_id=1737244878 instance=ExtResource("4_82ww6")]
 position = Vector2(138, 409)
+stat = 2
+pour_speed = 10.0

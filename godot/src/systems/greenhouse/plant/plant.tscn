@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://crs1lwofofjk7" path="res://assets/gfx/plants/pot.png" id="1_nc3ur"]
 [ext_resource type="Texture2D" uid="uid://cq0qib44jv30o" path="res://assets/gfx/plants/plant.png" id="2_7pfcx"]
 [ext_resource type="PackedScene" uid="uid://dkoie3iuvce86" path="res://src/systems/mouse_controller/pickable_area.tscn" id="4_bjxm2"]
-[ext_resource type="PackedScene" uid="uid://miodiicp4en1" path="res://src/systems/greenhouse/interaction_area/interaction_area.tscn" id="5_sul5p"]
+[ext_resource type="PackedScene" uid="uid://miodiicp4en1" path="res://src/systems/interaction_area/interaction_area.tscn" id="5_sul5p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo5td"]
 size = Vector2(60, 66)
