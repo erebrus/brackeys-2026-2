@@ -1,28 +1,55 @@
 class_name Plant extends Node2D
 
 signal stat_changed(stat: Types.Stats, value: float)
+signal hp_changed(value: float)
+signal met_requirements_changed(met: int, unmet: int)
+
+@export var hp_per_requirement_met: float = 10
+@export var hp_per_requirement_unmet: float = -10
+
+@export var type: PlantType
+
 
 var slot: PlantSlot
 
 var stats: Dictionary[Types.Stats, PlantStat]
-
+var hp: PlantStat
+var met_requirements: int
+var unmet_requirements: int
 
 @onready var pickable_area: PickableArea = %PickableArea
-
-
-func _init() -> void:
-	for stat in Types.Stats.values():
-		stats[stat] = PlantStat.create(stat)
-		stats[stat].empty.connect(_on_stat_updated)
-		stats[stat].full.connect(_on_stat_updated)
-		stats[stat].changed.connect(stat_changed.emit)
-	
+@onready var debug_stat_container: Container = %DebugStatsContainer
 
 func _ready() -> void:
+	assert(type != null)
+	
 	pickable_area.dropped.connect(_on_dropped)
+	
+	hp = PlantStat.create(Types.Stats.HP)
+	hp.changed.connect(func(_t, v): hp_changed.emit(v))
+	
+	var hp_progress = PlantStatDebugDisplay.create(hp)
+	debug_stat_container.add_child(hp_progress)
+	
+	for requirement in type.requirements:
+		var stat = PlantStat.create(requirement.stat_type) 
+		
+		stats[stat.type] = stat
+		stat.changed.connect(stat_changed.emit)
+		
+		var progress = PlantStatDebugDisplay.create(stat)
+		debug_stat_container.add_child(progress)
+	
+	
+	debug_stat_container.visible = Debug.show_stats
+	Debug.show_stats_changed.connect(func(x): debug_stat_container.visible = x)
 	
 
 func _physics_process(delta: float) -> void:
+	_update_requirements()
+	
+	hp.decay(delta)
+	
 	for stat: PlantStat in stats.values():
 		stat.decay(delta)
 	
@@ -43,6 +70,31 @@ func update_stat(stat: Types.Stats, value: float) -> void:
 		stats[stat].update(value)
 	
 
+func _update_requirements() -> void:
+	var met := 0
+	var unmet := 0
+		
+	for requirement in type.requirements:
+		if _meets_requirement(requirement):
+			met += 1
+		else:
+			unmet += 1
+	
+	if met != met_requirements or unmet != unmet_requirements:
+		met_requirements_changed.emit(met, unmet)
+		met_requirements = met
+		unmet_requirements = unmet
+		hp.decay_speed = met * hp_per_requirement_met + unmet * hp_per_requirement_unmet
+	
+
+func _meets_requirement(requirement: Requirement) -> bool:
+	if not requirement.stat_type in stats:
+		return false
+	
+	var stat = stats[requirement.stat_type]
+	return requirement.minimum <= stat.current and stat.current <= requirement.maximum
+	
+
 func _on_dropped(area: DropArea) -> void:
 	if area == null:
 		return
@@ -50,6 +102,3 @@ func _on_dropped(area: DropArea) -> void:
 	assert(area.target is PlantSlot)
 	place(area.target)
 	
-
-func _on_stat_updated(type: Types.Stats) -> void:
-	GSLogger.info("Updated stat %s to %s on plant %s" % [Types.Stats.keys()[type], stats[type].current, name])

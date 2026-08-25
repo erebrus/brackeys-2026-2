@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://rb8p3x2axwyy"]
+
+[ext_resource type="Script" uid="uid://n77840v14x7h" path="res://src/systems/greenhouse/plant/stat_debug_display.gd" id="1_ctxal"]
+
+[node name="DebugDisplay" type="HBoxContainer" unique_id=1917998788]
+script = ExtResource("1_ctxal")
+
+[node name="Label" type="Label" parent="." unique_id=345202348]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1382322581]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 4
+show_percentage = false

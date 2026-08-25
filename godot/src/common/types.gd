@@ -4,8 +4,10 @@ enum GameMusic {EASY, NORMAL, HARD}
 
 
 enum Stats {
+	HP,
+	
 	SUNLIGHT,
 	TEMPERATURE,
 	WATER,
-	FERTILIZER
+	FERTILIZER,
 }

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cq0qib44jv30o" path="res://assets/gfx/plants/plant.png" id="2_7pfcx"]
 [ext_resource type="PackedScene" uid="uid://dkoie3iuvce86" path="res://src/systems/mouse_controller/pickable_area.tscn" id="4_bjxm2"]
 [ext_resource type="PackedScene" uid="uid://miodiicp4en1" path="res://src/systems/interaction_area/interaction_area.tscn" id="5_sul5p"]
+[ext_resource type="PackedScene" uid="uid://bbhtmhighmqjy" path="res://src/systems/greenhouse/plant/health_icon.tscn" id="6_ed5tb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo5td"]
 size = Vector2(60, 66)
@@ -44,3 +45,20 @@ target = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1183029309]
 position = Vector2(0, -157)
 shape = SubResource("CircleShape2D_ice2y")
+
+[node name="DebugStatsContainer" type="VBoxContainer" parent="." unique_id=1849534237]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="HealthIcon" parent="." unique_id=798022080 node_paths=PackedStringArray("plant") instance=ExtResource("6_ed5tb")]
+offset_left = 38.0
+offset_top = -39.0
+offset_right = 65.0
+offset_bottom = -16.0
+plant = NodePath("..")

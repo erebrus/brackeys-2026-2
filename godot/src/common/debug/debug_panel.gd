@@ -4,8 +4,8 @@ extends PanelContainer
 
 func _ready() -> void:
 	hide()
-	%Invulnerable.button_pressed = Debug.invulnerable
-	 
+	%ShowStats.button_pressed = Debug.show_stats
+	%ShowStats.toggled.connect(_on_show_stats_toggled)
 
 func set_levels(levels:Array[PackedScene]):
 	while level_selection.item_count>0:
@@ -39,8 +39,8 @@ func _on_music_tension_toggle_pressed() -> void:
 		Globals.music_manager.change_game_music_to(Globals.music_manager.current_game_music_id+1)
 	
 
-func _on_invulnerable_toggled(toggled_on: bool) -> void:
-	Debug.invulnerable = toggled_on
+func _on_show_stats_toggled(toggled_on: bool) -> void:
+	Debug.show_stats = toggled_on
 	
 
 func _on_game_over_pressed():

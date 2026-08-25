@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal show_stats_changed(value: bool)
+
 @export var debug_build: bool = true:
 	set(value):
 		debug_build = value
@@ -8,6 +10,13 @@ extends CanvasLayer
 @export var invulnerable: bool = false:
 	get:
 		return debug_build and invulnerable
+
+@export var show_stats: bool = false:
+	get:
+		return debug_build and show_stats
+	set(value):
+		show_stats = value
+		show_stats_changed.emit(show_stats)
 	
 
 func _ready() -> void:

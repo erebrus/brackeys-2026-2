@@ -14,11 +14,11 @@ func _ready() -> void:
 	pickable_area.dragged.connect(_on_dragged)
 	pickable_area.dropped.connect(_on_dropped)
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if plant == null:
 		return
 	
-	plant.update_stat(stat, pour_speed * delta)
+	plant.increase_stat(stat, pour_speed * delta)
 	
 
 func _pour() -> void:

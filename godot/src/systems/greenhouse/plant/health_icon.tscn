@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bbhtmhighmqjy"]
+
+[ext_resource type="Script" uid="uid://ddvnq1mtepod1" path="res://src/systems/greenhouse/plant/health_icon.gd" id="1_uoix4"]
+
+[node name="HealthIcon" type="PanelContainer" unique_id=798022080]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+script = ExtResource("1_uoix4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1690567043]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1466975251]
+layout_mode = 2
+text = "HP"
+
+[node name="ChangeLabel" type="Label" parent="HBoxContainer" unique_id=1252824705]
+unique_name_in_owner = true
+layout_mode = 2

@@ -2,8 +2,29 @@
 
 [ext_resource type="Script" uid="uid://b4ytavk038x8p" path="res://src/base_level.gd" id="1_mnxva"]
 [ext_resource type="PackedScene" uid="uid://fkj5cerqpbce" path="res://src/systems/greenhouse/plant/plant.tscn" id="3_orbt0"]
+[ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="4_0xb2g"]
 [ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tool/tool.tscn" id="4_82ww6"]
 [ext_resource type="PackedScene" uid="uid://bfuiqklb1hxev" path="res://src/systems/greenhouse/plant_slot/plant_slot.tscn" id="4_mo2dc"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="5_vmobq"]
+
+[sub_resource type="Resource" id="Resource_ed5tb"]
+script = ExtResource("4_0xb2g")
+stat_type = 3
+minimum = 50.0
+maximum = 100.0
+metadata/_custom_type_script = "uid://5k7g03v6u2su"
+
+[sub_resource type="Resource" id="Resource_ukk2q"]
+script = ExtResource("4_0xb2g")
+stat_type = 2
+minimum = 50.0
+maximum = 100.0
+metadata/_custom_type_script = "uid://5k7g03v6u2su"
+
+[sub_resource type="Resource" id="Resource_sul5p"]
+script = ExtResource("5_vmobq")
+requirements = Array[ExtResource("4_0xb2g")]([SubResource("Resource_ed5tb"), SubResource("Resource_ukk2q")])
+metadata/_custom_type_script = "uid://whs48undqype"
 
 [node name="BaseLevel" type="Node2D" unique_id=488472803]
 script = ExtResource("1_mnxva")
@@ -17,31 +38,36 @@ offset_bottom = 362.0
 [node name="SunnyCold" parent="." unique_id=1520109860 instance=ExtResource("4_mo2dc")]
 position = Vector2(125, 159)
 stats = Dictionary[int, float]({
-0: 100.0,
-1: 0.0
+1: 100.0,
+2: 0.0
 })
 
 [node name="SunnyHot" parent="." unique_id=1271708430 instance=ExtResource("4_mo2dc")]
 position = Vector2(246, 159)
 stats = Dictionary[int, float]({
-0: 100.0,
-1: 100.0
+1: 100.0,
+2: 100.0
 })
 
 [node name="DarkCold" parent="." unique_id=1263456809 instance=ExtResource("4_mo2dc")]
 position = Vector2(130, 301)
+stats = Dictionary[int, float]({
+1: 0.0,
+2: 0.0
+})
 
 [node name="DarkHot" parent="." unique_id=1552616304 instance=ExtResource("4_mo2dc")]
 position = Vector2(246, 301)
 stats = Dictionary[int, float]({
-0: 0.0,
-1: 100.0
+1: 0.0,
+2: 100.0
 })
 
 [node name="Plant" parent="." unique_id=1928706633 instance=ExtResource("3_orbt0")]
 position = Vector2(466, 378)
+type = SubResource("Resource_sul5p")
 
 [node name="Tool" parent="." unique_id=1737244878 instance=ExtResource("4_82ww6")]
 position = Vector2(138, 409)
-stat = 2
-pour_speed = 10.0
+stat = 3
+pour_speed = 20.0
