@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b1khxho0877xl"]
+
+[ext_resource type="PackedScene" uid="uid://v7flmj2t5drh" path="res://src/systems/greenhouse/plant/pot/pot.tscn" id="1_gunsk"]
+[ext_resource type="Texture2D" uid="uid://63us5pjoa73y" path="res://assets/gfx/plants/pot2.png" id="2_l3w5d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yc2fs"]
+radius = 72.0
+height = 186.0
+
+[node name="Pot" unique_id=1368794325 instance=ExtResource("1_gunsk")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=120685414]
+position = Vector2(0, -100)
+texture = ExtResource("2_l3w5d")
+
+[node name="PlantBaseMarker" parent="." index="1" unique_id=769795108]
+position = Vector2(0, -139)
+
+[node name="CollisionShape2D" parent="PickableArea" parent_id_path=PackedInt32Array(94634173) index="0" unique_id=886985971]
+position = Vector2(0, -70)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_yc2fs")

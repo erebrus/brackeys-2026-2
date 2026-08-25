@@ -22,15 +22,12 @@ var hp: PlantStat
 var met_requirements: int
 var unmet_requirements: int
 
-@onready var pickable_area: PickableArea = %PickableArea
 @onready var debug_stat_container: Container = %DebugStatsContainer
 @onready var plant_sprite: Sprite2D = %Plant
 
 
 func _ready() -> void:
 	assert(type != null)
-	
-	pickable_area.dropped.connect(_on_dropped)
 	
 	hp = PlantStat.create(Types.Stats.HP)
 	hp.changed.connect(_on_hp_changed)
@@ -48,11 +45,18 @@ func _ready() -> void:
 		var progress = PlantStatDebugDisplay.create(stat)
 		debug_stat_container.add_child(progress)
 	
-	
 	debug_stat_container.visible = Debug.show_stats
 	Debug.show_stats_changed.connect(func(x): debug_stat_container.visible = x)
 	
 	_update_plant_texture()
+	
+	var pot = Pot.create(self)
+	pot.dropped.connect(_on_dropped)
+	add_child(pot)
+	
+	var pot_base = pot.get_plant_base()
+	plant_sprite.position.y = pot_base.y - plant_sprite.texture.get_height() / 2
+	plant_sprite.position.x = pot_base.x
 	
 
 func _physics_process(delta: float) -> void:
@@ -123,12 +127,8 @@ func _update_plant_texture() -> void:
 		plant_sprite.texture = texture
 	
 
-func _on_dropped(area: DropArea) -> void:
-	if area == null:
-		return
-		
-	assert(area.target is PlantSlot)
-	place(area.target)
+func _on_dropped(new_slot: PlantSlot) -> void:
+	place(new_slot)
 	
 
 func _on_hp_changed(_type: Types.Stats, current_hp: float) -> void:

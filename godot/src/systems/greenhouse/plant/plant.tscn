@@ -1,14 +1,9 @@
 [gd_scene format=3 uid="uid://fkj5cerqpbce"]
 
 [ext_resource type="Script" uid="uid://cghwtalb80dud" path="res://src/systems/greenhouse/plant/plant.gd" id="1_bjxm2"]
-[ext_resource type="Texture2D" uid="uid://crs1lwofofjk7" path="res://assets/gfx/plants/pot.png" id="1_nc3ur"]
 [ext_resource type="Texture2D" uid="uid://cq0qib44jv30o" path="res://assets/gfx/plants/plant.png" id="2_7pfcx"]
-[ext_resource type="PackedScene" uid="uid://dkoie3iuvce86" path="res://src/systems/mouse_controller/pickable_area.tscn" id="4_bjxm2"]
 [ext_resource type="PackedScene" uid="uid://miodiicp4en1" path="res://src/systems/interaction_area/interaction_area.tscn" id="5_sul5p"]
 [ext_resource type="PackedScene" uid="uid://bbhtmhighmqjy" path="res://src/systems/greenhouse/plant/health_icon.tscn" id="6_ed5tb"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo5td"]
-size = Vector2(60, 66)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ice2y"]
 radius = 48.93
@@ -18,34 +13,16 @@ script = ExtResource("1_bjxm2")
 
 [node name="Plant" type="Sprite2D" parent="." unique_id=101030399]
 unique_name_in_owner = true
-position = Vector2(0, -128)
 texture = ExtResource("2_7pfcx")
 
-[node name="PickableArea" parent="Plant" unique_id=94634173 node_paths=PackedStringArray("target") instance=ExtResource("4_bjxm2")]
+[node name="InteractionArea" parent="Plant" unique_id=1503144043 node_paths=PackedStringArray("target") instance=ExtResource("5_sul5p")]
 unique_name_in_owner = true
 position = Vector2(0, 128)
-collision_layer = 2
-collision_mask = 32
-target = NodePath("../..")
-is_draggable = true
-snap_on_hover = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plant/PickableArea" unique_id=1568294976]
-position = Vector2(0, -33)
-shape = SubResource("RectangleShape2D_uo5td")
-
-[node name="Pot" type="Sprite2D" parent="." unique_id=2136583573]
-position = Vector2(0, -32)
-texture = ExtResource("1_nc3ur")
-
-[node name="InteractionArea" parent="Pot" unique_id=1503144043 node_paths=PackedStringArray("target") instance=ExtResource("5_sul5p")]
-unique_name_in_owner = true
-position = Vector2(0, 32)
 collision_layer = 64
 collision_mask = 0
 target = NodePath("../..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pot/InteractionArea" unique_id=1183029309]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plant/InteractionArea" unique_id=1183029309]
 position = Vector2(0, -157)
 shape = SubResource("CircleShape2D_ice2y")
 
