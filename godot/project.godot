@@ -42,6 +42,7 @@ folder_colors={
 "res://addons/": "red",
 "res://assets/": "blue",
 "res://src/common/": "yellow",
+"res://src/resources/": "green",
 "res://src/systems/": "purple"
 }
 

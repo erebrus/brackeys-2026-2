@@ -3,9 +3,13 @@ class_name Plant extends Node2D
 signal stat_changed(stat: Types.Stats, value: float)
 signal hp_changed(value: float)
 signal met_requirements_changed(met: int, unmet: int)
+signal died
 
 @export var hp_per_requirement_met: float = 10
 @export var hp_per_requirement_unmet: float = -10
+
+@export var wilt_threshold := 30.0
+@export var bloom_threshold := 95.0
 
 @export var type: PlantType
 
@@ -13,12 +17,15 @@ signal met_requirements_changed(met: int, unmet: int)
 var slot: PlantSlot
 
 var stats: Dictionary[Types.Stats, PlantStat]
+var alive: bool = true
 var hp: PlantStat
 var met_requirements: int
 var unmet_requirements: int
 
 @onready var pickable_area: PickableArea = %PickableArea
 @onready var debug_stat_container: Container = %DebugStatsContainer
+@onready var plant_sprite: Sprite2D = %Plant
+
 
 func _ready() -> void:
 	assert(type != null)
@@ -26,7 +33,8 @@ func _ready() -> void:
 	pickable_area.dropped.connect(_on_dropped)
 	
 	hp = PlantStat.create(Types.Stats.HP)
-	hp.changed.connect(func(_t, v): hp_changed.emit(v))
+	hp.changed.connect(_on_hp_changed)
+	hp.empty.connect(_on_hp_empty)
 	
 	var hp_progress = PlantStatDebugDisplay.create(hp)
 	debug_stat_container.add_child(hp_progress)
@@ -44,8 +52,13 @@ func _ready() -> void:
 	debug_stat_container.visible = Debug.show_stats
 	Debug.show_stats_changed.connect(func(x): debug_stat_container.visible = x)
 	
+	_update_plant_texture()
+	
 
 func _physics_process(delta: float) -> void:
+	if not alive:
+		return
+	
 	_update_requirements()
 	
 	hp.decay(delta)
@@ -95,10 +108,35 @@ func _meets_requirement(requirement: Requirement) -> bool:
 	return requirement.minimum <= stat.current and stat.current <= requirement.maximum
 	
 
+func _update_plant_texture() -> void:
+	var texture: Texture2D
+	if is_equal_approx(hp.current, 0.0): 
+		texture = type.dead_texture
+	elif hp.current < wilt_threshold:
+		texture = type.wilted_texture
+	elif hp.current < bloom_threshold:
+		texture = type.alive_texture
+	else:
+		texture = type.blooming_texture
+	
+	if texture != plant_sprite.texture:
+		plant_sprite.texture = texture
+	
+
 func _on_dropped(area: DropArea) -> void:
 	if area == null:
 		return
 		
 	assert(area.target is PlantSlot)
 	place(area.target)
+	
+
+func _on_hp_changed(_type: Types.Stats, current_hp: float) -> void:
+	hp_changed.emit(current_hp)
+	_update_plant_texture()
+	
+
+func _on_hp_empty(_type: Types.Stats) -> void:
+	alive = false
+	died.emit()
 	

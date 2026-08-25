@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://ccd4hke3vu0i7"]
+
+[ext_resource type="Texture2D" uid="uid://ya5mcy8xwl5c" path="res://assets/gfx/plants/thorny-alive.png" id="1_6al4e"]
+[ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="1_yh0bu"]
+[ext_resource type="Texture2D" uid="uid://d4nscy52tfgr0" path="res://assets/gfx/plants/thorny-dead.png" id="2_7l7br"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="2_582g6"]
+[ext_resource type="Texture2D" uid="uid://b1skx4forba71" path="res://assets/gfx/plants/thorny-wilted.png" id="5_rfv6f"]
+
+[sub_resource type="Resource" id="Resource_ed5tb"]
+script = ExtResource("1_yh0bu")
+stat_type = 3
+minimum = 50.0
+maximum = 100.0
+metadata/_custom_type_script = "uid://5k7g03v6u2su"
+
+[sub_resource type="Resource" id="Resource_ukk2q"]
+script = ExtResource("1_yh0bu")
+stat_type = 2
+minimum = 50.0
+maximum = 100.0
+metadata/_custom_type_script = "uid://5k7g03v6u2su"
+
+[resource]
+script = ExtResource("2_582g6")
+name = "Thorny"
+dead_texture = ExtResource("2_7l7br")
+wilted_texture = ExtResource("5_rfv6f")
+alive_texture = ExtResource("1_6al4e")
+blooming_texture = ExtResource("1_6al4e")
+requirements = Array[ExtResource("1_yh0bu")]([SubResource("Resource_ed5tb"), SubResource("Resource_ukk2q")])
+metadata/_custom_type_script = "uid://whs48undqype"
