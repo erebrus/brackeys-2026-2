@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://clcmxlwpfkqo0"]
+
+[ext_resource type="PackedScene" uid="uid://e83ma3nckg3" path="res://src/systems/catalog/catalog_plant.tscn" id="1_4wji7"]
+
+[node name="Catalog" type="PanelContainer" unique_id=1178810471]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CatalogPlant" parent="." unique_id=887097199 instance=ExtResource("1_4wji7")]
+layout_mode = 2

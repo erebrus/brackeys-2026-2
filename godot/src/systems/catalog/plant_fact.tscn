@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dmk74ill31lem"]
+
+[node name="PlantFact" type="PanelContainer" unique_id=1923659573]
+
+[node name="Label" type="Label" parent="." unique_id=50262524]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+vertical_alignment = 1
+autowrap_mode = 3

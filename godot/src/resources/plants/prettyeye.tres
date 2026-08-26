@@ -1,21 +1,34 @@
 [gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://dnht2rh0q5lmk"]
 
-[ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="1_cumyj"]
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_cumyj"]
+[ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="2_3y11r"]
 [ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="2_8ou2u"]
 [ext_resource type="Texture2D" uid="uid://bfw7gac0cg5cs" path="res://assets/gfx/plants/prettyeye-dead.png" id="3_3y11r"]
 [ext_resource type="Texture2D" uid="uid://bwfroqpq1mkvx" path="res://assets/gfx/plants/prettyeye-healthy.png" id="4_1lsf6"]
 [ext_resource type="Texture2D" uid="uid://bm0crbgftbyd6" path="res://assets/gfx/plants/prettyeye-normal.png" id="5_xi544"]
 [ext_resource type="Texture2D" uid="uid://outky0h63fc1" path="res://assets/gfx/plants/prettyeye-wilted.png" id="6_rvs3b"]
 
-[sub_resource type="Resource" id="Resource_cumyj"]
-script = ExtResource("1_cumyj")
-stat_type = 2
+[sub_resource type="Resource" id="Resource_8ou2u"]
+script = ExtResource("2_3y11r")
+stat_type = 1
 maximum = 50.0
 
-[sub_resource type="Resource" id="Resource_8ou2u"]
+[sub_resource type="Resource" id="Resource_3y11r"]
 script = ExtResource("1_cumyj")
+text = "Hates sunlight"
+requirement = SubResource("Resource_8ou2u")
+
+[sub_resource type="Resource" id="Resource_1lsf6"]
+script = ExtResource("2_3y11r")
 stat_type = 3
-maximum = 50.0
+decay_speed = -1.0
+minimum = 50.0
+maximum = 100.0
+
+[sub_resource type="Resource" id="Resource_xi544"]
+script = ExtResource("1_cumyj")
+text = "Loves water, and is not very thirsty"
+requirement = SubResource("Resource_1lsf6")
 
 [resource]
 script = ExtResource("2_8ou2u")
@@ -26,4 +39,4 @@ textures = Dictionary[int, Texture2D]({
 2: ExtResource("5_xi544"),
 3: ExtResource("4_1lsf6")
 })
-requirements = Array[ExtResource("1_cumyj")]([SubResource("Resource_cumyj"), SubResource("Resource_8ou2u")])
+facts = Array[ExtResource("1_cumyj")]([SubResource("Resource_3y11r"), SubResource("Resource_xi544")])

@@ -7,7 +7,7 @@ const IMAGE_PATH = "res://assets/gfx/plants"
 func _run() -> void:
 	var plants := load_previous_plants()
 	update_images(plants)
-	update_requirements(plants)
+	update_facts(plants)
 	
 	for plant_name in plants:
 		if is_valid(plants[plant_name]):
@@ -64,18 +64,30 @@ func update_images(plants: Dictionary[String, PlantType]) -> void:
 		print("An error occurred when trying to access the path.")
 	
 
-func update_requirements(plants: Dictionary[String, PlantType]) -> void:
-	# TODO: load requirements from csv
+func update_facts(plants: Dictionary[String, PlantType]) -> void:
+	# TODO: load facts from csv
 	for plant: PlantType in plants.values():
-		var reqs: Array[Requirement]
+		
+		var fact1 := Fact.new()
 		if randf() < 0.5:
-			reqs.append(create_requirement(Types.Stats.SUNLIGHT))
+			fact1.requirement = create_requirement(Types.Stats.SUNLIGHT)
 		else:
-			reqs.append(create_requirement(Types.Stats.TEMPERATURE))
+			fact1.requirement = create_requirement(Types.Stats.TEMPERATURE)
+		update_fact_name(fact1)
 		
-		reqs.append(create_requirement(Types.Stats.WATER))
+		var fact2 := Fact.new()
+		fact2.requirement = create_requirement(Types.Stats.WATER)
+		if randf() < 0.5:
+			fact2.requirement.decay_speed = -1.0
+		else:
+			fact2.requirement.decay_speed = -8.0
+		update_fact_name(fact2)
+		if fact2.requirement.decay_speed > -8.0:
+			fact2.text += ", and is not very thirsty"
+		else:
+			fact2.text += ", and is very thirsty"
 		
-		plant.requirements = reqs
+		plant.facts = [fact1, fact2]
 	
 
 func set_image(plant: PlantType, state_name: String, texture: Texture2D) -> void:
@@ -107,6 +119,18 @@ func create_requirement(stat: Types.Stats) -> Requirement:
 		requirement.maximum = 50.0
 		
 	return requirement
+	
+
+func update_fact_name(fact: Fact) -> void:
+	var name: String
+	if fact.requirement.minimum < 1.0:
+		name = "Hates "
+	else:
+		name = "Loves "
+	
+	name += Types.Stats.keys()[fact.requirement.stat_type].to_lower()
+	
+	fact.text = name
 	
 
 func load_resources(path: String) -> Array:
@@ -146,7 +170,7 @@ func is_valid(plant: PlantType) -> bool:
 		if not plant.textures.has(state):
 			return false
 	
-	if plant.requirements.size() < 1:
+	if plant.facts.size() < 1:
 		return false
 		
 	return true

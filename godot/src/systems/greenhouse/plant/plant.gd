@@ -74,8 +74,12 @@ func _setup_stats() -> void:
 	var hp_progress = PlantStatDebugDisplay.create(hp)
 	debug_stat_container.add_child(hp_progress)
 	
-	for requirement in type.requirements:
-		var stat = PlantStat.create(requirement.stat_type) 
+	for fact in type.facts:
+		if fact.requirement == null:
+			continue
+		
+		var stat = PlantStat.create(fact.requirement.stat_type) 
+		stat.decay_speed = fact.requirement.decay_speed
 		
 		stats[stat.type] = stat
 		stat.changed.connect(stat_changed.emit)
@@ -101,8 +105,11 @@ func _update_requirements() -> void:
 	var met := 0
 	var unmet := 0
 		
-	for requirement in type.requirements:
-		if _meets_requirement(requirement):
+	for fact in type.facts:
+		if fact.requirement == null:
+			continue
+		
+		if _meets_requirement(fact.requirement):
 			met += 1
 		else:
 			unmet += 1
