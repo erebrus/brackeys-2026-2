@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://ccd4hke3vu0i7"]
 
-[ext_resource type="Texture2D" uid="uid://ya5mcy8xwl5c" path="res://assets/gfx/plants/thorny-alive.png" id="1_6al4e"]
+[ext_resource type="Texture2D" uid="uid://dx0t0hacu0gs6" path="res://assets/gfx/plants/thorny-normal.png" id="1_6al4e"]
 [ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="1_yh0bu"]
 [ext_resource type="Texture2D" uid="uid://d4nscy52tfgr0" path="res://assets/gfx/plants/thorny-dead.png" id="2_7l7br"]
 [ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="2_582g6"]
