@@ -4,28 +4,27 @@
 [ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="1_yh0bu"]
 [ext_resource type="Texture2D" uid="uid://d4nscy52tfgr0" path="res://assets/gfx/plants/thorny-dead.png" id="2_7l7br"]
 [ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="2_582g6"]
+[ext_resource type="Texture2D" uid="uid://c7bym6o5f3nlt" path="res://assets/gfx/plants/thorny-healthy.png" id="4_7l7br"]
 [ext_resource type="Texture2D" uid="uid://b1skx4forba71" path="res://assets/gfx/plants/thorny-wilted.png" id="5_rfv6f"]
 
-[sub_resource type="Resource" id="Resource_ed5tb"]
+[sub_resource type="Resource" id="Resource_7l7br"]
+script = ExtResource("1_yh0bu")
+stat_type = 2
+maximum = 50.0
+
+[sub_resource type="Resource" id="Resource_rfv6f"]
 script = ExtResource("1_yh0bu")
 stat_type = 3
 minimum = 50.0
 maximum = 100.0
-metadata/_custom_type_script = "uid://5k7g03v6u2su"
-
-[sub_resource type="Resource" id="Resource_ukk2q"]
-script = ExtResource("1_yh0bu")
-stat_type = 2
-minimum = 50.0
-maximum = 100.0
-metadata/_custom_type_script = "uid://5k7g03v6u2su"
 
 [resource]
 script = ExtResource("2_582g6")
-name = "Thorny"
-dead_texture = ExtResource("2_7l7br")
-wilting_texture = ExtResource("5_rfv6f")
-normal_texture = ExtResource("1_6al4e")
-thriving_texture = ExtResource("1_6al4e")
-requirements = Array[ExtResource("1_yh0bu")]([SubResource("Resource_ed5tb"), SubResource("Resource_ukk2q")])
-metadata/_custom_type_script = "uid://whs48undqype"
+name = "thorny"
+textures = Dictionary[int, Texture2D]({
+0: ExtResource("2_7l7br"),
+1: ExtResource("5_rfv6f"),
+2: ExtResource("1_6al4e"),
+3: ExtResource("4_7l7br")
+})
+requirements = Array[ExtResource("1_yh0bu")]([SubResource("Resource_7l7br"), SubResource("Resource_rfv6f")])

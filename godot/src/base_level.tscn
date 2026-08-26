@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4ytavk038x8p" path="res://src/base_level.gd" id="1_mnxva"]
 [ext_resource type="PackedScene" uid="uid://fkj5cerqpbce" path="res://src/systems/greenhouse/plant/plant.tscn" id="3_orbt0"]
-[ext_resource type="Resource" uid="uid://ccd4hke3vu0i7" path="res://src/resources/plants/thorny.tres" id="4_0xb2g"]
+[ext_resource type="Resource" uid="uid://dbppy8gnwdqfj" path="res://src/resources/plants/slime.tres" id="4_0xb2g"]
 [ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tool/tool.tscn" id="4_82ww6"]
 [ext_resource type="PackedScene" uid="uid://bfuiqklb1hxev" path="res://src/systems/greenhouse/plant_slot/plant_slot.tscn" id="4_mo2dc"]
 

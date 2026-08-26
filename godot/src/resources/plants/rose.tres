@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://v3qitqfg15id"]
+
+[ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="1_ud8nx"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="2_sjusn"]
+[ext_resource type="Texture2D" uid="uid://gug2jim20k3v" path="res://assets/gfx/plants/rose-dead.png" id="3_hvlws"]
+[ext_resource type="Texture2D" uid="uid://qvu4l5jywe46" path="res://assets/gfx/plants/rose-healthy.png" id="4_2nfni"]
+[ext_resource type="Texture2D" uid="uid://dgrw0su65ec3f" path="res://assets/gfx/plants/rose-normal.png" id="5_ia44s"]
+[ext_resource type="Texture2D" uid="uid://bc3ol4pbu0qex" path="res://assets/gfx/plants/rose-wilted.png" id="6_1cp85"]
+
+[sub_resource type="Resource" id="Resource_ud8nx"]
+script = ExtResource("1_ud8nx")
+stat_type = 1
+minimum = 50.0
+maximum = 100.0
+
+[sub_resource type="Resource" id="Resource_sjusn"]
+script = ExtResource("1_ud8nx")
+stat_type = 3
+maximum = 50.0
+
+[resource]
+script = ExtResource("2_sjusn")
+name = "rose"
+textures = Dictionary[int, Texture2D]({
+0: ExtResource("3_hvlws"),
+1: ExtResource("6_1cp85"),
+2: ExtResource("5_ia44s"),
+3: ExtResource("4_2nfni")
+})
+requirements = Array[ExtResource("1_ud8nx")]([SubResource("Resource_ud8nx"), SubResource("Resource_sjusn")])

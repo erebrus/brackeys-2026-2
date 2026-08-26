@@ -140,15 +140,7 @@ func _update_plant_state() -> void:
 	
 
 func _update_plant_sprite() -> void:
-	match state:
-		PlantState.DEAD:
-			plant_sprite.texture = type.dead_texture
-		PlantState.WILTING:
-			plant_sprite.texture = type.wilting_texture
-		PlantState.NORMAL:
-			plant_sprite.texture = type.normal_texture
-		PlantState.THRIVING:
-			plant_sprite.texture = type.thriving_texture
+	plant_sprite.texture = type.textures[state]
 	
 
 func _on_dropped(new_slot: PlantSlot) -> void:

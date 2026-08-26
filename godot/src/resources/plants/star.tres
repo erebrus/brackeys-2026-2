@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://dj6oiwjbxcir"]
+
+[ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="1_ooa6i"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="2_xgfq0"]
+[ext_resource type="Texture2D" uid="uid://d311drdv3k6x4" path="res://assets/gfx/plants/star-dead.png" id="3_h0sr5"]
+[ext_resource type="Texture2D" uid="uid://df6y6j2ur7urp" path="res://assets/gfx/plants/star-healthy.png" id="4_jx5yv"]
+[ext_resource type="Texture2D" uid="uid://oqksitm2rkg6" path="res://assets/gfx/plants/star-normal.png" id="5_kb8fx"]
+[ext_resource type="Texture2D" uid="uid://drnqdd4vq58k4" path="res://assets/gfx/plants/star-wilted.png" id="6_1oelh"]
+
+[sub_resource type="Resource" id="Resource_ooa6i"]
+script = ExtResource("1_ooa6i")
+stat_type = 2
+maximum = 50.0
+
+[sub_resource type="Resource" id="Resource_xgfq0"]
+script = ExtResource("1_ooa6i")
+stat_type = 3
+maximum = 50.0
+
+[resource]
+script = ExtResource("2_xgfq0")
+name = "star"
+textures = Dictionary[int, Texture2D]({
+0: ExtResource("3_h0sr5"),
+1: ExtResource("6_1oelh"),
+2: ExtResource("5_kb8fx"),
+3: ExtResource("4_jx5yv")
+})
+requirements = Array[ExtResource("1_ooa6i")]([SubResource("Resource_ooa6i"), SubResource("Resource_xgfq0")])

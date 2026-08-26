@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://dbppy8gnwdqfj"]
+
+[ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="1_ipc13"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="2_70qse"]
+[ext_resource type="Texture2D" uid="uid://buakk1tov4swv" path="res://assets/gfx/plants/slime-dead.png" id="3_qncta"]
+[ext_resource type="Texture2D" uid="uid://cx0q3e5tvycor" path="res://assets/gfx/plants/slime-healthy.png" id="4_awu35"]
+[ext_resource type="Texture2D" uid="uid://gmqmcxu27x8v" path="res://assets/gfx/plants/slime-normal.png" id="5_rmgl0"]
+[ext_resource type="Texture2D" uid="uid://dfrho7qdjpm78" path="res://assets/gfx/plants/slime-wilted.png" id="6_rn61f"]
+
+[sub_resource type="Resource" id="Resource_ipc13"]
+script = ExtResource("1_ipc13")
+stat_type = 2
+maximum = 50.0
+
+[sub_resource type="Resource" id="Resource_70qse"]
+script = ExtResource("1_ipc13")
+stat_type = 3
+minimum = 50.0
+maximum = 100.0
+
+[resource]
+script = ExtResource("2_70qse")
+name = "slime"
+textures = Dictionary[int, Texture2D]({
+0: ExtResource("3_qncta"),
+1: ExtResource("6_rn61f"),
+2: ExtResource("5_rmgl0"),
+3: ExtResource("4_awu35")
+})
+requirements = Array[ExtResource("1_ipc13")]([SubResource("Resource_ipc13"), SubResource("Resource_70qse")])
