@@ -32,6 +32,11 @@ LayerNames="*uid://bn54jbvg6ffka"
 MetricsEvents="*res://src/common/metric_manager/metrics_events.gd"
 MouseController="*uid://badkhacg8cu5j"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/gs_logger/plugin.cfg", "res://addons/layerNames/plugin.cfg")

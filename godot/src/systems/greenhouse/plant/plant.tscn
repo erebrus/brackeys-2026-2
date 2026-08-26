@@ -28,15 +28,17 @@ shape = SubResource("CircleShape2D_ice2y")
 
 [node name="DebugStatsContainer" type="VBoxContainer" parent="." unique_id=1849534237]
 unique_name_in_owner = true
-offset_left = 38.0
-offset_top = -39.0
-offset_right = 65.0
-offset_bottom = -16.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -13.5
+offset_right = 13.5
+offset_bottom = 23.0
 grow_horizontal = 2
 
 [node name="HealthIcon" parent="." unique_id=798022080 node_paths=PackedStringArray("plant") instance=ExtResource("6_ed5tb")]
-offset_left = 38.0
-offset_top = -39.0
-offset_right = 65.0
-offset_bottom = -16.0
+offset_left = 119.0
+offset_top = -51.0
+offset_right = 146.0
+offset_bottom = -28.0
 plant = NodePath("..")

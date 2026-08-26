@@ -3,13 +3,15 @@ class_name Plant extends Node2D
 signal stat_changed(stat: Types.Stats, value: float)
 signal hp_changed(value: float)
 signal met_requirements_changed(met: int, unmet: int)
-signal died
+signal state_changed(state: PlantState)
+
+enum PlantState { DEAD, WILTING, NORMAL, THRIVING}
 
 @export var hp_per_requirement_met: float = 10
 @export var hp_per_requirement_unmet: float = -10
 
-@export var wilt_threshold := 30.0
-@export var bloom_threshold := 95.0
+@export var wilt_threshold := 35.0
+@export var bloom_threshold := 99.0
 
 @export var type: PlantType
 
@@ -17,7 +19,7 @@ signal died
 var slot: PlantSlot
 
 var stats: Dictionary[Types.Stats, PlantStat]
-var alive: bool = true
+var state: PlantState = PlantState.NORMAL
 var hp: PlantStat
 var met_requirements: int
 var unmet_requirements: int
@@ -29,38 +31,16 @@ var unmet_requirements: int
 func _ready() -> void:
 	assert(type != null)
 	
-	hp = PlantStat.create(Types.Stats.HP)
-	hp.changed.connect(_on_hp_changed)
-	hp.empty.connect(_on_hp_empty)
+	_setup_stats()
 	
-	var hp_progress = PlantStatDebugDisplay.create(hp)
-	debug_stat_container.add_child(hp_progress)
+	state_changed.connect(_on_state_changed)
+	_update_plant_sprite()
 	
-	for requirement in type.requirements:
-		var stat = PlantStat.create(requirement.stat_type) 
-		
-		stats[stat.type] = stat
-		stat.changed.connect(stat_changed.emit)
-		
-		var progress = PlantStatDebugDisplay.create(stat)
-		debug_stat_container.add_child(progress)
-	
-	debug_stat_container.visible = Debug.show_stats
-	Debug.show_stats_changed.connect(func(x): debug_stat_container.visible = x)
-	
-	_update_plant_texture()
-	
-	var pot = Pot.create(self)
-	pot.dropped.connect(_on_dropped)
-	add_child(pot)
-	
-	var pot_base = pot.get_plant_base()
-	plant_sprite.position.y = pot_base.y - plant_sprite.texture.get_height() / 2
-	plant_sprite.position.x = pot_base.x
+	_setup_pot()
 	
 
 func _physics_process(delta: float) -> void:
-	if not alive:
+	if state == PlantState.DEAD:
 		return
 	
 	_update_requirements()
@@ -85,6 +65,36 @@ func increase_stat(stat: Types.Stats, delta: float) -> void:
 func update_stat(stat: Types.Stats, value: float) -> void:
 	if stat in stats:
 		stats[stat].update(value)
+	
+
+func _setup_stats() -> void:
+	hp = PlantStat.create(Types.Stats.HP)
+	hp.changed.connect(_on_hp_changed)
+	
+	var hp_progress = PlantStatDebugDisplay.create(hp)
+	debug_stat_container.add_child(hp_progress)
+	
+	for requirement in type.requirements:
+		var stat = PlantStat.create(requirement.stat_type) 
+		
+		stats[stat.type] = stat
+		stat.changed.connect(stat_changed.emit)
+		
+		var progress = PlantStatDebugDisplay.create(stat)
+		debug_stat_container.add_child(progress)
+	
+	debug_stat_container.visible = Debug.show_stats
+	Debug.show_stats_changed.connect(func(x): debug_stat_container.visible = x)
+	
+
+func _setup_pot() -> void:
+	var pot = Pot.create(self)
+	pot.dropped.connect(_on_dropped)
+	add_child(pot)
+	
+	var pot_base = pot.get_plant_base()
+	plant_sprite.position.y = pot_base.y - plant_sprite.texture.get_height() / 2.0
+	plant_sprite.position.x = pot_base.x
 	
 
 func _update_requirements() -> void:
@@ -112,19 +122,33 @@ func _meets_requirement(requirement: Requirement) -> bool:
 	return requirement.minimum <= stat.current and stat.current <= requirement.maximum
 	
 
-func _update_plant_texture() -> void:
-	var texture: Texture2D
-	if is_equal_approx(hp.current, 0.0): 
-		texture = type.dead_texture
-	elif hp.current < wilt_threshold:
-		texture = type.wilted_texture
-	elif hp.current < bloom_threshold:
-		texture = type.alive_texture
-	else:
-		texture = type.blooming_texture
+func _update_plant_state() -> void:
+	var new_state: PlantState 
 	
-	if texture != plant_sprite.texture:
-		plant_sprite.texture = texture
+	if is_equal_approx(hp.current, 0.0): 
+		new_state = PlantState.DEAD
+	elif hp.current < wilt_threshold:
+		new_state = PlantState.WILTING
+	elif hp.current < bloom_threshold:
+		new_state = PlantState.NORMAL
+	else:
+		new_state = PlantState.THRIVING
+	
+	if new_state != state:
+		state = new_state
+		state_changed.emit(state)
+	
+
+func _update_plant_sprite() -> void:
+	match state:
+		PlantState.DEAD:
+			plant_sprite.texture = type.dead_texture
+		PlantState.WILTING:
+			plant_sprite.texture = type.wilting_texture
+		PlantState.NORMAL:
+			plant_sprite.texture = type.normal_texture
+		PlantState.THRIVING:
+			plant_sprite.texture = type.thriving_texture
 	
 
 func _on_dropped(new_slot: PlantSlot) -> void:
@@ -133,10 +157,9 @@ func _on_dropped(new_slot: PlantSlot) -> void:
 
 func _on_hp_changed(_type: Types.Stats, current_hp: float) -> void:
 	hp_changed.emit(current_hp)
-	_update_plant_texture()
+	_update_plant_state()
 	
 
-func _on_hp_empty(_type: Types.Stats) -> void:
-	alive = false
-	died.emit()
+func _on_state_changed(_state: PlantState) -> void:
+	_update_plant_sprite()
 	

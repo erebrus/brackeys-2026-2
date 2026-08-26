@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cdc2xp21q8nvu" path="res://src/systems/mouse_controller/drop_area.tscn" id="1_03k6a"]
 [ext_resource type="Script" uid="uid://c83iit4gsumo5" path="res://src/systems/greenhouse/plant_slot/plant_slot.gd" id="1_y1u3t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo5td"]
-size = Vector2(42, 46)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82ww6"]
+radius = 21.0
+height = 100.0
 
 [node name="PlantSlot" type="Node2D" unique_id=1520109860]
 script = ExtResource("1_y1u3t")
@@ -14,9 +15,9 @@ stats = Dictionary[int, float]({
 })
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1614614779]
-offset_left = -21.0
+offset_left = -50.0
 offset_top = -10.0
-offset_right = 21.0
+offset_right = 50.0
 offset_bottom = 10.0
 mouse_filter = 2
 
@@ -27,5 +28,6 @@ collision_mask = 0
 target = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea" unique_id=999002130]
-position = Vector2(0, -21)
-shape = SubResource("RectangleShape2D_uo5td")
+position = Vector2(0, -11)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_82ww6")
