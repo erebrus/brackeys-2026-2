@@ -1,44 +1,23 @@
 [gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://eruwinrv3e11"]
 
-[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_q1fae"]
-[ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="2_jdh1u"]
-[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="3_6voks"]
-[ext_resource type="Texture2D" uid="uid://tlkgkbjmdrsp" path="res://assets/gfx/plants/happysad-dead.png" id="4_dyllo"]
-[ext_resource type="Texture2D" uid="uid://bs0oknylmdvxt" path="res://assets/gfx/plants/happysad-healthy.png" id="5_3nogy"]
-[ext_resource type="Texture2D" uid="uid://l5yrek3vlhkb" path="res://assets/gfx/plants/happysad-normal.png" id="6_30iat"]
-[ext_resource type="Texture2D" uid="uid://dee046pxmuvdq" path="res://assets/gfx/plants/happysad-wilted.png" id="7_vta4b"]
-
-[sub_resource type="Resource" id="Resource_j41je"]
-script = ExtResource("2_jdh1u")
-stat_type = 1
-maximum = 50.0
-
-[sub_resource type="Resource" id="Resource_xw37r"]
-script = ExtResource("1_q1fae")
-id = "happysad_1"
-text = "Hates sunlight"
-requirement = SubResource("Resource_j41je")
-
-[sub_resource type="Resource" id="Resource_qvynj"]
-script = ExtResource("2_jdh1u")
-stat_type = 3
-decay_speed = -8.0
-minimum = 50.0
-maximum = 100.0
-
-[sub_resource type="Resource" id="Resource_0pt2l"]
-script = ExtResource("1_q1fae")
-id = "happysad_2"
-text = "Loves water, and is very thirsty"
-requirement = SubResource("Resource_qvynj")
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_gsc5w"]
+[ext_resource type="Resource" uid="uid://crqwcok8jm2cp" path="res://src/resources/facts/light.tres" id="2_6voks"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="2_q1fae"]
+[ext_resource type="Resource" uid="uid://cq501l8la6ie3" path="res://src/resources/facts/water.tres" id="3_dyllo"]
+[ext_resource type="Texture2D" uid="uid://tlkgkbjmdrsp" path="res://assets/gfx/plants/happysad-dead.png" id="3_jdh1u"]
+[ext_resource type="Resource" uid="uid://cj2lr8i1idgxq" path="res://src/resources/facts/bugs.tres" id="4_3nogy"]
+[ext_resource type="Texture2D" uid="uid://dee046pxmuvdq" path="res://assets/gfx/plants/happysad-wilted.png" id="4_6voks"]
+[ext_resource type="Texture2D" uid="uid://l5yrek3vlhkb" path="res://assets/gfx/plants/happysad-normal.png" id="5_dyllo"]
+[ext_resource type="Texture2D" uid="uid://bs0oknylmdvxt" path="res://assets/gfx/plants/happysad-healthy.png" id="6_3nogy"]
 
 [resource]
-script = ExtResource("3_6voks")
-name = "happysad"
+script = ExtResource("2_q1fae")
+nice_name = "happysad"
+name = "Happy/Sad"
 textures = Dictionary[int, Texture2D]({
-0: ExtResource("4_dyllo"),
-1: ExtResource("7_vta4b"),
-2: ExtResource("6_30iat"),
-3: ExtResource("5_3nogy")
+0: ExtResource("3_jdh1u"),
+1: ExtResource("4_6voks"),
+2: ExtResource("5_dyllo"),
+3: ExtResource("6_3nogy")
 })
-facts = Array[ExtResource("1_q1fae")]([SubResource("Resource_xw37r"), SubResource("Resource_0pt2l")])
+facts = Array[ExtResource("1_gsc5w")]([ExtResource("2_6voks"), ExtResource("3_dyllo"), ExtResource("4_3nogy")])

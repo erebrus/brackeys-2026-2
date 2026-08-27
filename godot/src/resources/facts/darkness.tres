@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="1_3y158"]
 [ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="2_fmt3s"]
 
-[sub_resource type="Resource" id="Resource_tn2sb"]
+[sub_resource type="Resource" id="Resource_3y158"]
 script = ExtResource("1_3y158")
 stat_type = 1
 maximum = 20.0
@@ -12,4 +12,4 @@ maximum = 20.0
 script = ExtResource("2_fmt3s")
 id = "darkness"
 text = "Thrives in low light conditions."
-requirement = SubResource("Resource_tn2sb")
+requirement = SubResource("Resource_3y158")
