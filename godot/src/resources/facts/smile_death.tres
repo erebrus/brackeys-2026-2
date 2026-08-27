@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Fact" format=3 uid="uid://du3d3husay4s6"]
+
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_2hlli"]
+
+[resource]
+script = ExtResource("1_2hlli")
+id = "smile_death"
+text = "When happy, it has a smile to die for."

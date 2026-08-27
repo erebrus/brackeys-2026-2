@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Fact" format=3 uid="uid://m6ddmqw5bycy"]
+
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_pshd3"]
+
+[resource]
+script = ExtResource("1_pshd3")
+id = "yellow_bulbs"
+text = "Its stem produces yellow bulbs."

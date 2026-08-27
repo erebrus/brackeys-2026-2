@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Fact" format=3 uid="uid://crqwcok8jm2cp"]
+
+[ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="1_ffj17"]
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="2_nn4do"]
+
+[sub_resource type="Resource" id="Resource_1yob8"]
+script = ExtResource("1_ffj17")
+stat_type = 1
+minimum = 80.0
+maximum = 100.0
+
+[resource]
+script = ExtResource("2_nn4do")
+id = "light"
+text = "Requires a lot of sunlight to grow."
+requirement = SubResource("Resource_1yob8")

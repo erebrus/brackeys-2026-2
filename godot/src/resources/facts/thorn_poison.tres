@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Fact" format=3 uid="uid://cf140mhp7ckcd"]
+
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_rd0jj"]
+
+[resource]
+script = ExtResource("1_rd0jj")
+id = "thorn_poison"
+text = "Its thorns produce poison."
