@@ -28,6 +28,14 @@ var unmet_requirements: int
 @onready var plant_sprite: Sprite2D = %Plant
 
 
+@warning_ignore("shadowed_variable")
+static func create(type: PlantType) -> Plant:
+	var scene: Plant = load("uid://fkj5cerqpbce").instantiate()
+	scene.type = type
+	
+	return scene
+	
+
 func _ready() -> void:
 	assert(type != null)
 	
@@ -49,12 +57,6 @@ func _physics_process(delta: float) -> void:
 	
 	for stat: PlantStat in stats.values():
 		stat.decay(delta)
-	
-
-func place(at: PlantSlot) -> void:
-	slot = at
-	at.plant = self
-	global_position = at.drop_area.global_position
 	
 
 func increase_stat(stat: Types.Stats, delta: float) -> void:
@@ -93,6 +95,7 @@ func _setup_stats() -> void:
 
 func _setup_pot() -> void:
 	var pot = Pot.create(self)
+	pot.picked.connect(_on_picked)
 	pot.dropped.connect(_on_dropped)
 	add_child(pot)
 	
@@ -150,8 +153,13 @@ func _update_plant_sprite() -> void:
 	plant_sprite.texture = type.textures[state]
 	
 
+func _on_picked() -> void:
+	z_index = 10
+	
+
 func _on_dropped(new_slot: PlantSlot) -> void:
-	place(new_slot)
+	z_index = 0
+	new_slot.set_plant(self)
 	
 
 func _on_hp_changed(_type: Types.Stats, current_hp: float) -> void:

@@ -1,5 +1,6 @@
 class_name Pot extends Node2D
 
+signal picked()
 signal dropped(slot: PlantSlot)
 
 @export var plant: Plant
@@ -27,6 +28,7 @@ func _ready() -> void:
 	assert(plant != null)
 	
 	pickable_area.target = plant
+	pickable_area.picked.connect(picked.emit)
 	pickable_area.dropped.connect(_on_dropped)
 	
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dei07vw678a71"]
 
-[ext_resource type="Script" uid="uid://ckx2s452aghcv" path="res://src/systems/greenhouse/tool/tool.gd" id="1_ice2y"]
+[ext_resource type="Script" uid="uid://ckx2s452aghcv" path="res://src/systems/greenhouse/tools/tool.gd" id="1_ice2y"]
 [ext_resource type="PackedScene" uid="uid://dkoie3iuvce86" path="res://src/systems/mouse_controller/pickable_area.tscn" id="1_t8p1y"]
 [ext_resource type="Texture2D" uid="uid://cbfsi8nhbaem7" path="res://assets/gfx/watering_can.png" id="2_34vid"]
 [ext_resource type="PackedScene" uid="uid://miodiicp4en1" path="res://src/systems/interaction_area/interaction_area.tscn" id="4_yrgom"]

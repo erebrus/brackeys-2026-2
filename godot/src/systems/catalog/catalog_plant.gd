@@ -5,6 +5,7 @@ var plant: PlantType
 
 
 @onready var facts_container: Container = %FactsContainer
+@onready var buy_button: BaseButton = %BuyButton
 
 @warning_ignore("shadowed_variable")
 static func create(plant: PlantType) -> CatalogPlant:
@@ -18,6 +19,9 @@ func _ready() -> void:
 		return
 	
 	%PlantPortrait.texture = plant.textures[Plant.PlantState.NORMAL]
+	%BuyButton.pressed.connect(Events.plant_bought.emit.bind(plant))
+	
+	Events.free_tray_slots_changed.connect(func(x): buy_button.disabled = x == 0)
 	
 	GameUtils.clear_node(facts_container)
 	
