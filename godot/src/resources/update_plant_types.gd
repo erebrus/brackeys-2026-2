@@ -69,7 +69,6 @@ func update_facts(plants: Dictionary[String, PlantType]) -> void:
 	for plant: PlantType in plants.values():
 		
 		var fact1 := Fact.new()
-		fact1.id = "%s_1" % plant.name
 		
 		if randf() < 0.5:
 			fact1.requirement = create_requirement(Types.Stats.SUNLIGHT)
@@ -78,7 +77,6 @@ func update_facts(plants: Dictionary[String, PlantType]) -> void:
 		update_fact_name(fact1)
 		
 		var fact2 := Fact.new()
-		fact2.id = "%s_2" % plant.name
 		
 		fact2.requirement = create_requirement(Types.Stats.WATER)
 		if randf() < 0.5:
@@ -91,6 +89,8 @@ func update_facts(plants: Dictionary[String, PlantType]) -> void:
 		else:
 			fact2.text += ", and is very thirsty"
 		
+		fact1.id = fact1.text
+		fact2.id = fact2.text
 		plant.facts = [fact1, fact2]
 	
 

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://lqtollaovard" path="res://src/base_level.tscn" id="3_pk08u"]
 [ext_resource type="PackedScene" uid="uid://cdm2fhla0kigd" path="res://src/common/fade_panel.tscn" id="4_wqvko"]
 [ext_resource type="PackedScene" uid="uid://clcmxlwpfkqo0" path="res://src/systems/catalog/catalog.tscn" id="5_pk08u"]
+[ext_resource type="PackedScene" uid="uid://bjmvg3njhibl2" path="res://src/systems/greenhouse/tools/tool_tray.tscn" id="6_wqvko"]
 
 [sub_resource type="Resource" id="Resource_5q4o7"]
 metadata/__load_path__ = "res://src/tutorial_state.tres"
@@ -20,6 +21,9 @@ levels = Array[PackedScene]([ExtResource("3_pk08u")])
 level_container = NodePath("../Level")
 
 [node name="Level" type="Node2D" parent="." unique_id=1708604477]
+
+[node name="ToolTray" parent="." unique_id=73056497 instance=ExtResource("6_wqvko")]
+position = Vector2(1272, 884)
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=10557319]
 process_mode = 3

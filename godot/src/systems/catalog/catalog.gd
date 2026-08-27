@@ -5,10 +5,9 @@ class_name Catalog extends MarginContainer
 
 
 func _ready() -> void:
-	if not %Button.button_pressed:
-		%PanelContainer.hide()
+	%PanelContainer.visible = %Button.button_pressed
 	
-	create_page(Globals.plant_types.values())
+	create_page(Globals.plant_types.values().slice(0, 8))
 	
 
 func create_page(plants: Array[PlantType]) -> void:

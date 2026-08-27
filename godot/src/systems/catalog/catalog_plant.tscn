@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cksaoe31w0bdv" path="res://src/systems/catalog/catalog_plant.gd" id="1_20yqq"]
 [ext_resource type="Texture2D" uid="uid://c7bym6o5f3nlt" path="res://assets/gfx/plants/thorny-healthy.png" id="1_gsltv"]
 [ext_resource type="PackedScene" uid="uid://dmk74ill31lem" path="res://src/systems/catalog/plant_fact.tscn" id="2_haasm"]
+[ext_resource type="Script" uid="uid://bdvjssr5p54df" path="res://src/systems/catalog/facts_container.gd" id="3_1imef"]
 
 [node name="CatalogPlant" type="MarginContainer" unique_id=887097199]
 size_flags_horizontal = 3
@@ -12,19 +13,28 @@ script = ExtResource("1_20yqq")
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2062023342]
 layout_mode = 2
 
-[node name="PlantContainer" type="MarginContainer" parent="HBoxContainer" unique_id=64270015]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1257351598]
 layout_mode = 2
 
-[node name="PlantPortrait" type="TextureRect" parent="HBoxContainer/PlantContainer" unique_id=1252696958]
+[node name="PlantContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer" unique_id=64270015]
+layout_mode = 2
+
+[node name="PlantPortrait" type="TextureRect" parent="HBoxContainer/VBoxContainer/PlantContainer" unique_id=1252696958]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("1_gsltv")
+
+[node name="BuyButton" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=604977271]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Buy"
 
 [node name="FactsContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1516549167]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+alignment = 1
+script = ExtResource("3_1imef")
 
 [node name="PlantFact" parent="HBoxContainer/FactsContainer" unique_id=1923659573 instance=ExtResource("2_haasm")]
 layout_mode = 2
