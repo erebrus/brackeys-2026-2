@@ -2,7 +2,7 @@
 extends EditorScript
 
 const CSV_PATH = "res://src/resources/plants/plants.csv"
-const RESOURCE_PATH = "res://src/resources"
+const RESOURCE_PATH = "res://src/resources/plants"
 const IMAGE_PATH = "res://assets/gfx/plants"
 
 func _run() -> void:
