@@ -69,6 +69,8 @@ func update_facts(plants: Dictionary[String, PlantType]) -> void:
 	for plant: PlantType in plants.values():
 		
 		var fact1 := Fact.new()
+		fact1.id = "%s_1" % plant.name
+		
 		if randf() < 0.5:
 			fact1.requirement = create_requirement(Types.Stats.SUNLIGHT)
 		else:
@@ -76,6 +78,8 @@ func update_facts(plants: Dictionary[String, PlantType]) -> void:
 		update_fact_name(fact1)
 		
 		var fact2 := Fact.new()
+		fact2.id = "%s_2" % plant.name
+		
 		fact2.requirement = create_requirement(Types.Stats.WATER)
 		if randf() < 0.5:
 			fact2.requirement.decay_speed = -1.0

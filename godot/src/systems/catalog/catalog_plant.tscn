@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://e83ma3nckg3"]
 
+[ext_resource type="Script" uid="uid://cksaoe31w0bdv" path="res://src/systems/catalog/catalog_plant.gd" id="1_20yqq"]
 [ext_resource type="Texture2D" uid="uid://c7bym6o5f3nlt" path="res://assets/gfx/plants/thorny-healthy.png" id="1_gsltv"]
 [ext_resource type="PackedScene" uid="uid://dmk74ill31lem" path="res://src/systems/catalog/plant_fact.tscn" id="2_haasm"]
 
 [node name="CatalogPlant" type="MarginContainer" unique_id=887097199]
+size_flags_horizontal = 3
 size_flags_vertical = 0
+script = ExtResource("1_20yqq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2062023342]
 layout_mode = 2
@@ -12,11 +15,13 @@ layout_mode = 2
 [node name="PlantContainer" type="MarginContainer" parent="HBoxContainer" unique_id=64270015]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PlantContainer" unique_id=1252696958]
+[node name="PlantPortrait" type="TextureRect" parent="HBoxContainer/PlantContainer" unique_id=1252696958]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("1_gsltv")
 
 [node name="FactsContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1516549167]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
