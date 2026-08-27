@@ -7,3 +7,5 @@ class_name PlantType extends Resource
 @export var textures: Dictionary[Plant.PlantState, Texture2D]
 
 @export var facts: Array[Fact]
+
+var current_facts: Array[String]

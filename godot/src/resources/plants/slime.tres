@@ -10,24 +10,25 @@
 
 [sub_resource type="Resource" id="Resource_70qse"]
 script = ExtResource("1_ipc13")
-stat_type = 2
-minimum = 50.0
-maximum = 100.0
+stat_type = 1
+maximum = 50.0
 
 [sub_resource type="Resource" id="Resource_qncta"]
 script = ExtResource("1_70qse")
-text = "Loves temperature"
+id = "slime_1"
+text = "Hates sunlight"
 requirement = SubResource("Resource_70qse")
 
 [sub_resource type="Resource" id="Resource_awu35"]
 script = ExtResource("1_ipc13")
 stat_type = 3
-decay_speed = -1.0
+decay_speed = -8.0
 maximum = 50.0
 
 [sub_resource type="Resource" id="Resource_rmgl0"]
 script = ExtResource("1_70qse")
-text = "Hates water, and is not very thirsty"
+id = "slime_2"
+text = "Hates water, and is very thirsty"
 requirement = SubResource("Resource_awu35")
 
 [resource]

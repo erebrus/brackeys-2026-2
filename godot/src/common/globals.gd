@@ -18,6 +18,10 @@ var game_version: String:
 	get():
 		return ProjectSettings.get_setting("application/config/version")
 	
+	
+var plant_types: Dictionary[String, PlantType]
+var facts: Dictionary[String, Fact]
+
 
 @onready var music_manager: MusicManager = $MusicManager
 @onready var ui_sfx: UiSfx = $UiSfx
@@ -27,6 +31,8 @@ func _ready():
 	_init_logger()
 	
 	GSLogger.info("Game version: %s" % game_version)
+	
+	_load_plants()
 	
 	if get_tree().current_scene.scene_file_path == GAME_SCENE_PATH:
 		start_game()
@@ -59,7 +65,31 @@ func _init_logger():
 	file_appender.logger_format=GSLogger.LOG_FORMAT_FULL
 	file_appender.logger_level = GSLogger.LOG_LEVEL_DEBUG
 	GSLogger.info("GSLogger initialized.")
+	
 
+func _load_plants() -> void:
+	var plants = GameUtils.load_resources("res://src/resources/plants")
+	for plant in plants:
+		if plant is PlantType:
+			plant_types[plant.name] = plant
+			
+			for fact in plant.facts:
+				facts[fact.id] = fact
+	
+	var all_facts = facts.values().map(func(x): return x.id)
+	all_facts.shuffle()
+	var facts_per_plant = all_facts.size() / plant_types.size()
+	var remaining = all_facts.size() - facts_per_plant * plant_types.size()
+	
+	for idx in plant_types.size():
+		var plant: PlantType = plant_types.values()[idx]
+		for i in facts_per_plant:
+			plant.current_facts.append(all_facts.pop_front())
+		
+		if idx < remaining:
+			plant.current_facts.append(all_facts.pop_front())
+	
+	
 
 func do_lose():
 	get_tree().quit()

@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://7vtuecoxqef2" path="res://src/start_state.tres" id="2_pk08u"]
 [ext_resource type="PackedScene" uid="uid://lqtollaovard" path="res://src/base_level.tscn" id="3_pk08u"]
 [ext_resource type="PackedScene" uid="uid://cdm2fhla0kigd" path="res://src/common/fade_panel.tscn" id="4_wqvko"]
+[ext_resource type="PackedScene" uid="uid://clcmxlwpfkqo0" path="res://src/systems/catalog/catalog.tscn" id="5_pk08u"]
 
 [sub_resource type="Resource" id="Resource_5q4o7"]
 metadata/__load_path__ = "res://src/tutorial_state.tres"
@@ -21,6 +22,9 @@ level_container = NodePath("../Level")
 [node name="Level" type="Node2D" parent="." unique_id=1708604477]
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=10557319]
+process_mode = 3
+
+[node name="Catalog" parent="HUDLayer" unique_id=1178810471 instance=ExtResource("5_pk08u")]
 
 [node name="OverlayLayer" type="CanvasLayer" parent="." unique_id=1990209073]
 layer = 5

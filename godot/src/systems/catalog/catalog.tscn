@@ -1,13 +1,80 @@
 [gd_scene format=3 uid="uid://clcmxlwpfkqo0"]
 
 [ext_resource type="PackedScene" uid="uid://e83ma3nckg3" path="res://src/systems/catalog/catalog_plant.tscn" id="1_4wji7"]
+[ext_resource type="Script" uid="uid://cq7tr822tcyo3" path="res://src/systems/catalog/catalog.gd" id="1_h3bwt"]
 
-[node name="Catalog" type="PanelContainer" unique_id=1178810471]
+[node name="Catalog" type="MarginContainer" unique_id=673141459]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_h3bwt")
 
-[node name="CatalogPlant" parent="." unique_id=887097199 instance=ExtResource("1_4wji7")]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=424044048]
 layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1033520072]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+toggle_mode = true
+text = "CATALOGUE"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1714695431]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=833787458]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=998472400]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="PlantContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer" unique_id=1190752867]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="CatalogPlant" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/PlantContainer" unique_id=887097199 instance=ExtResource("1_4wji7")]
+layout_mode = 2
+
+[node name="CatalogPlant2" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/PlantContainer" unique_id=1566561800 instance=ExtResource("1_4wji7")]
+layout_mode = 2
+
+[node name="CatalogPlant3" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/PlantContainer" unique_id=1363091956 instance=ExtResource("1_4wji7")]
+layout_mode = 2
+
+[node name="CatalogPlant4" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/PlantContainer" unique_id=1931594583 instance=ExtResource("1_4wji7")]
+layout_mode = 2
+
+[node name="CatalogPlant5" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/PlantContainer" unique_id=1554107559 instance=ExtResource("1_4wji7")]
+layout_mode = 2
+
+[node name="CatalogPlant6" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/PlantContainer" unique_id=1255050501 instance=ExtResource("1_4wji7")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=361314558]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PreviousPage" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=96273255]
+layout_mode = 2
+text = "<"
+
+[node name="NextPage" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1690982683]
+layout_mode = 2
+text = ">"
+
+[connection signal="toggled" from="VBoxContainer/Button" to="." method="_on_button_toggled"]
