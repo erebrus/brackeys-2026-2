@@ -50,6 +50,7 @@ func _on_fact_added(plant: CatalogPlant, fact: CatalogPlantFact) -> void:
 	if old_plant == plant.plant:
 		return
 	
+	fact.plant = plant.plant
 	var page = Globals.pages[current_page]
 	page.move_fact(fact.fact.id, old_plant, plant.plant)
 	
