@@ -116,15 +116,20 @@ func _setup_pot() -> void:
 func _update_requirements() -> void:
 	var met := 0
 	var unmet := 0
-		
+	
+	hp.maximum = 100
+	hp.minimum = 0
+	
 	for fact in type.facts:
 		if fact.requirement == null:
 			continue
 		
 		if _meets_requirement(fact.requirement):
 			met += 1
+			hp.minimum = 25
 		else:
 			unmet += 1
+			hp.maximum = 75
 	
 	if met != met_requirements or unmet != unmet_requirements:
 		met_requirements_changed.emit(met, unmet)

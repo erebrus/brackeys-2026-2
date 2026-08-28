@@ -17,8 +17,22 @@ const DEFAULT_DECAY_SPEED: Dictionary[Types.Stats, float] = {
 
 var type: Types.Stats
 
-var minimum: float = 0
-var maximum: float = 100
+var minimum: float = 0:
+	set(value):
+		if value == minimum:
+			return
+		minimum = value
+		update(current)
+	
+
+var maximum: float = 100:
+	set(value):
+		if value == maximum:
+			return
+		maximum = value
+		update(current)
+	
+
 var current: float = 50
 
 var decay_speed: float = 0:
