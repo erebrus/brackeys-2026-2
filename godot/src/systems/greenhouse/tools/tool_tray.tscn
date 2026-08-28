@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://chh6tx85w7kua" path="res://src/systems/greenhouse/tools/tool_tray.gd" id="1_wjduk"]
 [ext_resource type="Texture2D" uid="uid://bvkca3aisrnxu" path="res://assets/gfx/ui/catalogue/UI_boxes.png" id="1_wwwpq"]
-[ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="2_aoirq"]
 [ext_resource type="PackedScene" uid="uid://bfuiqklb1hxev" path="res://src/systems/greenhouse/plant_slot/plant_slot.tscn" id="3_owytq"]
+[ext_resource type="PackedScene" uid="uid://ddhc8pq3yyhth" path="res://src/systems/greenhouse/tools/bugs_tool.tscn" id="4_1al4v"]
+[ext_resource type="PackedScene" uid="uid://drtywmpv6n04b" path="res://src/systems/greenhouse/tools/blood_tool.tscn" id="5_x3n5d"]
+[ext_resource type="PackedScene" uid="uid://cwkiy18w2h4dl" path="res://src/systems/greenhouse/tools/slime_tool.tscn" id="6_yww4s"]
+[ext_resource type="PackedScene" uid="uid://cpohpprdhwixe" path="res://src/systems/greenhouse/tools/affection_tool.tscn" id="7_oqmf0"]
+[ext_resource type="PackedScene" uid="uid://odnwi2wisfrb" path="res://src/systems/greenhouse/tools/water_tool.tscn" id="8_nkgg4"]
 
 [node name="ToolTray" type="Node2D" unique_id=73056497 node_paths=PackedStringArray("slots")]
 script = ExtResource("1_wjduk")
@@ -11,31 +15,6 @@ slots = [NodePath("PlantSlot1"), NodePath("PlantSlot2")]
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1518142169]
 texture = ExtResource("1_wwwpq")
-
-[node name="WateringCan" parent="." unique_id=1737244878 instance=ExtResource("2_aoirq")]
-position = Vector2(433, -16)
-stat = 3
-pour_speed = 30.0
-
-[node name="SlimeTool" parent="." unique_id=1737977134 instance=ExtResource("2_aoirq")]
-position = Vector2(281, -17)
-stat = 4
-pour_speed = 30.0
-
-[node name="BloodTool" parent="." unique_id=643244832 instance=ExtResource("2_aoirq")]
-position = Vector2(145, -10)
-stat = 5
-pour_speed = 30.0
-
-[node name="AffectionTool" parent="." unique_id=1612960755 instance=ExtResource("2_aoirq")]
-position = Vector2(5, -8)
-stat = 6
-pour_speed = 30.0
-
-[node name="BugsTool" parent="." unique_id=596728435 instance=ExtResource("2_aoirq")]
-position = Vector2(-141, -8)
-stat = 7
-pour_speed = 30.0
 
 [node name="PlantSlot1" parent="." unique_id=1520109860 instance=ExtResource("3_owytq")]
 position = Vector2(-473, 99)
@@ -79,3 +58,18 @@ offset_top = 76.0
 offset_right = -52.0
 offset_bottom = 99.0
 text = "BUGS"
+
+[node name="BugsTool" parent="." unique_id=1737244878 instance=ExtResource("4_1al4v")]
+position = Vector2(-127, -54)
+
+[node name="BloodTool" parent="." unique_id=2140364483 instance=ExtResource("5_x3n5d")]
+position = Vector2(150, -28)
+
+[node name="SlimeTool" parent="." unique_id=226471943 instance=ExtResource("6_yww4s")]
+position = Vector2(321, -56)
+
+[node name="AffectionTool" parent="." unique_id=99160787 instance=ExtResource("7_oqmf0")]
+position = Vector2(62, -5)
+
+[node name="WaterTool" parent="." unique_id=190125697 instance=ExtResource("8_nkgg4")]
+position = Vector2(433, -37)

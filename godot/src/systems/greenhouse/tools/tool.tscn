@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ckx2s452aghcv" path="res://src/systems/greenhouse/tools/tool.gd" id="1_ice2y"]
 [ext_resource type="PackedScene" uid="uid://dkoie3iuvce86" path="res://src/systems/mouse_controller/pickable_area.tscn" id="1_t8p1y"]
-[ext_resource type="Texture2D" uid="uid://cbfsi8nhbaem7" path="res://assets/gfx/watering_can.png" id="2_34vid"]
+[ext_resource type="Texture2D" uid="uid://cbfsi8nhbaem7" path="res://assets/gfx/tools/watering_can.png" id="2_34vid"]
 [ext_resource type="PackedScene" uid="uid://miodiicp4en1" path="res://src/systems/interaction_area/interaction_area.tscn" id="4_yrgom"]
+[ext_resource type="Texture2D" uid="uid://dohq8po66gwnl" path="res://assets/gfx/tools/water_particle.png" id="5_xu32q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo5td"]
 size = Vector2(73, 101)
@@ -38,3 +39,10 @@ target = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1881849974]
 shape = SubResource("CircleShape2D_uo5td")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=547647707]
+unique_name_in_owner = true
+emitting = false
+amount = 32
+texture = ExtResource("5_xu32q")
+lifetime = 1.5

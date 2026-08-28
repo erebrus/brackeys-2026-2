@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://drtywmpv6n04b"]
+
+[ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="1_7tgqr"]
+[ext_resource type="Texture2D" uid="uid://bkiq0lvw30bhw" path="res://assets/gfx/tools/blood_can.png" id="2_157ip"]
+
+[node name="BloodTool" unique_id=1737244878 instance=ExtResource("1_7tgqr")]
+stat = 5
+pour_speed = 30.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=514892687]
+texture = ExtResource("2_157ip")

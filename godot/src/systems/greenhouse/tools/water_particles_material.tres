@@ -1,0 +1,15 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://cs4x5753wyllp"]
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+angle_min = -1.9999893
+angle_max = 2.0000107
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 50, 0)
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 0.5
+turbulence_influence_min = 0.0
