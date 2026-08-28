@@ -1,23 +1,23 @@
 [gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://v3qitqfg15id"]
 
-[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_ud8nx"]
-[ext_resource type="Resource" uid="uid://cgx5uvb1fo8hn" path="res://src/resources/facts/blood.tres" id="2_2nfni"]
-[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="2_sjusn"]
-[ext_resource type="Texture2D" uid="uid://gug2jim20k3v" path="res://assets/gfx/plants/rose-dead.png" id="3_hvlws"]
-[ext_resource type="Resource" uid="uid://crqwcok8jm2cp" path="res://src/resources/facts/light.tres" id="3_ia44s"]
-[ext_resource type="Resource" uid="uid://dedl2pn5qs40l" path="res://src/resources/facts/needy.tres" id="4_1cp85"]
-[ext_resource type="Texture2D" uid="uid://bc3ol4pbu0qex" path="res://assets/gfx/plants/rose-wilted.png" id="4_2nfni"]
-[ext_resource type="Texture2D" uid="uid://dgrw0su65ec3f" path="res://assets/gfx/plants/rose-normal.png" id="5_ia44s"]
-[ext_resource type="Texture2D" uid="uid://qvu4l5jywe46" path="res://assets/gfx/plants/rose-healthy.png" id="6_1cp85"]
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_2nfni"]
+[ext_resource type="Resource" uid="uid://cgx5uvb1fo8hn" path="res://src/resources/facts/blood.tres" id="2_ia44s"]
+[ext_resource type="Resource" uid="uid://crqwcok8jm2cp" path="res://src/resources/facts/light.tres" id="3_1cp85"]
+[ext_resource type="Resource" uid="uid://dedl2pn5qs40l" path="res://src/resources/facts/needy.tres" id="4_tq80c"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="5_rmuc0"]
+[ext_resource type="Texture2D" uid="uid://gug2jim20k3v" path="res://assets/gfx/plants/rose-dead.png" id="6_3aw7y"]
+[ext_resource type="Texture2D" uid="uid://bc3ol4pbu0qex" path="res://assets/gfx/plants/rose-wilted.png" id="7_3t0yc"]
+[ext_resource type="Texture2D" uid="uid://dgrw0su65ec3f" path="res://assets/gfx/plants/rose-normal.png" id="8_avotr"]
+[ext_resource type="Texture2D" uid="uid://qvu4l5jywe46" path="res://assets/gfx/plants/rose-healthy.png" id="9_op468"]
 
 [resource]
-script = ExtResource("2_sjusn")
+script = ExtResource("5_rmuc0")
 nice_name = "rose"
 name = "Rose"
 textures = Dictionary[int, Texture2D]({
-0: ExtResource("3_hvlws"),
-1: ExtResource("4_2nfni"),
-2: ExtResource("5_ia44s"),
-3: ExtResource("6_1cp85")
+0: ExtResource("6_3aw7y"),
+1: ExtResource("7_3t0yc"),
+2: ExtResource("8_avotr"),
+3: ExtResource("9_op468")
 })
-facts = Array[ExtResource("1_ud8nx")]([ExtResource("2_2nfni"), ExtResource("3_ia44s"), ExtResource("4_1cp85")])
+facts = Array[ExtResource("1_2nfni")]([ExtResource("2_ia44s"), ExtResource("3_1cp85"), ExtResource("4_tq80c")])

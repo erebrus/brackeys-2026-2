@@ -1,23 +1,23 @@
 [gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://ds3lgubijqbx7"]
 
-[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_hd1r1"]
-[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="2_b8vps"]
-[ext_resource type="Resource" uid="uid://cq501l8la6ie3" path="res://src/resources/facts/water.tres" id="2_o1ad3"]
-[ext_resource type="Resource" uid="uid://dedl2pn5qs40l" path="res://src/resources/facts/needy.tres" id="3_n6o83"]
-[ext_resource type="Texture2D" uid="uid://br0es1gafnkmv" path="res://assets/gfx/plants/teeth-dead.png" id="3_ujql4"]
-[ext_resource type="Texture2D" uid="uid://bbkefm4hs1rrs" path="res://assets/gfx/plants/teeth-wilted.png" id="4_o1ad3"]
-[ext_resource type="Resource" uid="uid://cd1d3o0phbyrl" path="res://src/resources/facts/theethy.tres" id="4_oiblc"]
-[ext_resource type="Texture2D" uid="uid://d1mqafpnhk0fp" path="res://assets/gfx/plants/teeth-normal.png" id="5_n6o83"]
-[ext_resource type="Texture2D" uid="uid://dj6l1ti6cg5pf" path="res://assets/gfx/plants/teeth-healthy.png" id="6_oiblc"]
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_o1ad3"]
+[ext_resource type="Resource" uid="uid://cq501l8la6ie3" path="res://src/resources/facts/water.tres" id="2_n6o83"]
+[ext_resource type="Resource" uid="uid://dedl2pn5qs40l" path="res://src/resources/facts/needy.tres" id="3_oiblc"]
+[ext_resource type="Resource" uid="uid://cd1d3o0phbyrl" path="res://src/resources/facts/theethy.tres" id="4_5wmdl"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="5_xxvjc"]
+[ext_resource type="Texture2D" uid="uid://br0es1gafnkmv" path="res://assets/gfx/plants/teeth-dead.png" id="6_5nect"]
+[ext_resource type="Texture2D" uid="uid://bbkefm4hs1rrs" path="res://assets/gfx/plants/teeth-wilted.png" id="7_vqw1b"]
+[ext_resource type="Texture2D" uid="uid://d1mqafpnhk0fp" path="res://assets/gfx/plants/teeth-normal.png" id="8_7irsf"]
+[ext_resource type="Texture2D" uid="uid://dj6l1ti6cg5pf" path="res://assets/gfx/plants/teeth-healthy.png" id="9_a6s65"]
 
 [resource]
-script = ExtResource("2_b8vps")
+script = ExtResource("5_xxvjc")
 nice_name = "teeth"
 name = "Teeth"
 textures = Dictionary[int, Texture2D]({
-0: ExtResource("3_ujql4"),
-1: ExtResource("4_o1ad3"),
-2: ExtResource("5_n6o83"),
-3: ExtResource("6_oiblc")
+0: ExtResource("6_5nect"),
+1: ExtResource("7_vqw1b"),
+2: ExtResource("8_7irsf"),
+3: ExtResource("9_a6s65")
 })
-facts = Array[ExtResource("1_hd1r1")]([ExtResource("2_o1ad3"), ExtResource("3_n6o83"), ExtResource("4_oiblc")])
+facts = Array[ExtResource("1_o1ad3")]([ExtResource("2_n6o83"), ExtResource("3_oiblc"), ExtResource("4_5wmdl")])

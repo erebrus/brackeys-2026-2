@@ -1,23 +1,23 @@
 [gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://dbppy8gnwdqfj"]
 
-[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_ipc13"]
-[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="2_70qse"]
-[ext_resource type="Resource" uid="uid://k8mh7ghhyuqn" path="res://src/resources/facts/slime.tres" id="2_awu35"]
-[ext_resource type="Texture2D" uid="uid://buakk1tov4swv" path="res://assets/gfx/plants/slime-dead.png" id="3_qncta"]
-[ext_resource type="Resource" uid="uid://crqwcok8jm2cp" path="res://src/resources/facts/light.tres" id="3_rmgl0"]
-[ext_resource type="Texture2D" uid="uid://dfrho7qdjpm78" path="res://assets/gfx/plants/slime-wilted.png" id="4_awu35"]
-[ext_resource type="Resource" uid="uid://gjkbawo85rii" path="res://src/resources/facts/hot.tres" id="4_rn61f"]
-[ext_resource type="Texture2D" uid="uid://gmqmcxu27x8v" path="res://assets/gfx/plants/slime-normal.png" id="5_rmgl0"]
-[ext_resource type="Texture2D" uid="uid://cx0q3e5tvycor" path="res://assets/gfx/plants/slime-healthy.png" id="6_rn61f"]
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_awu35"]
+[ext_resource type="Resource" uid="uid://k8mh7ghhyuqn" path="res://src/resources/facts/slime.tres" id="2_rmgl0"]
+[ext_resource type="Resource" uid="uid://crqwcok8jm2cp" path="res://src/resources/facts/light.tres" id="3_rn61f"]
+[ext_resource type="Resource" uid="uid://gjkbawo85rii" path="res://src/resources/facts/hot.tres" id="4_k8744"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="5_tfcnj"]
+[ext_resource type="Texture2D" uid="uid://buakk1tov4swv" path="res://assets/gfx/plants/slime-dead.png" id="6_rxdm3"]
+[ext_resource type="Texture2D" uid="uid://dfrho7qdjpm78" path="res://assets/gfx/plants/slime-wilted.png" id="7_pj0wx"]
+[ext_resource type="Texture2D" uid="uid://gmqmcxu27x8v" path="res://assets/gfx/plants/slime-normal.png" id="8_vcxpa"]
+[ext_resource type="Texture2D" uid="uid://cx0q3e5tvycor" path="res://assets/gfx/plants/slime-healthy.png" id="9_6sed1"]
 
 [resource]
-script = ExtResource("2_70qse")
+script = ExtResource("5_tfcnj")
 nice_name = "slime"
 name = "Slime"
 textures = Dictionary[int, Texture2D]({
-0: ExtResource("3_qncta"),
-1: ExtResource("4_awu35"),
-2: ExtResource("5_rmgl0"),
-3: ExtResource("6_rn61f")
+0: ExtResource("6_rxdm3"),
+1: ExtResource("7_pj0wx"),
+2: ExtResource("8_vcxpa"),
+3: ExtResource("9_6sed1")
 })
-facts = Array[ExtResource("1_ipc13")]([ExtResource("2_awu35"), ExtResource("3_rmgl0"), ExtResource("4_rn61f")])
+facts = Array[ExtResource("1_awu35")]([ExtResource("2_rmgl0"), ExtResource("3_rn61f"), ExtResource("4_k8744")])

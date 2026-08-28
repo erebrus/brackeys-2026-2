@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="1_5jalx"]
 [ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="2_berg4"]
 
-[sub_resource type="Resource" id="Resource_5jalx"]
+[sub_resource type="Resource" id="Resource_j81jq"]
 script = ExtResource("1_5jalx")
 stat_type = 5
 minimum = 80.0
@@ -13,4 +13,4 @@ maximum = 100.0
 script = ExtResource("2_berg4")
 id = "blood"
 text = "Requires blood to grow."
-requirement = SubResource("Resource_5jalx")
+requirement = SubResource("Resource_j81jq")
