@@ -1,5 +1,6 @@
 class_name Pot extends Node2D
 
+signal clicked()
 signal picked()
 signal dropped(slot: PlantSlot)
 
@@ -29,6 +30,7 @@ func _ready() -> void:
 	
 	pickable_area.target = plant
 	pickable_area.picked.connect(picked.emit)
+	pickable_area.pressed.connect(clicked.emit)
 	pickable_area.dropped.connect(_on_dropped)
 	
 

@@ -18,8 +18,8 @@ var game_version: String:
 	get():
 		return ProjectSettings.get_setting("application/config/version")
 	
-	
-var plant_types: Dictionary[String, PlantType]
+
+var pages: Array[CatalogPage]
 var facts: Dictionary[String, Fact]
 
 
@@ -68,28 +68,20 @@ func _init_logger():
 	
 
 func _load_plants() -> void:
-	var plants = GameUtils.load_resources("res://src/resources/plants")
-	for plant in plants:
-		if plant is PlantType:
-			plant_types[plant.name] = plant
+	var resources = GameUtils.load_resources("res://src/resources/plants")
+	var page_size := 4.0
+	var num_pages = int(ceil(resources.size() / page_size))
+	for i in num_pages:
+		var plants: Array[PlantType]
+		plants.assign(resources.slice(i * page_size, (i+1) * page_size))
+		pages.append(CatalogPage.create(plants))
+	
+	for plant: PlantType in resources:
+		if plant == null:
+			continue
+		for fact in plant.facts:
+			facts[fact.id] = fact
 			
-			for fact in plant.facts:
-				facts[fact.id] = fact
-	
-	var all_facts = facts.values().map(func(x): return x.id)
-	all_facts.shuffle()
-	var facts_per_plant = all_facts.size() / plant_types.size()
-	var remaining = all_facts.size() - facts_per_plant * plant_types.size()
-	
-	for idx in plant_types.size():
-		var plant: PlantType = plant_types.values()[idx]
-		for i in facts_per_plant:
-			plant.current_facts.append(all_facts.pop_front())
-		
-		if idx < remaining:
-			plant.current_facts.append(all_facts.pop_front())
-	
-	
 
 func do_lose():
 	get_tree().quit()

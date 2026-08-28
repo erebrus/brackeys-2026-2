@@ -7,6 +7,14 @@ signal empty(type: Types.Stats)
 signal decay_speed_changed(type: Types.Stats, value: float)
 
 
+const DEFAULT_DECAY_SPEED: Dictionary[Types.Stats, float] = {
+	Types.Stats.WATER: -1,
+	Types.Stats.SLIME: -1,
+	Types.Stats.BLOOD: -1,
+	Types.Stats.AFFECTION: -1,
+	Types.Stats.BUGS: -1
+}
+
 var type: Types.Stats
 
 var minimum: float = 0
@@ -26,9 +34,8 @@ static func create(type: Types.Stats) -> PlantStat:
 	var stat = PlantStat.new()
 	stat.type = type
 	
-	# TODO: start values by type
-	if type == Types.Stats.WATER:
-		stat.decay_speed = -1.0
+	if DEFAULT_DECAY_SPEED.has(type):
+		stat.decay_speed = DEFAULT_DECAY_SPEED[type]
 	
 	return stat
 	

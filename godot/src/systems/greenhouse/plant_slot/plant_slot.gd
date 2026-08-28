@@ -2,6 +2,7 @@ class_name PlantSlot extends Node2D
 
 signal plant_changed(plant: Plant)
 
+@export var allow_stat_decay: bool = true
 @export var stats: Dictionary[Types.Stats, float]
 
 var plant: Plant
