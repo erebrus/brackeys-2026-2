@@ -24,6 +24,8 @@ var _pick_position: Vector2
 
 func _ready() -> void:
 	input_event.connect(_on_input_event)
+	mouse_entered.connect(func(): MouseController.mouse_entered_pickable(self))
+	mouse_exited.connect(func(): MouseController.mouse_exited_pickable(self))
 	
 
 func _input(event: InputEvent) -> void:
@@ -46,7 +48,6 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 		else:
 			MouseController.mouse_released(self)
 	
-
 
 func press() -> void:
 	pressed.emit()

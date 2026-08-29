@@ -2,6 +2,17 @@ extends Node2D
 
 const DRAG_ARM_DISTANCE_SQUARED = 100
 
+enum CursorShape {
+	POINTER,
+	OPEN,
+	CLOSED
+}
+
+var dragging_control: bool:
+	set(value):
+		dragging_control = value
+		_reset_cursor()
+
 var _drag_target: PickableArea
 var _drag_position: Vector2i
 var _drag_armed: bool
@@ -9,10 +20,22 @@ var _drop_areas: Array[DropArea]
 
 var _click_target: PickableArea
 
-@onready var cursor_blocker: Control = %CursorBlocker
+var _hovering_over: Array[Node]
+
+
+@onready var cursor:= %Cursor
+@onready var cursor_textures: Dictionary[CursorShape, Sprite2D]= {
+	CursorShape.POINTER: %Pointer,
+	CursorShape.OPEN: %Open,
+	CursorShape.CLOSED: %Closed
+}
 
 func _ready() -> void:
-	cursor_blocker.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
+
+func _process(_delta: float) -> void:
+	cursor.global_position = get_global_mouse_position()
 	
 
 func _input(event: InputEvent) -> void:
@@ -43,6 +66,22 @@ func mouse_exited(target: DropArea) -> void:
 			_drag_target.exit_area(target)
 	
 
+func mouse_entered_pickable(node: Node) -> void:
+	if not node in _hovering_over:
+		_hovering_over.append(node)
+	
+	_reset_cursor()
+	
+
+func mouse_exited_pickable(node: Node) -> void:
+	if not node in _hovering_over:
+		return
+	
+	_hovering_over.erase(node)
+	
+	_reset_cursor()
+	
+
 func mouse_pressed(target: PickableArea) -> void:
 	GSLogger.debug("Mouse pressed %s" % target.target)
 	_click_target = target
@@ -66,7 +105,7 @@ func start_drag(target: PickableArea) -> void:
 func _arm_drag() -> void:
 	GSLogger.debug("Arming drag on %s" % _drag_target.target)
 	_drag_armed = true
-	_set_cursor(Control.CursorShape.CURSOR_CAN_DROP)
+	_reset_cursor()
 	
 	_drag_target.start_drag()
 	
@@ -82,11 +121,11 @@ func _stop_drag() -> void:
 	
 	_drag_target = null
 	_drag_armed = false
+	_reset_cursor()
 	_drop_areas.clear()
 	
 
 func _drop() -> void:
-	_clear_cursor()
 	var drop_area: DropArea
 	if not _drop_areas.is_empty():
 		var idx = _drop_areas.rfind_custom(func(x): return x.can_drop(_drag_target))
@@ -103,11 +142,16 @@ func _is_drag_pre_armed() -> bool:
 	return is_instance_valid(_drag_target)
 	
 
-func _set_cursor(cursor: Control.CursorShape) -> void:
-	cursor_blocker.show()
-	#cursor_blocker.mouse_default_cursor_shape = cursor
+func set_cursor(cursor_shape: CursorShape) -> void:
+	for i in cursor_textures:
+		cursor_textures[i].visible = i == cursor_shape
 	
 
-func _clear_cursor() -> void:
-	cursor_blocker.hide()
+func _reset_cursor() -> void:
+	if _drag_armed or dragging_control:
+		set_cursor(CursorShape.CLOSED)
+	elif _hovering_over.is_empty():
+		set_cursor(CursorShape.POINTER)
+	else: 
+		set_cursor(CursorShape.OPEN)
 	
