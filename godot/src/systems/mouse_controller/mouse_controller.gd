@@ -9,6 +9,11 @@ var _drop_areas: Array[DropArea]
 
 var _click_target: PickableArea
 
+@onready var cursor_blocker: Control = %CursorBlocker
+
+func _ready() -> void:
+	cursor_blocker.hide()
+	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not event.is_pressed():
@@ -61,6 +66,8 @@ func start_drag(target: PickableArea) -> void:
 func _arm_drag() -> void:
 	GSLogger.debug("Arming drag on %s" % _drag_target.target)
 	_drag_armed = true
+	_set_cursor(Control.CursorShape.CURSOR_CAN_DROP)
+	
 	_drag_target.start_drag()
 	
 
@@ -79,6 +86,7 @@ func _stop_drag() -> void:
 	
 
 func _drop() -> void:
+	_clear_cursor()
 	var drop_area: DropArea
 	if not _drop_areas.is_empty():
 		var idx = _drop_areas.rfind_custom(func(x): return x.can_drop(_drag_target))
@@ -93,4 +101,13 @@ func _drop() -> void:
 
 func _is_drag_pre_armed() -> bool:
 	return is_instance_valid(_drag_target)
+	
+
+func _set_cursor(cursor: Control.CursorShape) -> void:
+	cursor_blocker.show()
+	#cursor_blocker.mouse_default_cursor_shape = cursor
+	
+
+func _clear_cursor() -> void:
+	cursor_blocker.hide()
 	

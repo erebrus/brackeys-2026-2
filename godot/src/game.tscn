@@ -29,7 +29,6 @@ position = Vector2(1266, 882)
 process_mode = 3
 
 [node name="Catalog" parent="HUDLayer" unique_id=1178810471 instance=ExtResource("5_pk08u")]
-anchors_preset = 15
 
 [node name="MarginContainer" type="MarginContainer" parent="HUDLayer" unique_id=1883856253]
 anchors_preset = 15
