@@ -1,7 +1,15 @@
 [gd_scene format=3 uid="uid://cpohpprdhwixe"]
 
 [ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="1_5bvys"]
+[ext_resource type="Texture2D" uid="uid://lvqr7cgn7shw" path="res://assets/gfx/tools/affection_particle.png" id="2_ckvly"]
 [ext_resource type="Texture2D" uid="uid://dlw53l042lwk8" path="res://assets/gfx/tools/affection_tool.png" id="2_ng23m"]
+[ext_resource type="Material" uid="uid://c6fh68r6obw0q" path="res://src/systems/greenhouse/tools/affection_particles_material.tres" id="3_ckvly"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ng23m"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l3c1f"]
 radius = 64.00781
@@ -10,11 +18,18 @@ radius = 64.00781
 stat = 6
 pour_speed = 30.0
 
-[node name="Sprite2D" parent="." index="0" unique_id=514892687]
+[node name="GPUParticles2D" parent="." index="0" unique_id=547647707]
+material = SubResource("CanvasItemMaterial_ng23m")
+amount = 20
+texture = ExtResource("2_ckvly")
+lifetime = 3.0
+process_material = ExtResource("3_ckvly")
+
+[node name="Sprite2D" parent="RotationPivot" parent_id_path=PackedInt32Array(1457828604) index="0" unique_id=514892687]
 position = Vector2(0, 0)
 texture = ExtResource("2_ng23m")
 
-[node name="PickableArea" parent="." index="1" unique_id=94634173]
+[node name="PickableArea" parent="." index="2" unique_id=94634173]
 position = Vector2(0, 0)
 
 [node name="CollisionShape2D" parent="PickableArea" index="0" unique_id=283360304]

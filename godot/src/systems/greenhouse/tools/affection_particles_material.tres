@@ -1,0 +1,21 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://c6fh68r6obw0q"]
+
+[sub_resource type="Curve" id="Curve_n1v2s"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6301887, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ckvly"]
+curve = SubResource("Curve_n1v2s")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 128.0
+angle_min = -29.99999
+angle_max = 30.000011
+radial_velocity_min = 4.9999776
+radial_velocity_max = 19.999977
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_ckvly")
+anim_offset_max = 1.0
+turbulence_enabled = true

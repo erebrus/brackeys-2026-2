@@ -7,6 +7,9 @@
 radius = 72.0
 height = 186.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jnj5m"]
+polygon = PackedVector2Array(-63, -145, -1, -142, 63, -144, 79, -99, 98, -78, 45, 0, -46, 0, -99, -78, -74, -102)
+
 [node name="Pot" unique_id=1368794325 instance=ExtResource("1_gunsk")]
 
 [node name="Sprite2D" parent="." index="0" unique_id=120685414]
@@ -20,3 +23,6 @@ position = Vector2(0, -139)
 position = Vector2(0, -70)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_yc2fs")
+
+[node name="LightOccluder2D" parent="." index="3" unique_id=397770072]
+occluder = SubResource("OccluderPolygon2D_jnj5m")

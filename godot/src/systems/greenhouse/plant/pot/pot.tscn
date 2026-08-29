@@ -24,3 +24,5 @@ snap_on_hover = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickableArea" unique_id=886985971]
 position = Vector2(0, -32)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=397770072]

@@ -12,10 +12,21 @@ size = Vector2(73, 101)
 [sub_resource type="CircleShape2D" id="CircleShape2D_uo5td"]
 radius = 12.0415945
 
-[node name="Tool" type="Node2D" unique_id=1737244878]
+[node name="Tool" type="Node2D" unique_id=1737244878 node_paths=PackedStringArray("particles")]
 script = ExtResource("1_ice2y")
+particles = [NodePath("GPUParticles2D")]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=514892687]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=547647707]
+unique_name_in_owner = true
+emitting = false
+amount = 32
+texture = ExtResource("5_xu32q")
+lifetime = 1.5
+
+[node name="RotationPivot" type="Node2D" parent="." unique_id=1457828604]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RotationPivot" unique_id=514892687]
 position = Vector2(50, 9)
 texture = ExtResource("2_34vid")
 
@@ -39,10 +50,3 @@ target = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1881849974]
 shape = SubResource("CircleShape2D_uo5td")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=547647707]
-unique_name_in_owner = true
-emitting = false
-amount = 32
-texture = ExtResource("5_xu32q")
-lifetime = 1.5

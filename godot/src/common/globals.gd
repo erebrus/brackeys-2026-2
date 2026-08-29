@@ -84,7 +84,7 @@ func _load_plants() -> void:
 			
 
 func do_lose():
-	get_tree().quit()
+	go_to_main_menu()
 
 func do_win():
-	get_tree().quit()
+	go_to_main_menu()

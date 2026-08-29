@@ -54,12 +54,15 @@ func press() -> void:
 
 func start_drag() -> void:
 	is_dragging = true
+	target.z_index += 10
 	picked.emit()
 	
 
 func drop(drop_area: DropArea) -> void:
 	is_dragging = false
 	hover_area = null
+	
+	target.z_index -= 10
 	
 	if drop_area == null:
 		target.global_position = _pick_position
