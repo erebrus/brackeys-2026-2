@@ -6,6 +6,7 @@
 [sub_resource type="Resource" id="Resource_mxllo"]
 script = ExtResource("1_mxllo")
 stat_type = 6
+decay_speed = 1.0
 maximum = 20.0
 
 [resource]

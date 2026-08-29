@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cxf2qi6o81hrb"]
+
+[ext_resource type="PackedScene" uid="uid://donq353cys03w" path="res://src/systems/greenhouse/greenhouses/greenhouse.tscn" id="1_erego"]
+[ext_resource type="Texture2D" uid="uid://b4j8vj5rua2ko" path="res://assets/gfx/background/window.png" id="2_yx5ov"]
+[ext_resource type="Texture2D" uid="uid://84cov1iei8se" path="res://assets/gfx/background/tables/large_double.png" id="3_pdulh"]
+[ext_resource type="PackedScene" uid="uid://bfuiqklb1hxev" path="res://src/systems/greenhouse/plant_slot/plant_slot.tscn" id="4_ww42o"]
+[ext_resource type="Texture2D" uid="uid://h6bglhckvhwt" path="res://assets/gfx/background/tables/small_tall.png" id="5_nicho"]
+
+[node name="SunnyWarmGreenhouse" unique_id=1650797564 instance=ExtResource("1_erego")]
+stats = Dictionary[int, float]({
+1: 100.0,
+2: 100.0
+})
+
+[node name="Window" type="Sprite2D" parent="." index="1" unique_id=1920611121]
+texture_repeat = 3
+position = Vector2(960, 540)
+texture = ExtResource("2_yx5ov")
+region_enabled = true
+region_rect = Rect2(80, 0, 1920, 1080)
+
+[node name="LargeDouble" type="Sprite2D" parent="." index="4" unique_id=732997101]
+position = Vector2(629, 901)
+texture = ExtResource("3_pdulh")
+
+[node name="PlantSlot" parent="LargeDouble" index="0" unique_id=1520109860 instance=ExtResource("4_ww42o")]
+position = Vector2(-207, -11)
+
+[node name="PlantSlot2" parent="LargeDouble" index="1" unique_id=1334398861 instance=ExtResource("4_ww42o")]
+position = Vector2(-207, -502)
+
+[node name="PlantSlot3" parent="LargeDouble" index="2" unique_id=2106054976 instance=ExtResource("4_ww42o")]
+position = Vector2(194, -502)
+
+[node name="SmallTall" type="Sprite2D" parent="." index="5" unique_id=1085576254]
+position = Vector2(1574, 903)
+texture = ExtResource("5_nicho")
+
+[node name="PlantSlot4" parent="SmallTall" index="0" unique_id=1191920594 instance=ExtResource("4_ww42o")]
+position = Vector2(-1, -368)

@@ -2,27 +2,72 @@
 
 [ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="1_j4aqd"]
 [ext_resource type="Texture2D" uid="uid://d4frsd5t5brp2" path="res://assets/gfx/tools/slime_tool.png" id="2_6epxv"]
+[ext_resource type="Material" uid="uid://yn78ekkqfr3n" path="res://src/systems/greenhouse/tools/slime_particles_material.tres" id="2_usxir"]
+[ext_resource type="Texture2D" uid="uid://mmraoeg7kvsb" path="res://assets/gfx/tools/slime_particle.png" id="2_yvyl5"]
+[ext_resource type="AudioStream" uid="uid://brqoeff0iy6lp" path="res://assets/sfx/Spray_Slime_1.ogg" id="5_8knve"]
+[ext_resource type="AudioStream" uid="uid://cndt07u8xdaba" path="res://assets/sfx/Spray_Slime_2.ogg" id="6_ro4k4"]
+[ext_resource type="AudioStream" uid="uid://5opnlyfymxhs" path="res://assets/sfx/Spray_Slime_3.ogg" id="7_p53ca"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6epxv"]
-size = Vector2(80, 109)
+[sub_resource type="CircleShape2D" id="CircleShape2D_5bvys"]
+radius = 62.7236
 
-[node name="SlimeTool" unique_id=1737244878 instance=ExtResource("1_j4aqd")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v3t75"]
+streams_count = 3
+stream_0/stream = ExtResource("5_8knve")
+stream_1/stream = ExtResource("6_ro4k4")
+stream_2/stream = ExtResource("7_p53ca")
+
+[node name="SlimeTool" unique_id=1737244878 node_paths=PackedStringArray("particles") instance=ExtResource("1_j4aqd")]
 stat = 4
 pour_speed = 30.0
+particles = [NodePath("GPUParticles2D"), NodePath("GPUParticles2D2"), NodePath("GPUParticles2D3")]
 
-[node name="Sprite2D" parent="." index="0" unique_id=514892687]
-position = Vector2(36, 52)
+[node name="GPUParticles2D" parent="." index="0" unique_id=547647707]
+amount = 12
+texture = ExtResource("2_yvyl5")
+lifetime = 3.0
+explosiveness = 0.17
+randomness = 0.29
+process_material = ExtResource("2_usxir")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." index="1" unique_id=663012324]
+unique_name_in_owner = true
+position = Vector2(42, -22)
+emitting = false
+amount = 12
+texture = ExtResource("2_yvyl5")
+lifetime = 3.0
+explosiveness = 0.17
+randomness = 0.29
+process_material = ExtResource("2_usxir")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="." index="2" unique_id=1785676735]
+unique_name_in_owner = true
+position = Vector2(-48, -30)
+emitting = false
+amount = 12
+texture = ExtResource("2_yvyl5")
+lifetime = 3.0
+explosiveness = 0.17
+randomness = 0.29
+process_material = ExtResource("2_usxir")
+
+[node name="Sprite2D" parent="RotationPivot" parent_id_path=PackedInt32Array(1457828604) index="0" unique_id=514892687]
+position = Vector2(-1, -68)
 texture = ExtResource("2_6epxv")
 
-[node name="PickableArea" parent="." index="1" unique_id=94634173]
-position = Vector2(51, 56)
+[node name="PickableArea" parent="." index="4" unique_id=94634173]
+position = Vector2(14, -64)
 
 [node name="CollisionShape2D" parent="PickableArea" index="0" unique_id=283360304]
 position = Vector2(-11, -1.5)
-shape = SubResource("RectangleShape2D_6epxv")
+shape = SubResource("CircleShape2D_5bvys")
 
-[node name="InteractionArea" parent="." index="2" unique_id=1503144043]
+[node name="InteractionArea" parent="." index="5" unique_id=1503144043]
 position = Vector2(-14, 43)
 
 [node name="CollisionShape2D" parent="InteractionArea" index="0" unique_id=1881849974]
 position = Vector2(14, -43)
+
+[node name="sfx" parent="." index="6" unique_id=1609069050]
+stream = SubResource("AudioStreamRandomizer_v3t75")

@@ -24,6 +24,8 @@ var _pick_position: Vector2
 
 func _ready() -> void:
 	input_event.connect(_on_input_event)
+	mouse_entered.connect(func(): MouseController.mouse_entered_pickable(self))
+	mouse_exited.connect(func(): MouseController.mouse_exited_pickable(self))
 	
 
 func _input(event: InputEvent) -> void:
@@ -31,6 +33,10 @@ func _input(event: InputEvent) -> void:
 		if not snap_on_hover or hover_area == null:
 			target.global_position = get_global_mouse_position() - _offset # TODO: should always pickup from origin?
 		dragged.emit()
+	
+
+func _exit_tree() -> void:
+	MouseController.mouse_exited_pickable(self)
 	
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
@@ -47,19 +53,21 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 			MouseController.mouse_released(self)
 	
 
-
 func press() -> void:
 	pressed.emit()
 	
 
 func start_drag() -> void:
 	is_dragging = true
+	target.z_index += 10
 	picked.emit()
 	
 
 func drop(drop_area: DropArea) -> void:
 	is_dragging = false
 	hover_area = null
+	
+	target.z_index -= 10
 	
 	if drop_area == null:
 		target.global_position = _pick_position

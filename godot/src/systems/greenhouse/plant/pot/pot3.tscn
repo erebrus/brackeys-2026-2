@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://bkh1mqrso3whn"]
 
 [ext_resource type="PackedScene" uid="uid://v7flmj2t5drh" path="res://src/systems/greenhouse/plant/pot/pot.tscn" id="1_xc0le"]
-[ext_resource type="Texture2D" uid="uid://b4kua63ivdfs" path="res://assets/gfx/plants/pot3.png" id="2_7qn0n"]
+[ext_resource type="Texture2D" uid="uid://c8yso28bjfcdf" path="res://assets/gfx/plants/pot-medium.png" id="2_7qn0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yc2fs"]
-size = Vector2(175, 118)
+size = Vector2(154, 117)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l3w5d"]
+polygon = PackedVector2Array(-77, -117, 77, -117, 76, 0, -76, 0)
 
 [node name="Pot" unique_id=1368794325 instance=ExtResource("1_xc0le")]
 
@@ -13,8 +16,11 @@ position = Vector2(0, -100)
 texture = ExtResource("2_7qn0n")
 
 [node name="PlantBaseMarker" parent="." index="1" unique_id=769795108]
-position = Vector2(0, -115)
+position = Vector2(0, -114)
 
 [node name="CollisionShape2D" parent="PickableArea" parent_id_path=PackedInt32Array(94634173) index="0" unique_id=886985971]
-position = Vector2(-0.5, -59)
+position = Vector2(0, -58.5)
 shape = SubResource("RectangleShape2D_yc2fs")
+
+[node name="LightOccluder2D" parent="." index="3" unique_id=397770072]
+occluder = SubResource("OccluderPolygon2D_l3w5d")

@@ -1,5 +1,7 @@
 class_name PlantType extends Resource
 
+signal solved
+
 @export var nice_name:String 
 
 @export var name: String
@@ -8,10 +10,20 @@ class_name PlantType extends Resource
 
 @export var facts: Array[Fact]
 
-@export var start_facts: Array[String]
-
 var current_facts: Array[String]
 
+
+func remove_fact(fact_id: String) -> void:
+	current_facts.erase(fact_id)
+	if has_correct_facts():
+		solved.emit()
+	
+
+func add_fact(fact_id: String) -> void:
+	current_facts.append(fact_id)
+	if has_correct_facts():
+		solved.emit()
+	
 
 func has_correct_facts() -> bool:
 	var extra: Array[String] = current_facts.duplicate()

@@ -1,23 +1,23 @@
 [gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://ccd4hke3vu0i7"]
 
-[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_7l7br"]
-[ext_resource type="Resource" uid="uid://cv6mksqryc4jc" path="res://src/resources/facts/no_touch.tres" id="2_rcqb5"]
-[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="2_rfv6f"]
-[ext_resource type="Resource" uid="uid://cf140mhp7ckcd" path="res://src/resources/facts/thorn_poison.tres" id="3_idn2h"]
-[ext_resource type="Texture2D" uid="uid://d4nscy52tfgr0" path="res://assets/gfx/plants/thorny-dead.png" id="3_jmb4f"]
-[ext_resource type="Resource" uid="uid://dr4pur7t45atb" path="res://src/resources/facts/curls.tres" id="4_5bcm3"]
-[ext_resource type="Texture2D" uid="uid://b1skx4forba71" path="res://assets/gfx/plants/thorny-wilted.png" id="4_rcqb5"]
-[ext_resource type="Texture2D" uid="uid://dx0t0hacu0gs6" path="res://assets/gfx/plants/thorny-normal.png" id="5_idn2h"]
-[ext_resource type="Texture2D" uid="uid://c7bym6o5f3nlt" path="res://assets/gfx/plants/thorny-healthy.png" id="6_5bcm3"]
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_rcqb5"]
+[ext_resource type="Resource" uid="uid://cv6mksqryc4jc" path="res://src/resources/facts/no_touch.tres" id="2_idn2h"]
+[ext_resource type="Resource" uid="uid://cf140mhp7ckcd" path="res://src/resources/facts/thorn_poison.tres" id="3_5bcm3"]
+[ext_resource type="Resource" uid="uid://dr4pur7t45atb" path="res://src/resources/facts/curls.tres" id="4_1f2t7"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="5_sqrb2"]
+[ext_resource type="Texture2D" uid="uid://d4nscy52tfgr0" path="res://assets/gfx/plants/thorny-dead.png" id="6_7dj3o"]
+[ext_resource type="Texture2D" uid="uid://b1skx4forba71" path="res://assets/gfx/plants/thorny-wilted.png" id="7_lqkr5"]
+[ext_resource type="Texture2D" uid="uid://dx0t0hacu0gs6" path="res://assets/gfx/plants/thorny-normal.png" id="8_nh2h1"]
+[ext_resource type="Texture2D" uid="uid://c7bym6o5f3nlt" path="res://assets/gfx/plants/thorny-healthy.png" id="9_uojpv"]
 
 [resource]
-script = ExtResource("2_rfv6f")
+script = ExtResource("5_sqrb2")
 nice_name = "thorny"
-name = "Thorny"
+name = "Spira Venenata"
 textures = Dictionary[int, Texture2D]({
-0: ExtResource("3_jmb4f"),
-1: ExtResource("4_rcqb5"),
-2: ExtResource("5_idn2h"),
-3: ExtResource("6_5bcm3")
+0: ExtResource("6_7dj3o"),
+1: ExtResource("7_lqkr5"),
+2: ExtResource("8_nh2h1"),
+3: ExtResource("9_uojpv")
 })
-facts = Array[ExtResource("1_7l7br")]([ExtResource("2_rcqb5"), ExtResource("3_idn2h"), ExtResource("4_5bcm3")])
+facts = Array[ExtResource("1_rcqb5")]([ExtResource("2_idn2h"), ExtResource("3_5bcm3"), ExtResource("4_1f2t7")])

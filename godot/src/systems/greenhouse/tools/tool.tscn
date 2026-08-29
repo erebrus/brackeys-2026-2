@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cbfsi8nhbaem7" path="res://assets/gfx/tools/watering_can.png" id="2_34vid"]
 [ext_resource type="PackedScene" uid="uid://miodiicp4en1" path="res://src/systems/interaction_area/interaction_area.tscn" id="4_yrgom"]
 [ext_resource type="Texture2D" uid="uid://dohq8po66gwnl" path="res://assets/gfx/tools/water_particle.png" id="5_xu32q"]
+[ext_resource type="AudioStream" uid="uid://by53vidc8hv85" path="res://assets/sfx/Pickup_Tool_1.ogg" id="6_ksyey"]
+[ext_resource type="AudioStream" uid="uid://c65j5sjlpvq4y" path="res://assets/sfx/Pickup_Tool_2.ogg" id="7_jfqm2"]
+[ext_resource type="AudioStream" uid="uid://ccaedkkymckem" path="res://assets/sfx/Pickup_Tool_3.ogg" id="8_6ijl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo5td"]
 size = Vector2(73, 101)
@@ -12,10 +15,27 @@ size = Vector2(73, 101)
 [sub_resource type="CircleShape2D" id="CircleShape2D_uo5td"]
 radius = 12.0415945
 
-[node name="Tool" type="Node2D" unique_id=1737244878]
-script = ExtResource("1_ice2y")
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t8fm1"]
+streams_count = 3
+stream_0/stream = ExtResource("6_ksyey")
+stream_1/stream = ExtResource("7_jfqm2")
+stream_2/stream = ExtResource("8_6ijl0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=514892687]
+[node name="Tool" type="Node2D" unique_id=1737244878 node_paths=PackedStringArray("particles")]
+script = ExtResource("1_ice2y")
+particles = [NodePath("GPUParticles2D")]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=547647707]
+unique_name_in_owner = true
+emitting = false
+amount = 32
+texture = ExtResource("5_xu32q")
+lifetime = 1.5
+
+[node name="RotationPivot" type="Node2D" parent="." unique_id=1457828604]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RotationPivot" unique_id=514892687]
 position = Vector2(50, 9)
 texture = ExtResource("2_34vid")
 
@@ -40,9 +60,9 @@ target = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1881849974]
 shape = SubResource("CircleShape2D_uo5td")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=547647707]
-unique_name_in_owner = true
-emitting = false
-amount = 32
-texture = ExtResource("5_xu32q")
-lifetime = 1.5
+[node name="sfx" type="AudioStreamPlayer" parent="." unique_id=1609069050]
+bus = &"Sfx"
+
+[node name="pickup_sfx" type="AudioStreamPlayer" parent="." unique_id=1746403789]
+stream = SubResource("AudioStreamRandomizer_t8fm1")
+bus = &"Sfx"

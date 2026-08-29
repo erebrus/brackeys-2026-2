@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://donq353cys03w"]
+
+[ext_resource type="Script" uid="uid://cohvt7bd3me0o" path="res://src/systems/greenhouse/greenhouses/greenhouse.gd" id="1_0fhua"]
+[ext_resource type="Texture2D" uid="uid://bupyr2jj1b4bf" path="res://assets/gfx/background/vines.png" id="2_crsm5"]
+[ext_resource type="Texture2D" uid="uid://nkh7wa0ip4dx" path="res://assets/gfx/ui/termometer_hot.png" id="3_8q5ib"]
+
+[node name="Greenhouse" type="Node2D" unique_id=1650797564]
+script = ExtResource("1_0fhua")
+
+[node name="Vines" type="Sprite2D" parent="." unique_id=1989339186]
+texture_repeat = 3
+position = Vector2(960, 250)
+texture = ExtResource("2_crsm5")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 500)
+
+[node name="Termometer" type="Sprite2D" parent="." unique_id=523048815]
+position = Vector2(1817, 93)
+texture = ExtResource("3_8q5ib")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=83295795]
+offset_left = 640.0
+offset_top = 718.0
+offset_right = 1920.0
+offset_bottom = 1077.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.22352941)

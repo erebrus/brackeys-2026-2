@@ -24,6 +24,16 @@ unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("1_gsltv")
 
+[node name="Solved" type="Label" parent="HBoxContainer/VBoxContainer/PlantContainer" unique_id=1402385086]
+unique_name_in_owner = true
+visible = false
+texture_filter = 2
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_rotation = -0.5532694
+text = "SOLVED"
+horizontal_alignment = 1
+
 [node name="BuyButton" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=604977271]
 unique_name_in_owner = true
 layout_mode = 2

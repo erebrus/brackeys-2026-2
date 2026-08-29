@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://b4n1l2reyno6k"]
+
+[ext_resource type="PackedScene" uid="uid://donq353cys03w" path="res://src/systems/greenhouse/greenhouses/greenhouse.tscn" id="1_erego"]
+[ext_resource type="Texture2D" uid="uid://mhyuxah3cfih" path="res://assets/gfx/background/window_with_shade.png" id="2_r1cac"]
+[ext_resource type="Texture2D" uid="uid://b87gohevbt1t7" path="res://assets/gfx/ui/termometer_cold.png" id="3_hvikw"]
+[ext_resource type="Texture2D" uid="uid://84cov1iei8se" path="res://assets/gfx/background/tables/large_double.png" id="4_r1cac"]
+[ext_resource type="PackedScene" uid="uid://bfuiqklb1hxev" path="res://src/systems/greenhouse/plant_slot/plant_slot.tscn" id="5_dxdef"]
+[ext_resource type="Texture2D" uid="uid://h6bglhckvhwt" path="res://assets/gfx/background/tables/small_tall.png" id="6_qq0lj"]
+
+[node name="ShadeColdGreenhouse" unique_id=1650797564 instance=ExtResource("1_erego")]
+stats = Dictionary[int, float]({
+1: 0.0,
+2: 0.0
+})
+
+[node name="Window" type="Sprite2D" parent="." index="1" unique_id=1141405020]
+texture_repeat = 3
+position = Vector2(960, 540)
+texture = ExtResource("2_r1cac")
+region_enabled = true
+region_rect = Rect2(80, 0, 1920, 1080)
+
+[node name="Termometer" parent="." index="2" unique_id=523048815]
+texture = ExtResource("3_hvikw")
+
+[node name="LargeDouble" type="Sprite2D" parent="." index="4" unique_id=809943691]
+position = Vector2(629, 901)
+texture = ExtResource("4_r1cac")
+
+[node name="PlantSlot" parent="LargeDouble" index="0" unique_id=1520109860 instance=ExtResource("5_dxdef")]
+position = Vector2(-207, -11)
+
+[node name="PlantSlot2" parent="LargeDouble" index="1" unique_id=1169567428 instance=ExtResource("5_dxdef")]
+position = Vector2(-207, -502)
+
+[node name="PlantSlot3" parent="LargeDouble" index="2" unique_id=977026959 instance=ExtResource("5_dxdef")]
+position = Vector2(194, -502)
+
+[node name="SmallTall" type="Sprite2D" parent="." index="5" unique_id=1304520039]
+position = Vector2(1574, 903)
+texture = ExtResource("6_qq0lj")
+
+[node name="PlantSlot4" parent="SmallTall" index="0" unique_id=390604712 instance=ExtResource("5_dxdef")]
+position = Vector2(-1, -368)

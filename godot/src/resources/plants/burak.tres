@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://dfh41mnptip30"]
+
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_hjqnn"]
+[ext_resource type="Resource" uid="uid://crqwcok8jm2cp" path="res://src/resources/facts/light.tres" id="2_mwb5x"]
+[ext_resource type="Resource" uid="uid://gjkbawo85rii" path="res://src/resources/facts/hot.tres" id="3_pge75"]
+[ext_resource type="Resource" uid="uid://cv6mksqryc4jc" path="res://src/resources/facts/no_touch.tres" id="4_pp41m"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="5_8kc3m"]
+[ext_resource type="Texture2D" uid="uid://clw4g4m3811s4" path="res://assets/gfx/plants/burak-dead.png" id="6_5010j"]
+[ext_resource type="Texture2D" uid="uid://dai151eatf3sd" path="res://assets/gfx/plants/burak-wilted.png" id="7_561m0"]
+[ext_resource type="Texture2D" uid="uid://gvkauwu2myt4" path="res://assets/gfx/plants/burak-normal.png" id="8_h2itm"]
+[ext_resource type="Texture2D" uid="uid://dry2dxpp8hl7e" path="res://assets/gfx/plants/burak-healthy.png" id="9_cq3w8"]
+
+[resource]
+script = ExtResource("5_8kc3m")
+nice_name = "burak"
+name = "Solmandra Wulkwither"
+textures = Dictionary[int, Texture2D]({
+0: ExtResource("6_5010j"),
+1: ExtResource("7_561m0"),
+2: ExtResource("8_h2itm"),
+3: ExtResource("9_cq3w8")
+})
+facts = Array[ExtResource("1_hjqnn")]([ExtResource("2_mwb5x"), ExtResource("3_pge75"), ExtResource("4_pp41m")])

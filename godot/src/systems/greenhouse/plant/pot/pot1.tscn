@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://ba4u1ghogdnpf"]
 
 [ext_resource type="PackedScene" uid="uid://v7flmj2t5drh" path="res://src/systems/greenhouse/plant/pot/pot.tscn" id="1_erego"]
-[ext_resource type="Texture2D" uid="uid://bpovntoke2wfi" path="res://assets/gfx/plants/pot1.png" id="2_jnj5m"]
+[ext_resource type="Texture2D" uid="uid://bcnv2meev4ckh" path="res://assets/gfx/plants/pot-low.png" id="2_jnj5m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l3w5d"]
 radius = 44.0
 height = 182.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vgle6"]
+polygon = PackedVector2Array(-74, -81, 2, -89, 73, -83, 93, -55, 67, -1, -59, 0, -95, -57)
 
 [node name="Pot" unique_id=1368794325 instance=ExtResource("1_erego")]
 
@@ -20,3 +23,6 @@ position = Vector2(0, -82)
 position = Vector2(0, -44)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_l3w5d")
+
+[node name="LightOccluder2D" parent="." index="3" unique_id=397770072]
+occluder = SubResource("OccluderPolygon2D_vgle6")

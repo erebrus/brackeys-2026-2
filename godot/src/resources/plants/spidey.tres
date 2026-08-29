@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://mgedgkytobfp"]
+
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_4vps1"]
+[ext_resource type="Resource" uid="uid://cj2lr8i1idgxq" path="res://src/resources/facts/bugs.tres" id="2_6xxsv"]
+[ext_resource type="Resource" uid="uid://cwpdkrt34p608" path="res://src/resources/facts/darkness.tres" id="3_c6m2a"]
+[ext_resource type="Resource" uid="uid://cv6mksqryc4jc" path="res://src/resources/facts/no_touch.tres" id="4_o453o"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="5_grihl"]
+[ext_resource type="Texture2D" uid="uid://b4g0gwswnrhy1" path="res://assets/gfx/plants/spidey-dead.png" id="6_lxtpv"]
+[ext_resource type="Texture2D" uid="uid://dso2dw1wnn5c8" path="res://assets/gfx/plants/spidey-wilted.png" id="7_iwwjl"]
+[ext_resource type="Texture2D" uid="uid://buofodhwallss" path="res://assets/gfx/plants/spidey-normal.png" id="8_ktj6v"]
+[ext_resource type="Texture2D" uid="uid://pqop2ce2vxus" path="res://assets/gfx/plants/spidey-healthy.png" id="9_6c01s"]
+
+[resource]
+script = ExtResource("5_grihl")
+nice_name = "spidey"
+name = "Aranea Tenebris"
+textures = Dictionary[int, Texture2D]({
+0: ExtResource("6_lxtpv"),
+1: ExtResource("7_iwwjl"),
+2: ExtResource("8_ktj6v"),
+3: ExtResource("9_6c01s")
+})
+facts = Array[ExtResource("1_4vps1")]([ExtResource("2_6xxsv"), ExtResource("3_c6m2a"), ExtResource("4_o453o")])

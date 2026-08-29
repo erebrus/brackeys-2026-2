@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Fact" format=3 uid="uid://dtjfw628pi83w"]
+
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_vlj0i"]
+
+[resource]
+script = ExtResource("1_vlj0i")
+id = "eye_bulbs"
+text = "When satisfied, produces eye-like bulbs."
