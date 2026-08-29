@@ -55,7 +55,7 @@ func _on_left_button_pressed() -> void:
 
 func _on_win_panel_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		Globals.do_win()
+		Globals.go_to_main_menu()
 	
 
 func _on_catalog_solved() -> void:

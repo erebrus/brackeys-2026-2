@@ -91,4 +91,8 @@ func do_lose():
 	go_to_main_menu()
 
 func do_win():
-	go_to_main_menu()
+	if game == null:
+		go_to_main_menu()
+	else:
+		game._on_catalog_solved()
+		
