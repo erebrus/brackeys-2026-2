@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cyeq85l24wyk6" path="res://assets/sfx/Spray_Blood_3.ogg" id="7_7w6xf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6epxv"]
-radius = 22.575504
+radius = 36.109505
 height = 176.4891
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_63em6"]

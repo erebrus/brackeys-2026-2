@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ba4u1ghogdnpf"]
 
 [ext_resource type="PackedScene" uid="uid://v7flmj2t5drh" path="res://src/systems/greenhouse/plant/pot/pot.tscn" id="1_erego"]
-[ext_resource type="Texture2D" uid="uid://bpovntoke2wfi" path="res://assets/gfx/plants/pot1.png" id="2_jnj5m"]
+[ext_resource type="Texture2D" uid="uid://bcnv2meev4ckh" path="res://assets/gfx/plants/pot-low.png" id="2_jnj5m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l3w5d"]
 radius = 44.0

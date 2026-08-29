@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dak70rut8i2i0"]
 
 [ext_resource type="Script" uid="uid://badkhacg8cu5j" path="res://src/systems/mouse_controller/mouse_controller.gd" id="1_khkal"]
-[ext_resource type="Texture2D" uid="uid://vd2fpelltqax" path="res://assets/gfx/ui/cursor3.png" id="2_066ot"]
-[ext_resource type="Texture2D" uid="uid://bibvh1t3icdun" path="res://assets/gfx/ui/cursor2.png" id="3_46pdn"]
-[ext_resource type="Texture2D" uid="uid://bcwibkrs5qmir" path="res://assets/gfx/ui/cursor1.png" id="4_nf45c"]
+[ext_resource type="Texture2D" uid="uid://d224bpdci5cd0" path="res://assets/gfx/ui/cursor-pointing.png" id="2_nf45c"]
+[ext_resource type="Texture2D" uid="uid://bxswvwcoanjxq" path="res://assets/gfx/ui/cursor-open.png" id="3_ow713"]
+[ext_resource type="Texture2D" uid="uid://drx3xvy651du" path="res://assets/gfx/ui/cursor-closed.png" id="4_5u38x"]
 
 [node name="MouseController" type="Node2D" unique_id=963223320]
 process_mode = 3
@@ -18,16 +18,16 @@ unique_name_in_owner = true
 [node name="Pointer" type="Sprite2D" parent="CanvasLayer/Cursor" unique_id=1982310356]
 unique_name_in_owner = true
 position = Vector2(16, 16)
-texture = ExtResource("2_066ot")
+texture = ExtResource("2_nf45c")
 
 [node name="Open" type="Sprite2D" parent="CanvasLayer/Cursor" unique_id=688869995]
 unique_name_in_owner = true
 visible = false
 position = Vector2(0, 1)
-texture = ExtResource("3_46pdn")
+texture = ExtResource("3_ow713")
 
 [node name="Closed" type="Sprite2D" parent="CanvasLayer/Cursor" unique_id=965529639]
 unique_name_in_owner = true
 visible = false
 position = Vector2(-1, -6)
-texture = ExtResource("4_nf45c")
+texture = ExtResource("4_5u38x")
