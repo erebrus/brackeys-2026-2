@@ -15,6 +15,12 @@ const DEFAULT_DECAY_SPEED: Dictionary[Types.Stats, float] = {
 	Types.Stats.BUGS: -1
 }
 
+const START_VALUE: Dictionary[Types.Stats, float] = {
+	Types.Stats.HP: 50,
+	Types.Stats.TEMPERATURE: 50,
+	Types.Stats.SUNLIGHT: 50
+}
+
 var type: Types.Stats
 
 var minimum: float = 0:
@@ -33,7 +39,7 @@ var maximum: float = 100:
 		update(current)
 	
 
-var current: float = 50
+var current: float = 0
 
 var decay_speed: float = 0:
 	set(value):
@@ -50,6 +56,9 @@ static func create(type: Types.Stats) -> PlantStat:
 	
 	if DEFAULT_DECAY_SPEED.has(type):
 		stat.decay_speed = DEFAULT_DECAY_SPEED[type]
+	
+	if START_VALUE.has(type):
+		stat.current = START_VALUE[type]
 	
 	return stat
 	
