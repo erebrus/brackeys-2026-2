@@ -55,10 +55,19 @@ func _on_level_manager_level_ready() -> void:
 		get_level().set_state(game_state)
 	
 
-
 func _on_right_button_pressed() -> void:
 	get_level().move_room(+1)
-
+	
 
 func _on_left_button_pressed() -> void:
 	get_level().move_room(-1)
+	
+
+func _on_win_panel_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		Globals.do_win()
+	
+
+func _on_catalog_solved() -> void:
+	%WinPanel.show()
+	

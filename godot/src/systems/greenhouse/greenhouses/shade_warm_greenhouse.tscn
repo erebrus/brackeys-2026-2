@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://4l40xtlja2rf"]
 
 [ext_resource type="PackedScene" uid="uid://donq353cys03w" path="res://src/systems/greenhouse/greenhouses/greenhouse.tscn" id="1_erego"]
-[ext_resource type="Texture2D" uid="uid://b4j8vj5rua2ko" path="res://assets/gfx/background/window.png" id="2_rk6kv"]
+[ext_resource type="Texture2D" uid="uid://mhyuxah3cfih" path="res://assets/gfx/background/window_with_shade.png" id="2_isobh"]
 [ext_resource type="Texture2D" uid="uid://84cov1iei8se" path="res://assets/gfx/background/tables/large_double.png" id="3_isobh"]
 [ext_resource type="PackedScene" uid="uid://bfuiqklb1hxev" path="res://src/systems/greenhouse/plant_slot/plant_slot.tscn" id="4_xcd8s"]
 [ext_resource type="Texture2D" uid="uid://h6bglhckvhwt" path="res://assets/gfx/background/tables/small_tall.png" id="5_bag6s"]
@@ -12,184 +12,14 @@ stats = Dictionary[int, float]({
 2: 100.0
 })
 
-[node name="Shades" type="Node2D" parent="." index="1" unique_id=413384766]
-position = Vector2(-64, 0)
-
-[node name="ColorRect2" type="ColorRect" parent="Shades" index="0" unique_id=2092545567]
-offset_left = 64.0
-offset_right = 1984.0
-offset_bottom = 78.0
-color = Color(0.20392157, 0.16470589, 0.16470589, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Shades" index="1" unique_id=1413670019]
-offset_left = 64.0
-offset_top = 78.0
-offset_right = 1983.0
-offset_bottom = 90.0
-color = Color(0.105882354, 0.09019608, 0.09019608, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Shades" index="2" unique_id=1059308792]
-offset_left = 64.0
-offset_top = 90.0
-offset_right = 1984.0
-offset_bottom = 168.0
-color = Color(0.20392157, 0.16470589, 0.16470589, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="Shades" index="3" unique_id=1681154303]
-offset_left = 64.0
-offset_top = 168.0
-offset_right = 1983.0
-offset_bottom = 180.0
-color = Color(0.105882354, 0.09019608, 0.09019608, 1)
-
-[node name="ColorRect6" type="ColorRect" parent="Shades" index="4" unique_id=1311472447]
-offset_left = 64.0
-offset_top = 180.0
-offset_right = 1984.0
-offset_bottom = 258.0
-color = Color(0.20392157, 0.16470589, 0.16470589, 1)
-
-[node name="ColorRect7" type="ColorRect" parent="Shades" index="5" unique_id=1473441369]
-offset_left = 64.0
-offset_top = 258.0
-offset_right = 1983.0
-offset_bottom = 270.0
-color = Color(0.105882354, 0.09019608, 0.09019608, 1)
-
-[node name="ColorRect8" type="ColorRect" parent="Shades" index="6" unique_id=1269528691]
-offset_left = 64.0
-offset_top = 270.0
-offset_right = 1984.0
-offset_bottom = 348.0
-color = Color(0.20392157, 0.16470589, 0.16470589, 1)
-
-[node name="ColorRect9" type="ColorRect" parent="Shades" index="7" unique_id=2013573865]
-offset_left = 64.0
-offset_top = 348.0
-offset_right = 1983.0
-offset_bottom = 360.0
-color = Color(0.105882354, 0.09019608, 0.09019608, 1)
-
-[node name="ColorRect10" type="ColorRect" parent="Shades" index="8" unique_id=2004244354]
-offset_left = 64.0
-offset_top = 360.0
-offset_right = 1984.0
-offset_bottom = 438.0
-color = Color(0.20392157, 0.16470589, 0.16470589, 1)
-
-[node name="ColorRect11" type="ColorRect" parent="Shades" index="9" unique_id=187870311]
-offset_left = 64.0
-offset_top = 438.0
-offset_right = 1983.0
-offset_bottom = 450.0
-color = Color(0.105882354, 0.09019608, 0.09019608, 1)
-
-[node name="ColorRect12" type="ColorRect" parent="Shades" index="10" unique_id=1978916938]
-offset_left = 64.0
-offset_top = 450.0
-offset_right = 1984.0
-offset_bottom = 528.0
-color = Color(0.20392157, 0.16470589, 0.16470589, 1)
-
-[node name="ColorRect13" type="ColorRect" parent="Shades" index="11" unique_id=1764391132]
-offset_left = 64.0
-offset_top = 528.0
-offset_right = 1983.0
-offset_bottom = 540.0
-color = Color(0.105882354, 0.09019608, 0.09019608, 1)
-
-[node name="ColorRect14" type="ColorRect" parent="Shades" index="12" unique_id=1904714184]
-offset_left = 64.0
-offset_top = 540.0
-offset_right = 1984.0
-offset_bottom = 618.0
-color = Color(0.20392157, 0.16470589, 0.16470589, 1)
-
-[node name="ColorRect15" type="ColorRect" parent="Shades" index="13" unique_id=1640717130]
-offset_left = 64.0
-offset_top = 618.0
-offset_right = 1983.0
-offset_bottom = 630.0
-color = Color(0.105882354, 0.09019608, 0.09019608, 1)
-
-[node name="ColorRect16" type="ColorRect" parent="Shades" index="14" unique_id=1514288686]
-offset_left = 64.0
-offset_top = 630.0
-offset_right = 1984.0
-offset_bottom = 708.0
-color = Color(0.20392157, 0.16470589, 0.16470589, 1)
-
-[node name="ColorRect17" type="ColorRect" parent="Shades" index="15" unique_id=715428176]
-offset_left = 64.0
-offset_top = 708.0
-offset_right = 1983.0
-offset_bottom = 720.0
-color = Color(0.105882354, 0.09019608, 0.09019608, 1)
-
-[node name="ColorRect18" type="ColorRect" parent="Shades" index="16" unique_id=416449348]
-offset_left = 64.0
-offset_top = 720.0
-offset_right = 1984.0
-offset_bottom = 798.0
-color = Color(0.20392157, 0.16470589, 0.16470589, 1)
-
-[node name="ColorRect19" type="ColorRect" parent="Shades" index="17" unique_id=2056042909]
-offset_left = 64.0
-offset_top = 798.0
-offset_right = 1983.0
-offset_bottom = 810.0
-color = Color(0.105882354, 0.09019608, 0.09019608, 1)
-
-[node name="ColorRect20" type="ColorRect" parent="Shades" index="18" unique_id=175646595]
-offset_left = 64.0
-offset_top = 810.0
-offset_right = 1984.0
-offset_bottom = 888.0
-color = Color(0.20392157, 0.16470589, 0.16470589, 1)
-
-[node name="ColorRect21" type="ColorRect" parent="Shades" index="19" unique_id=1799212142]
-offset_left = 64.0
-offset_top = 888.0
-offset_right = 1983.0
-offset_bottom = 900.0
-color = Color(0.105882354, 0.09019608, 0.09019608, 1)
-
-[node name="ColorRect22" type="ColorRect" parent="Shades" index="20" unique_id=487540001]
-offset_left = 64.0
-offset_top = 900.0
-offset_right = 1984.0
-offset_bottom = 978.0
-color = Color(0.20392157, 0.16470589, 0.16470589, 1)
-
-[node name="ColorRect23" type="ColorRect" parent="Shades" index="21" unique_id=1871512788]
-offset_left = 64.0
-offset_top = 978.0
-offset_right = 1983.0
-offset_bottom = 990.0
-color = Color(0.105882354, 0.09019608, 0.09019608, 1)
-
-[node name="ColorRect24" type="ColorRect" parent="Shades" index="22" unique_id=571289094]
-offset_left = 64.0
-offset_top = 990.0
-offset_right = 1984.0
-offset_bottom = 1068.0
-color = Color(0.20392157, 0.16470589, 0.16470589, 1)
-
-[node name="ColorRect25" type="ColorRect" parent="Shades" index="23" unique_id=755454788]
-offset_left = 64.0
-offset_top = 1068.0
-offset_right = 1983.0
-offset_bottom = 1080.0
-color = Color(0.105882354, 0.09019608, 0.09019608, 1)
-
-[node name="Window" type="Sprite2D" parent="." index="2" unique_id=1631746985]
+[node name="Window" type="Sprite2D" parent="." index="1" unique_id=1631746985]
 texture_repeat = 3
 position = Vector2(960, 540)
-texture = ExtResource("2_rk6kv")
+texture = ExtResource("2_isobh")
 region_enabled = true
 region_rect = Rect2(80, 0, 1920, 1080)
 
-[node name="LargeDouble" type="Sprite2D" parent="." index="5" unique_id=901751798]
+[node name="LargeDouble" type="Sprite2D" parent="." index="4" unique_id=901751798]
 position = Vector2(629, 901)
 texture = ExtResource("3_isobh")
 
@@ -202,7 +32,7 @@ position = Vector2(-207, -502)
 [node name="PlantSlot3" parent="LargeDouble" index="2" unique_id=1609605480 instance=ExtResource("4_xcd8s")]
 position = Vector2(194, -502)
 
-[node name="SmallTall" type="Sprite2D" parent="." index="6" unique_id=54378646]
+[node name="SmallTall" type="Sprite2D" parent="." index="5" unique_id=54378646]
 position = Vector2(1574, 903)
 texture = ExtResource("5_bag6s")
 

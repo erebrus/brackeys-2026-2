@@ -1,5 +1,7 @@
 class_name Catalog extends MarginContainer
 
+signal solved
+
 var current_page:= 0
 
 @onready var toggle_button: BaseButton = %Button
@@ -57,6 +59,9 @@ func _on_fact_added(plant: CatalogPlant, fact: CatalogPlantFact) -> void:
 	
 	if page.is_solved:
 		%SolvedLabel.show()
+	
+	if Globals.pages.all(func(x): return x.is_solved):
+		solved.emit()
 	
 
 func _on_plant_bought(_plant: PlantType) -> void:

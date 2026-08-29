@@ -3,7 +3,12 @@ class_name PlantFactsContainer extends VBoxContainer
 signal fact_added(fact: CatalogPlantFact)
 
 
+var solved: bool
+
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	if solved:
+		return false
+	
 	if not data is CatalogPlantFact:
 		return false
 	
@@ -14,8 +19,6 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	# TODO: guess position :S
-	
 	var fact := data as CatalogPlantFact
 	
 	if fact == null:

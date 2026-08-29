@@ -35,6 +35,10 @@ func _input(event: InputEvent) -> void:
 		dragged.emit()
 	
 
+func _exit_tree() -> void:
+	MouseController.mouse_exited_pickable(self)
+	
+
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed():
