@@ -8,7 +8,7 @@ signal state_changed(state: PlantState)
 enum PlantState { DEAD, WILTING, NORMAL, THRIVING}
 
 @export var hp_per_requirement_met: float = 10
-@export var hp_per_requirement_unmet: float = -10
+@export var hp_per_requirement_unmet: float = -2
 
 @export var wilt_threshold := 35.0
 @export var bloom_threshold := 99.0
