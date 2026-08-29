@@ -13,7 +13,7 @@
 [resource]
 script = ExtResource("5_crx4o")
 nice_name = "roots"
-name = "Roots"
+name = "Radix Brumalis"
 textures = Dictionary[int, Texture2D]({
 0: ExtResource("6_kf4s1"),
 1: ExtResource("7_krx2u"),

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="1_auwwc"]
 [ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="2_fg0gp"]
 
-[sub_resource type="Resource" id="Resource_dmyf7"]
+[sub_resource type="Resource" id="Resource_auwwc"]
 script = ExtResource("1_auwwc")
 stat_type = 6
 decay_speed = 1.0
@@ -14,4 +14,4 @@ maximum = 100.0
 script = ExtResource("2_fg0gp")
 id = "needy"
 text = "Requires care and affecton to grow properly."
-requirement = SubResource("Resource_dmyf7")
+requirement = SubResource("Resource_auwwc")

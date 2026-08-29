@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://5k7g03v6u2su" path="res://src/systems/plant_type/requirement.gd" id="1_mxllo"]
 [ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="2_376gm"]
 
-[sub_resource type="Resource" id="Resource_ja0q2"]
+[sub_resource type="Resource" id="Resource_mxllo"]
 script = ExtResource("1_mxllo")
 stat_type = 6
 decay_speed = 1.0
@@ -13,4 +13,4 @@ maximum = 20.0
 script = ExtResource("2_376gm")
 id = "no_touch"
 text = "Hates being touched or handled."
-requirement = SubResource("Resource_ja0q2")
+requirement = SubResource("Resource_mxllo")

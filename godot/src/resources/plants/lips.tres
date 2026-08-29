@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_w4ull"]
 [ext_resource type="Resource" uid="uid://dedl2pn5qs40l" path="res://src/resources/facts/needy.tres" id="2_lp6pl"]
 [ext_resource type="Resource" uid="uid://cgx5uvb1fo8hn" path="res://src/resources/facts/blood.tres" id="3_cs48t"]
-[ext_resource type="Resource" uid="uid://gjkbawo85rii" path="res://src/resources/facts/hot.tres" id="4_ue1su"]
+[ext_resource type="Resource" uid="uid://8yybijdukpry" path="res://src/resources/facts/kisses.tres" id="4_w4ull"]
 [ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="5_3g3s8"]
 [ext_resource type="Texture2D" uid="uid://cx266y0bv1bre" path="res://assets/gfx/plants/lips-dead.png" id="6_whuqp"]
 [ext_resource type="Texture2D" uid="uid://o26503tps1h4" path="res://assets/gfx/plants/lips-wilted.png" id="7_wsptm"]
@@ -13,11 +13,11 @@
 [resource]
 script = ExtResource("5_3g3s8")
 nice_name = "lips"
-name = "Lips"
+name = "Crimson Paramour"
 textures = Dictionary[int, Texture2D]({
 0: ExtResource("6_whuqp"),
 1: ExtResource("7_wsptm"),
 2: ExtResource("8_sofcq"),
 3: ExtResource("9_s31tw")
 })
-facts = Array[ExtResource("1_w4ull")]([ExtResource("2_lp6pl"), ExtResource("3_cs48t"), ExtResource("4_ue1su")])
+facts = Array[ExtResource("1_w4ull")]([ExtResource("2_lp6pl"), ExtResource("3_cs48t"), ExtResource("4_w4ull")])

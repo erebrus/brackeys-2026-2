@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://s36ea1ob81li"]
+
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_rate3"]
+[ext_resource type="Resource" uid="uid://cj2lr8i1idgxq" path="res://src/resources/facts/bugs.tres" id="2_y5hmg"]
+[ext_resource type="Resource" uid="uid://gjkbawo85rii" path="res://src/resources/facts/hot.tres" id="3_bdse5"]
+[ext_resource type="Resource" uid="uid://2lvt6thtjvpl" path="res://src/resources/facts/spadix.tres" id="4_db5qi"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="5_nliq6"]
+[ext_resource type="Texture2D" uid="uid://2qcera8knk4o" path="res://assets/gfx/plants/rod-dead.png" id="6_fdjrk"]
+[ext_resource type="Texture2D" uid="uid://cahhsxjitw3a4" path="res://assets/gfx/plants/rod-wilted.png" id="7_rjrxh"]
+[ext_resource type="Texture2D" uid="uid://ceb8gmngtungp" path="res://assets/gfx/plants/rod-normal.png" id="8_pvjv7"]
+[ext_resource type="Texture2D" uid="uid://cekvxdnc2tqd0" path="res://assets/gfx/plants/rod-healthy.png" id="9_iijx4"]
+
+[resource]
+script = ExtResource("5_nliq6")
+nice_name = "rod"
+name = "Fetorbloom"
+textures = Dictionary[int, Texture2D]({
+0: ExtResource("6_fdjrk"),
+1: ExtResource("7_rjrxh"),
+2: ExtResource("8_pvjv7"),
+3: ExtResource("9_iijx4")
+})
+facts = Array[ExtResource("1_rate3")]([ExtResource("2_y5hmg"), ExtResource("3_bdse5"), ExtResource("4_db5qi")])

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Fact" format=3 uid="uid://2lvt6thtjvpl"]
+
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_33lxn"]
+
+[resource]
+script = ExtResource("1_33lxn")
+id = "spadix"
+text = "Its spadix flushes with blood when fed"

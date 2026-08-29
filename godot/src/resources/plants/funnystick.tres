@@ -13,7 +13,7 @@
 [resource]
 script = ExtResource("5_dq8ne")
 nice_name = "funnystick"
-name = "Funny Stick"
+name = "Scarlet Argus"
 textures = Dictionary[int, Texture2D]({
 0: ExtResource("6_14ano"),
 1: ExtResource("7_f4eq4"),
