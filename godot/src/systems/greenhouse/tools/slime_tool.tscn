@@ -4,9 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://d4frsd5t5brp2" path="res://assets/gfx/tools/slime_tool.png" id="2_6epxv"]
 [ext_resource type="Material" uid="uid://yn78ekkqfr3n" path="res://src/systems/greenhouse/tools/slime_particles_material.tres" id="2_usxir"]
 [ext_resource type="Texture2D" uid="uid://mmraoeg7kvsb" path="res://assets/gfx/tools/slime_particle.png" id="2_yvyl5"]
+[ext_resource type="AudioStream" uid="uid://brqoeff0iy6lp" path="res://assets/sfx/Spray_Slime_1.ogg" id="5_8knve"]
+[ext_resource type="AudioStream" uid="uid://cndt07u8xdaba" path="res://assets/sfx/Spray_Slime_2.ogg" id="6_ro4k4"]
+[ext_resource type="AudioStream" uid="uid://5opnlyfymxhs" path="res://assets/sfx/Spray_Slime_3.ogg" id="7_p53ca"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5bvys"]
 radius = 62.7236
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v3t75"]
+streams_count = 3
+stream_0/stream = ExtResource("5_8knve")
+stream_1/stream = ExtResource("6_ro4k4")
+stream_2/stream = ExtResource("7_p53ca")
 
 [node name="SlimeTool" unique_id=1737244878 node_paths=PackedStringArray("particles") instance=ExtResource("1_j4aqd")]
 stat = 4
@@ -59,3 +68,6 @@ position = Vector2(-14, 43)
 
 [node name="CollisionShape2D" parent="InteractionArea" index="0" unique_id=1881849974]
 position = Vector2(14, -43)
+
+[node name="sfx" parent="." index="6" unique_id=1609069050]
+stream = SubResource("AudioStreamRandomizer_v3t75")

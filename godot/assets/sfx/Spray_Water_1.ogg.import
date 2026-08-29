@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Spray_Water_1.ogg-39cf3a4f0592a6187379bb423b0
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

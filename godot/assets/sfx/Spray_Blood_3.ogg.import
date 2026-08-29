@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Spray_Blood_3.ogg-53acbab0a85ede1c2df90f6e631
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

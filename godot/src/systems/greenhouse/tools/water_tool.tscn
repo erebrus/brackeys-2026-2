@@ -2,9 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="1_yk1i2"]
 [ext_resource type="Material" uid="uid://cs4x5753wyllp" path="res://src/systems/greenhouse/tools/water_particles_material.tres" id="2_l3c1f"]
+[ext_resource type="AudioStream" uid="uid://b8v4xr0ww48ej" path="res://assets/sfx/Spray_Water_1.ogg" id="3_dfdc6"]
+[ext_resource type="AudioStream" uid="uid://df7t6xiu2xaus" path="res://assets/sfx/Spray_Water_2.ogg" id="4_y18l6"]
+[ext_resource type="AudioStream" uid="uid://dm7rtus67hi0v" path="res://assets/sfx/Spray_Water_3.ogg" id="5_ixa3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3c1f"]
 size = Vector2(116, 139.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_acopo"]
+streams_count = 3
+stream_0/stream = ExtResource("3_dfdc6")
+stream_1/stream = ExtResource("4_y18l6")
+stream_2/stream = ExtResource("5_ixa3b")
 
 [node name="WaterTool" unique_id=1737244878 instance=ExtResource("1_yk1i2")]
 stat = 3
@@ -26,3 +35,6 @@ snap_on_hover = false
 [node name="CollisionShape2D" parent="PickableArea" index="0" unique_id=283360304]
 position = Vector2(20, 3.75)
 shape = SubResource("RectangleShape2D_l3c1f")
+
+[node name="sfx" parent="." index="4" unique_id=1609069050]
+stream = SubResource("AudioStreamRandomizer_acopo")

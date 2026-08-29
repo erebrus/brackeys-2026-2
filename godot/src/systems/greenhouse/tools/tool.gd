@@ -12,11 +12,14 @@ var plant: Plant
 @onready var pickable_area: PickableArea = $PickableArea
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var pivot: Node2D = %RotationPivot
+@onready var sfx: AudioStreamPlayer = $sfx
+@onready var pickup_sfx: AudioStreamPlayer = $pickup_sfx
 
 
 func _ready() -> void:
 	pickable_area.dragged.connect(_on_dragged)
 	pickable_area.dropped.connect(_on_dropped)
+	pickable_area.picked.connect(func():pickup_sfx.play())
 
 func _physics_process(delta: float) -> void:
 	if plant == null:
@@ -28,11 +31,12 @@ func _physics_process(delta: float) -> void:
 func start_pouring() -> void:
 	toggle_particles(true)
 	pivot.rotation = pour_rotation
-	
+	sfx.play()
 
 func stop_pouring() -> void:
 	pivot.rotation = 0
 	toggle_particles(false)
+	sfx.stop()
 	
 
 func toggle_particles(on: bool) -> void:

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Spray_Slime_1.ogg-53ece36fd93265176d3b87e0acf
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

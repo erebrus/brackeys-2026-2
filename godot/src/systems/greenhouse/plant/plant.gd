@@ -27,6 +27,10 @@ var unmet_requirements: int
 
 @onready var debug_stat_container: Container = %DebugStatsContainer
 @onready var plant_sprite: Sprite2D = %Plant
+@export var drop_plant_cart_sfx: AudioStreamPlayer
+@export var drop_plant_invalid_sfx: AudioStreamPlayer
+@export var drop_plant_slot_sfx: AudioStreamPlayer
+@export var pickup_plant_sfx: AudioStreamPlayer
 
 
 @warning_ignore("shadowed_variable")
@@ -103,6 +107,7 @@ func _setup_stats() -> void:
 
 func _setup_pot() -> void:
 	pot = Pot.create(self)
+	pot.picked.connect(func():pickup_plant_sfx.play())
 	pot.clicked.connect(_on_clicked)
 	pot.dropped.connect(_on_dropped)
 	add_child(pot)
@@ -169,12 +174,17 @@ func _update_plant_sprite() -> void:
 func _on_clicked() -> void:
 	if state == PlantState.DEAD:
 		queue_free()
-	
+		
 
 func _on_dropped(new_slot: PlantSlot) -> void:
 	if new_slot != null:
 		new_slot.set_plant(self)
-	
+		if new_slot.allow_stat_decay:
+			drop_plant_slot_sfx.play()
+		else:
+			drop_plant_cart_sfx.play()
+	else:
+		drop_plant_invalid_sfx.play()
 
 func _on_hp_changed(_type: Types.Stats, current_hp: float) -> void:
 	hp_changed.emit(current_hp)
