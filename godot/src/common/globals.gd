@@ -33,6 +33,7 @@ func _ready():
 	GSLogger.info("Game version: %s" % game_version)
 	
 	_load_plants()
+	_setup_cursors()
 	
 	if get_tree().current_scene.scene_file_path == GAME_SCENE_PATH:
 		start_game()
@@ -81,7 +82,14 @@ func _load_plants() -> void:
 			continue
 		for fact in plant.facts:
 			facts[fact.id] = fact
-			
+	
+
+func _setup_cursors() -> void:
+	Input.set_custom_mouse_cursor(preload("res://assets/gfx/ui/cursor3.png"), Input.CURSOR_ARROW, Vector2(7, 8))
+	Input.set_custom_mouse_cursor(preload("res://assets/gfx/ui/cursor2.png"), Input.CURSOR_MOVE, Vector2(12, 12))
+	Input.set_custom_mouse_cursor(preload("res://assets/gfx/ui/cursor1.png"), Input.CURSOR_CAN_DROP, Vector2(20, 28))
+	Input.set_custom_mouse_cursor(preload("res://assets/gfx/ui/cursor1.png"), Input.CURSOR_FORBIDDEN, Vector2(20, 28))
+	
 
 func do_lose():
 	go_to_main_menu()

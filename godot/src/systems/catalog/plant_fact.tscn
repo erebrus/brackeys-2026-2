@@ -4,6 +4,7 @@
 
 [node name="PlantFact" type="PanelContainer" unique_id=1923659573]
 mouse_filter = 1
+mouse_default_cursor_shape = 13
 script = ExtResource("1_fl257")
 
 [node name="Label" type="Label" parent="." unique_id=50262524]
