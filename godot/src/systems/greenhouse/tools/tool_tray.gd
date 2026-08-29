@@ -11,6 +11,14 @@ func _ready() -> void:
 	Events.plant_bought.connect(_on_plant_bought)
 	
 
+func toggle_particles(value: bool) -> void:
+	$BugsTool.toggle_particles(value)
+	$BloodTool.toggle_particles(value)
+	$SlimeTool.toggle_particles(value)
+	$AffectionTool.toggle_particles(value)
+	$WaterTool.toggle_particles(value)
+	
+
 func _on_slot_plant_changed(_plant: Plant) -> void:
 	var free_slots: int = 0
 	for slot in slots:

@@ -10,7 +10,6 @@ class_name Game extends Node2D
 func _ready():
 	Events.level_ended.connect(_on_level_ended)
 	fade_panel.show()
-	fade_panel.fade_in()
 	level_manager.load_first_level()
 	Debug.set_levels(level_manager.levels)
 	Globals.game = self
@@ -23,8 +22,6 @@ func get_level()->BaseLevel:
 func _on_level_ended():
 	fade_panel.fade_out()
 	await fade_panel.fade_out_completed
-	if not level_manager.is_last_level():
-		fade_panel.fade_in()
 	level_manager.load_next_level()
 	
 
@@ -37,6 +34,16 @@ func _on_level_manager_level_unloaded() -> void:
 	
 
 func _on_level_manager_level_ready() -> void:
+	GSLogger.info("Starting all particles")
+	%ToolTray.toggle_particles(true)
+	await get_tree().process_frame
+	
+	GSLogger.info("Stopping all particles")
+	%ToolTray.toggle_particles(false)
+	await get_tree().process_frame
+	
+	fade_panel.fade_in()
+	
 	if get_level().override_game_state:
 		get_level().set_state(get_level().override_game_state)
 	else:

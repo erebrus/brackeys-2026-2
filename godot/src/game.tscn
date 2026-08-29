@@ -23,6 +23,7 @@ level_container = NodePath("../Level")
 [node name="Level" type="Node2D" parent="." unique_id=1708604477]
 
 [node name="ToolTray" parent="." unique_id=73056497 instance=ExtResource("6_wqvko")]
+unique_name_in_owner = true
 position = Vector2(1266, 882)
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=10557319]
