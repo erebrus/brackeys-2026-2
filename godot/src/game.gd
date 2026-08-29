@@ -10,6 +10,7 @@ class_name Game extends Node2D
 func _ready():
 	Events.level_ended.connect(_on_level_ended)
 	fade_panel.show()
+	fade_panel.set_fade(1)
 	level_manager.load_first_level()
 	Debug.set_levels(level_manager.levels)
 	Globals.game = self
@@ -34,6 +35,8 @@ func _on_level_manager_level_unloaded() -> void:
 	
 
 func _on_level_manager_level_ready() -> void:
+	await get_tree().process_frame
+	
 	GSLogger.info("Starting all particles")
 	%ToolTray.toggle_particles(true)
 	await get_tree().process_frame
