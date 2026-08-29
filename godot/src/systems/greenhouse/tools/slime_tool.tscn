@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cwkiy18w2h4dl"]
+
+[ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="1_j4aqd"]
+[ext_resource type="Texture2D" uid="uid://d4frsd5t5brp2" path="res://assets/gfx/tools/slime_tool.png" id="2_6epxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6epxv"]
+size = Vector2(80, 109)
+
+[node name="SlimeTool" unique_id=1737244878 instance=ExtResource("1_j4aqd")]
+stat = 4
+pour_speed = 30.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=514892687]
+position = Vector2(36, 52)
+texture = ExtResource("2_6epxv")
+
+[node name="PickableArea" parent="." index="1" unique_id=94634173]
+position = Vector2(51, 56)
+
+[node name="CollisionShape2D" parent="PickableArea" index="0" unique_id=283360304]
+position = Vector2(-11, -1.5)
+shape = SubResource("RectangleShape2D_6epxv")
+
+[node name="InteractionArea" parent="." index="2" unique_id=1503144043]
+position = Vector2(-14, 43)
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0" unique_id=1881849974]
+position = Vector2(14, -43)

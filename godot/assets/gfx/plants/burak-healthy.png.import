@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbfsi8nhbaem7"
-path="res://.godot/imported/watering_can.png-49eaffd36f2fcb19a0c294942671001f.ctex"
+uid="uid://dry2dxpp8hl7e"
+path="res://.godot/imported/burak-healthy.png-1454548d2d529196ff7aeb01d006bd1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/watering_can.png"
-dest_files=["res://.godot/imported/watering_can.png-49eaffd36f2fcb19a0c294942671001f.ctex"]
+source_file="res://assets/gfx/plants/burak-healthy.png"
+dest_files=["res://.godot/imported/burak-healthy.png-1454548d2d529196ff7aeb01d006bd1f.ctex"]
 
 [params]
 

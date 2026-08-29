@@ -14,6 +14,11 @@ func _ready():
 	level_manager.load_first_level()
 	Debug.set_levels(level_manager.levels)
 	Globals.game = self
+	
+
+func get_level()->BaseLevel:
+	return level_manager.current_level
+	
 
 func _on_level_ended():
 	fade_panel.fade_out()
@@ -23,17 +28,12 @@ func _on_level_ended():
 	level_manager.load_next_level()
 	
 
-
 func _on_level_manager_game_completed() -> void:
 	Globals.do_win()
 	
 
 func _on_level_manager_level_unloaded() -> void:
 	pass
-	
-
-func get_level()->BaseLevel:
-	return level_manager.current_level
 	
 
 func _on_level_manager_level_ready() -> void:
@@ -43,5 +43,4 @@ func _on_level_manager_level_ready() -> void:
 		if level_manager.current_level_idx==0:
 			game_state = start_state.duplicate()
 		get_level().set_state(game_state)
-	
 	

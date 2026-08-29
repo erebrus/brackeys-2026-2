@@ -1,4 +1,6 @@
-extends VBoxContainer
+class_name PlantFactsContainer extends VBoxContainer
+
+signal fact_added(fact: CatalogPlantFact)
 
 
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
@@ -20,4 +22,5 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 		return
 	
 	fact.reparent(self)
+	fact_added.emit(fact)
 	

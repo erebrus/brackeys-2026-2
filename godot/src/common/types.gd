@@ -8,6 +8,7 @@ enum Stats {
 	
 	SUNLIGHT,
 	TEMPERATURE,
+	
 	WATER,
 	SLIME,
 	BLOOD,

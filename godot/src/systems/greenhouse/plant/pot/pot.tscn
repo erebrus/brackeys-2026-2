@@ -18,6 +18,7 @@ position = Vector2(0, -64)
 unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 32
+is_clickable = true
 is_draggable = true
 snap_on_hover = true
 

@@ -17,6 +17,7 @@ enum PlantState { DEAD, WILTING, NORMAL, THRIVING}
 
 
 var slot: PlantSlot
+var pot: Pot
 
 var stats: Dictionary[Types.Stats, PlantStat]
 var state: PlantState = PlantState.NORMAL
@@ -51,6 +52,12 @@ func _physics_process(delta: float) -> void:
 	if state == PlantState.DEAD:
 		return
 	
+	if slot == null or not slot.allow_stat_decay:
+		return
+	
+	if pot.pickable_area.is_dragging:
+		return
+	
 	_update_requirements()
 	
 	hp.decay(delta)
@@ -81,7 +88,8 @@ func _setup_stats() -> void:
 			continue
 		
 		var stat = PlantStat.create(fact.requirement.stat_type) 
-		stat.decay_speed = fact.requirement.decay_speed
+		if fact.requirement.custom_decay_speed:
+			stat.decay_speed = fact.requirement.decay_speed
 		
 		stats[stat.type] = stat
 		stat.changed.connect(stat_changed.emit)
@@ -94,7 +102,8 @@ func _setup_stats() -> void:
 	
 
 func _setup_pot() -> void:
-	var pot = Pot.create(self)
+	pot = Pot.create(self)
+	pot.clicked.connect(_on_clicked)
 	pot.picked.connect(_on_picked)
 	pot.dropped.connect(_on_dropped)
 	add_child(pot)
@@ -107,15 +116,20 @@ func _setup_pot() -> void:
 func _update_requirements() -> void:
 	var met := 0
 	var unmet := 0
-		
+	
+	hp.maximum = 100
+	hp.minimum = 0
+	
 	for fact in type.facts:
 		if fact.requirement == null:
 			continue
 		
 		if _meets_requirement(fact.requirement):
 			met += 1
+			hp.minimum = 25
 		else:
 			unmet += 1
+			hp.maximum = 75
 	
 	if met != met_requirements or unmet != unmet_requirements:
 		met_requirements_changed.emit(met, unmet)
@@ -151,6 +165,11 @@ func _update_plant_state() -> void:
 
 func _update_plant_sprite() -> void:
 	plant_sprite.texture = type.textures[state]
+	
+
+func _on_clicked() -> void:
+	if state == PlantState.DEAD:
+		queue_free()
 	
 
 func _on_picked() -> void:

@@ -39,3 +39,31 @@ stats = Dictionary[int, float]({
 1: 0.0,
 2: 100.0
 })
+
+[node name="Label" type="Label" parent="." unique_id=1454082871]
+offset_left = 767.0
+offset_top = 398.0
+offset_right = 823.0
+offset_bottom = 421.0
+text = "SUNNY"
+
+[node name="Label4" type="Label" parent="." unique_id=1472084304]
+offset_left = 164.0
+offset_top = 899.0
+offset_right = 220.0
+offset_bottom = 922.0
+text = "COLD"
+
+[node name="Label2" type="Label" parent="." unique_id=148557536]
+offset_left = 744.0
+offset_top = 836.0
+offset_right = 800.0
+offset_bottom = 859.0
+text = "SHADOW"
+
+[node name="Label3" type="Label" parent="." unique_id=420682554]
+offset_left = 582.0
+offset_top = 890.0
+offset_right = 653.0
+offset_bottom = 913.0
+text = "WARM"

@@ -8,6 +8,7 @@ var plant: Plant
 
 @onready var pickable_area: PickableArea = $PickableArea
 @onready var interaction_area: InteractionArea = $InteractionArea
+@onready var particles: GPUParticles2D = %GPUParticles2D
 
 
 func _ready() -> void:
@@ -27,7 +28,9 @@ func _pour() -> void:
 	
 	if plant == null:
 		rotation = 0
+		particles.emitting = false
 	else:
+		particles.emitting = true
 		if plant_area.global_position.x > global_position.x:
 			scale.x = -1
 			rotation = PI / 6
@@ -44,4 +47,5 @@ func _on_dropped(_area: DropArea) -> void:
 	plant = null
 	scale.x = 1
 	rotation = 0
+	particles.emitting = false
 	
