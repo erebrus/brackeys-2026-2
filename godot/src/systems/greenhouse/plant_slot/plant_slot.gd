@@ -14,6 +14,8 @@ func remove_plant() -> void:
 	if plant == null:
 		return
 	
+	GSLogger.info("Removing plant %s from slot with stats %s" % [plant.type.name, stats])
+	
 	plant.slot = null
 	plant = null
 	plant_changed.emit(null)
@@ -30,6 +32,8 @@ func set_plant(value: Plant) -> void:
 	
 	if plant.slot != null:
 		plant.slot.remove_plant()
+	
+	GSLogger.info("Adding plant %s to slot with stats %s" % [plant.type.name, stats])
 	
 	if plant.get_parent() == null:
 		add_child(plant)

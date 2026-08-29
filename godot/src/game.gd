@@ -44,3 +44,11 @@ func _on_level_manager_level_ready() -> void:
 			game_state = start_state.duplicate()
 		get_level().set_state(game_state)
 	
+
+
+func _on_right_button_pressed() -> void:
+	get_level().move_room(+1)
+
+
+func _on_left_button_pressed() -> void:
+	get_level().move_room(-1)

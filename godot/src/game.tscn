@@ -23,12 +23,37 @@ level_container = NodePath("../Level")
 [node name="Level" type="Node2D" parent="." unique_id=1708604477]
 
 [node name="ToolTray" parent="." unique_id=73056497 instance=ExtResource("6_wqvko")]
-position = Vector2(1272, 884)
+position = Vector2(1266, 882)
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=10557319]
 process_mode = 3
 
 [node name="Catalog" parent="HUDLayer" unique_id=1178810471 instance=ExtResource("5_pk08u")]
+anchors_preset = 15
+
+[node name="MarginContainer" type="MarginContainer" parent="HUDLayer" unique_id=1883856253]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="LeftButton" type="Button" parent="HUDLayer/MarginContainer" unique_id=2039757166]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "<"
+
+[node name="RightButton" type="Button" parent="HUDLayer/MarginContainer" unique_id=1759493627]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = ">"
 
 [node name="OverlayLayer" type="CanvasLayer" parent="." unique_id=1990209073]
 layer = 5
@@ -40,3 +65,5 @@ metadata/_edit_lock_ = true
 [connection signal="game_completed" from="LevelManager" to="." method="_on_level_manager_game_completed"]
 [connection signal="level_ready" from="LevelManager" to="." method="_on_level_manager_level_ready"]
 [connection signal="level_unloaded" from="LevelManager" to="." method="_on_level_manager_level_unloaded"]
+[connection signal="pressed" from="HUDLayer/MarginContainer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="HUDLayer/MarginContainer/RightButton" to="." method="_on_right_button_pressed"]

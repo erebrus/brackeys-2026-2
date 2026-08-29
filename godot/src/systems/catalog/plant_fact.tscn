@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dmk74ill31lem"]
 
-[ext_resource type="Script" uid="uid://cda1i3a3n7rm8" path="res://src/systems/catalog/plant_fact.gd" id="1_sd40g"]
+[ext_resource type="Script" uid="uid://cda1i3a3n7rm8" path="res://src/systems/catalog/plant_fact.gd" id="1_fl257"]
 
 [node name="PlantFact" type="PanelContainer" unique_id=1923659573]
 mouse_filter = 1
-script = ExtResource("1_sd40g")
+script = ExtResource("1_fl257")
 
 [node name="Label" type="Label" parent="." unique_id=50262524]
 unique_name_in_owner = true

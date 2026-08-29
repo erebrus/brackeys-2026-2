@@ -19,10 +19,12 @@ texture = ExtResource("1_wwwpq")
 [node name="PlantSlot1" parent="." unique_id=1520109860 instance=ExtResource("3_owytq")]
 position = Vector2(-473, 99)
 allow_stat_decay = false
+stats = Dictionary[int, float]({})
 
 [node name="PlantSlot2" parent="." unique_id=1649482548 instance=ExtResource("3_owytq")]
 position = Vector2(-263, 99)
 allow_stat_decay = false
+stats = Dictionary[int, float]({})
 
 [node name="Label" type="Label" parent="." unique_id=1667679276]
 offset_left = 478.0

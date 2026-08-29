@@ -23,7 +23,7 @@ func _input(event: InputEvent) -> void:
 func mouse_entered(target: DropArea) -> void:
 	if _drag_armed:
 		if _drag_target.collision_mask & target.collision_layer != 0:
-			GSLogger.info("Draggable %s entered area %s" % [_drag_target.target, target.target])
+			GSLogger.debug("Draggable %s entered area %s" % [_drag_target.target, target.target])
 			_drop_areas.append(target)
 			target.enter_draggable(_drag_target)
 			_drag_target.enter_area(target)
@@ -32,20 +32,20 @@ func mouse_entered(target: DropArea) -> void:
 func mouse_exited(target: DropArea) -> void:
 	if _drag_armed:
 		if _drop_areas.has(target):
-			GSLogger.info("Draggable %s exited area %s" % [_drag_target.target, target.target])
+			GSLogger.debug("Draggable %s exited area %s" % [_drag_target.target, target.target])
 			_drop_areas.erase(target)
 			target.exit_draggable(_drag_target)
 			_drag_target.exit_area(target)
 	
 
 func mouse_pressed(target: PickableArea) -> void:
-	GSLogger.info("Mouse pressed %s" % target.target)
+	GSLogger.debug("Mouse pressed %s" % target.target)
 	_click_target = target
 	
 
 func mouse_released(target: PickableArea) -> void:
 	if _click_target == target:
-		GSLogger.info("Mouse released %s" % target.target)
+		GSLogger.debug("Mouse released %s" % target.target)
 		target.press()
 	
 
@@ -53,13 +53,13 @@ func start_drag(target: PickableArea) -> void:
 	if _is_drag_pre_armed():
 		return
 	
-	GSLogger.info("Pre-arming drag on %s" % target.target)
+	GSLogger.debug("Pre-arming drag on %s" % target.target)
 	_drag_target = target
 	_drag_position = get_viewport().get_mouse_position()
 	
 
 func _arm_drag() -> void:
-	GSLogger.info("Arming drag on %s" % _drag_target.target)
+	GSLogger.debug("Arming drag on %s" % _drag_target.target)
 	_drag_armed = true
 	_drag_target.start_drag()
 	
@@ -71,7 +71,7 @@ func _stop_drag() -> void:
 	if _drag_armed:
 		_drop()
 	else:
-		GSLogger.info("Canceling arming drag on %s" % _drag_target.target)
+		GSLogger.debug("Canceling arming drag on %s" % _drag_target.target)
 	
 	_drag_target = null
 	_drag_armed = false
@@ -85,7 +85,7 @@ func _drop() -> void:
 		if idx >= 0:
 			drop_area = _drop_areas[0]
 	
-	GSLogger.info("Dropping %s on area %s" % [_drag_target.target, drop_area.target if drop_area != null else null])
+	GSLogger.debug("Dropping %s on area %s" % [_drag_target.target, drop_area.target if drop_area != null else null])
 	_drag_target.drop(drop_area)
 	
 	get_viewport().set_input_as_handled()
