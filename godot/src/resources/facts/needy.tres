@@ -6,6 +6,7 @@
 [sub_resource type="Resource" id="Resource_dmyf7"]
 script = ExtResource("1_auwwc")
 stat_type = 6
+decay_speed = 1.0
 minimum = 80.0
 maximum = 100.0
 

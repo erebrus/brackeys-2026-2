@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PlantType" format=3 uid="uid://b3ds8dn5t6s70"]
+
+[ext_resource type="Script" uid="uid://d0tuyk5a1s3re" path="res://src/systems/plant_type/fact.gd" id="1_xpihg"]
+[ext_resource type="Resource" uid="uid://dtjfw628pi83w" path="res://src/resources/facts/eye_bulbs.tres" id="2_11sua"]
+[ext_resource type="Resource" uid="uid://b14lwrk4stcd6" path="res://src/resources/facts/red_leaves.tres" id="3_4icu3"]
+[ext_resource type="Resource" uid="uid://d0wbfvhpeqcnx" path="res://src/resources/facts/cold.tres" id="4_dgfm2"]
+[ext_resource type="Script" uid="uid://whs48undqype" path="res://src/systems/plant_type/plant_type.gd" id="5_dq8ne"]
+[ext_resource type="Texture2D" uid="uid://bhqyidabdfiby" path="res://assets/gfx/plants/funnystick-dead.png" id="6_14ano"]
+[ext_resource type="Texture2D" uid="uid://cgunq3nx6db42" path="res://assets/gfx/plants/funnystick-wilted.png" id="7_f4eq4"]
+[ext_resource type="Texture2D" uid="uid://dfsk55838v0h5" path="res://assets/gfx/plants/funnystick-normal.png" id="8_n2bol"]
+[ext_resource type="Texture2D" uid="uid://c473rwq8xm8pu" path="res://assets/gfx/plants/funnystick-healthy.png" id="9_kyvtn"]
+
+[resource]
+script = ExtResource("5_dq8ne")
+nice_name = "funnystick"
+name = "Funny Stick"
+textures = Dictionary[int, Texture2D]({
+0: ExtResource("6_14ano"),
+1: ExtResource("7_f4eq4"),
+2: ExtResource("8_n2bol"),
+3: ExtResource("9_kyvtn")
+})
+facts = Array[ExtResource("1_xpihg")]([ExtResource("2_11sua"), ExtResource("3_4icu3"), ExtResource("4_dgfm2")])
