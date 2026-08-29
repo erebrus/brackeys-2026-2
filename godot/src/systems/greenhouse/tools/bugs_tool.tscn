@@ -3,20 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="1_af6re"]
 [ext_resource type="Texture2D" uid="uid://x33pa1ji2nj5" path="res://assets/gfx/tools/bugs_tool.png" id="2_sn44t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3eat"]
-size = Vector2(80, 109)
+[sub_resource type="CircleShape2D" id="CircleShape2D_157ip"]
+radius = 70.08745
 
 [node name="BugsTool" unique_id=1737244878 instance=ExtResource("1_af6re")]
 stat = 7
 pour_speed = 30.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=514892687]
-position = Vector2(36, 52)
+position = Vector2(0, 0)
 texture = ExtResource("2_sn44t")
 
 [node name="PickableArea" parent="." index="1" unique_id=94634173]
-position = Vector2(51, 56)
+position = Vector2(10, 2)
 
 [node name="CollisionShape2D" parent="PickableArea" index="0" unique_id=283360304]
 position = Vector2(-11, -1.5)
-shape = SubResource("RectangleShape2D_y3eat")
+shape = SubResource("CircleShape2D_157ip")

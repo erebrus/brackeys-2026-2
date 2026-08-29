@@ -3,9 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="1_7tgqr"]
 [ext_resource type="Texture2D" uid="uid://bkiq0lvw30bhw" path="res://assets/gfx/tools/blood_can.png" id="2_157ip"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6epxv"]
+radius = 22.575504
+height = 176.4891
+
 [node name="BloodTool" unique_id=1737244878 instance=ExtResource("1_7tgqr")]
 stat = 5
 pour_speed = 30.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=514892687]
+position = Vector2(-65, 57)
 texture = ExtResource("2_157ip")
+
+[node name="CollisionShape2D" parent="PickableArea" parent_id_path=PackedInt32Array(94634173) index="0" unique_id=283360304]
+position = Vector2(-129, 51.000004)
+rotation = 0.7557276
+shape = SubResource("CapsuleShape2D_6epxv")

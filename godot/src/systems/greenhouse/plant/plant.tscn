@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://miodiicp4en1" path="res://src/systems/interaction_area/interaction_area.tscn" id="5_sul5p"]
 [ext_resource type="PackedScene" uid="uid://bbhtmhighmqjy" path="res://src/systems/greenhouse/plant/health_icon.tscn" id="6_ed5tb"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ice2y"]
-radius = 48.93
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1al4v"]
+radius = 81.0
+height = 288.0
 
 [node name="Plant" type="Node2D" unique_id=1928706633]
 script = ExtResource("1_bjxm2")
@@ -24,7 +25,7 @@ target = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plant/InteractionArea" unique_id=1183029309]
 position = Vector2(0, -157)
-shape = SubResource("CircleShape2D_ice2y")
+shape = SubResource("CapsuleShape2D_1al4v")
 
 [node name="DebugStatsContainer" type="VBoxContainer" parent="." unique_id=1849534237]
 unique_name_in_owner = true

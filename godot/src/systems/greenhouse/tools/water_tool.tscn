@@ -3,9 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="1_yk1i2"]
 [ext_resource type="Material" uid="uid://cs4x5753wyllp" path="res://src/systems/greenhouse/tools/water_particles_material.tres" id="2_l3c1f"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3c1f"]
+size = Vector2(116, 139.5)
+
 [node name="WaterTool" unique_id=1737244878 instance=ExtResource("1_yk1i2")]
 stat = 3
 pour_speed = 30.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=514892687]
+position = Vector2(70, 13)
+
+[node name="CollisionShape2D" parent="PickableArea" parent_id_path=PackedInt32Array(94634173) index="0" unique_id=283360304]
+position = Vector2(20, 3.75)
+shape = SubResource("RectangleShape2D_l3c1f")
 
 [node name="GPUParticles2D" parent="." index="3" unique_id=547647707]
 process_material = ExtResource("2_l3c1f")
