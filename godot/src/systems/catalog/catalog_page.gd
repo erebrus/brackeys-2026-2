@@ -32,16 +32,20 @@ func shuffle_facts() -> void:
 	
 	for idx in plants.size():
 		var plant: PlantType = plants.values()[idx]
+		plant.current_facts.clear()
+		
 		for i in facts_per_plant:
 			plant.current_facts.append(all_facts.pop_front())
 		
 		if idx < remaining:
 			plant.current_facts.append(all_facts.pop_front())
 	
+	# TODO: if any plant is solved, shuffle again?
+	
 
 func move_fact(fact_id: String, old_plant: PlantType, new_plant: PlantType) -> void:
-	old_plant.current_facts.erase(fact_id)
-	new_plant.current_facts.append(fact_id)
+	old_plant.remove_fact(fact_id)
+	new_plant.add_fact(fact_id)
 	
 	if is_solved:
 		return

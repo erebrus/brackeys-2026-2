@@ -5,6 +5,8 @@ var plant: PlantType
 
 var fact: Fact
 
+var draggable: bool = true
+
 @warning_ignore("shadowed_variable")
 static func create(fact: Fact, plant: PlantType) -> CatalogPlantFact:
 	var scene: CatalogPlantFact = load("uid://dmk74ill31lem").instantiate()
@@ -21,10 +23,17 @@ func _ready() -> void:
 	
 
 func _get_drag_data(_at_position: Vector2) -> CatalogPlantFact:
+	if not draggable:
+		return null
+	
 	set_drag_preview(create_preview())
 	return self
 	
-#
+
+func disable() -> void:
+	draggable = false
+	
+
 func create_preview() -> CatalogPlantFact:
 	var preview = create(fact, plant)
 	preview.custom_minimum_size = size

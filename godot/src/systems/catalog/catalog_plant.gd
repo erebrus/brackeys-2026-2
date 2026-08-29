@@ -4,7 +4,7 @@ signal fact_added(plant: CatalogPlant, fact: CatalogPlant)
 
 var plant: PlantType
 
-
+@onready var solved_overlay: Control = %Solved
 @onready var facts_container: PlantFactsContainer = %FactsContainer
 @onready var buy_button: BaseButton = %BuyButton
 
@@ -24,6 +24,7 @@ func _ready() -> void:
 	
 	Events.free_tray_slots_changed.connect(func(x): buy_button.disabled = x == 0)
 	
+	plant.solved.connect(_on_solved)
 	facts_container.fact_added.connect(_on_fact_added)
 	GameUtils.clear_node(facts_container)
 	
@@ -35,3 +36,9 @@ func _ready() -> void:
 func _on_fact_added(fact: CatalogPlantFact) -> void:
 	fact_added.emit(self, fact)
 	
+
+func _on_solved() -> void:
+	solved_overlay.show()
+	
+	for fact: CatalogPlantFact in facts_container.get_children():
+		fact.disable()
