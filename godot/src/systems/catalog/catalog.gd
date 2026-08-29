@@ -2,12 +2,13 @@ class_name Catalog extends MarginContainer
 
 var current_page:= 0
 
+@onready var toggle_button: BaseButton = %Button
 @onready var plant_container: Container = %PlantContainer
 
 
 func _ready() -> void:
-	%PanelContainer.visible = %Button.button_pressed
-	
+	%PanelContainer.visible = toggle_button.button_pressed
+	Events.plant_bought.connect(_on_plant_bought)
 	create_page()
 	
 
@@ -56,3 +57,8 @@ func _on_fact_added(plant: CatalogPlant, fact: CatalogPlantFact) -> void:
 	
 	if page.is_solved:
 		%SolvedLabel.show()
+	
+
+func _on_plant_bought(_plant: PlantType) -> void:
+	toggle_button.button_pressed = false
+	
