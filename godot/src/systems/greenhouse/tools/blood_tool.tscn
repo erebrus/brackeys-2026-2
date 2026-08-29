@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://cs4x5753wyllp" path="res://src/systems/greenhouse/tools/water_particles_material.tres" id="3_is1bv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6epxv"]
-radius = 22.575504
+radius = 36.109505
 height = 176.4891
 
 [node name="BloodTool" unique_id=1737244878 instance=ExtResource("1_7tgqr")]
