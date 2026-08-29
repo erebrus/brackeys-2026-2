@@ -17,11 +17,14 @@ static func create(plants: Array[PlantType]) -> CatalogPage:
 			page.plants[plant.name] = plant
 		
 	
-	page.shuffle_facts()
+	for i in 100:
+		if page.shuffle_facts(false):
+			break
+	
 	return page
 	
 
-func shuffle_facts() -> void:
+func shuffle_facts(force: bool) -> bool:
 	var all_facts: Array[String]
 	for plant: PlantType in plants.values():
 		all_facts.append_array(plant.facts.map(func(x): return x.id))
@@ -35,12 +38,31 @@ func shuffle_facts() -> void:
 		plant.current_facts.clear()
 		
 		for i in facts_per_plant:
-			plant.current_facts.append(all_facts.pop_front())
+			if not _add_fact(plant, all_facts, force):
+				return false
 		
 		if idx < remaining:
-			plant.current_facts.append(all_facts.pop_front())
+			if not _add_fact(plant, all_facts, force):
+				return false
 	
-	# TODO: if any plant is solved, shuffle again?
+	return true
+	
+
+func _add_fact(plant: PlantType, all_facts: Array[String], force: bool) -> bool:
+	for fact in all_facts:
+		if not force and plant.current_facts.has(fact):
+			continue
+		
+		plant.current_facts.append(fact)
+		
+		if not force and plant.has_correct_facts():
+			plant.current_facts.erase(fact)
+			continue
+		
+		all_facts.erase(fact)
+		return true
+	
+	return false
 	
 
 func move_fact(fact_id: String, old_plant: PlantType, new_plant: PlantType) -> void:
