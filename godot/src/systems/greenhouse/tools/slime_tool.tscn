@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="1_j4aqd"]
 [ext_resource type="Texture2D" uid="uid://d4frsd5t5brp2" path="res://assets/gfx/tools/slime_tool.png" id="2_6epxv"]
-[ext_resource type="Material" uid="uid://yn78ekkqfr3n" path="res://src/systems/greenhouse/tools/slime_particles_material.tres" id="2_usxir"]
 [ext_resource type="Texture2D" uid="uid://mmraoeg7kvsb" path="res://assets/gfx/tools/slime_particle.png" id="2_yvyl5"]
 [ext_resource type="AudioStream" uid="uid://brqoeff0iy6lp" path="res://assets/sfx/Spray_Slime_1.ogg" id="5_8knve"]
 [ext_resource type="AudioStream" uid="uid://cndt07u8xdaba" path="res://assets/sfx/Spray_Slime_2.ogg" id="6_ro4k4"]
@@ -22,35 +21,65 @@ stat = 4
 pour_speed = 30.0
 particles = [NodePath("GPUParticles2D"), NodePath("GPUParticles2D2"), NodePath("GPUParticles2D3")]
 
-[node name="GPUParticles2D" parent="." index="0" unique_id=547647707]
+[node name="GPUParticles2D" parent="." index="0" unique_id=1250868859]
 amount = 12
 texture = ExtResource("2_yvyl5")
-lifetime = 3.0
+lifetime = 2.0
 explosiveness = 0.17
 randomness = 0.29
-process_material = ExtResource("2_usxir")
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, 1)
+spread = 5.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 10.0
+initial_velocity_max = 60.0
+angle_min = -5.0
+angle_max = 5.0
 
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="." index="1" unique_id=663012324]
+[node name="GPUParticles2D2" type="CPUParticles2D" parent="." index="1" unique_id=1294796238]
 unique_name_in_owner = true
 position = Vector2(42, -22)
 emitting = false
 amount = 12
 texture = ExtResource("2_yvyl5")
-lifetime = 3.0
+lifetime = 2.0
 explosiveness = 0.17
 randomness = 0.29
-process_material = ExtResource("2_usxir")
+lifetime_randomness = 0.2
+fixed_fps = 30
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, 1)
+spread = 5.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 10.0
+initial_velocity_max = 60.0
+angle_min = -4.9999895
+angle_max = 5.000011
 
-[node name="GPUParticles2D3" type="GPUParticles2D" parent="." index="2" unique_id=1785676735]
+[node name="GPUParticles2D3" type="CPUParticles2D" parent="." index="2" unique_id=441328764]
 unique_name_in_owner = true
 position = Vector2(-48, -30)
 emitting = false
 amount = 12
 texture = ExtResource("2_yvyl5")
-lifetime = 3.0
+lifetime = 2.0
 explosiveness = 0.17
 randomness = 0.29
-process_material = ExtResource("2_usxir")
+lifetime_randomness = 0.2
+fixed_fps = 30
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, 1)
+spread = 5.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 10.0
+initial_velocity_max = 60.0
+angle_min = -4.9999895
+angle_max = 5.000011
 
 [node name="Sprite2D" parent="RotationPivot" parent_id_path=PackedInt32Array(1457828604) index="0" unique_id=514892687]
 position = Vector2(-1, -68)

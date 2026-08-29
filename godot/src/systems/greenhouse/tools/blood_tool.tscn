@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="1_7tgqr"]
 [ext_resource type="Texture2D" uid="uid://bkiq0lvw30bhw" path="res://assets/gfx/tools/blood_can.png" id="2_157ip"]
 [ext_resource type="Texture2D" uid="uid://fe1pxvomtwtk" path="res://assets/gfx/tools/blood_particle.png" id="2_as7y7"]
-[ext_resource type="Material" uid="uid://cs4x5753wyllp" path="res://src/systems/greenhouse/tools/water_particles_material.tres" id="3_is1bv"]
 [ext_resource type="AudioStream" uid="uid://cns6ry0vr1y4v" path="res://assets/sfx/Spray_Blood_1.ogg" id="5_jd0lo"]
 [ext_resource type="AudioStream" uid="uid://c6tulja3mtqxq" path="res://assets/sfx/Spray_Blood_2.ogg" id="6_f21m5"]
 [ext_resource type="AudioStream" uid="uid://cyeq85l24wyk6" path="res://assets/sfx/Spray_Blood_3.ogg" id="7_7w6xf"]
@@ -23,10 +22,18 @@ stat = 5
 pour_speed = 30.0
 pour_rotation = 0.5235987755982988
 
-[node name="GPUParticles2D" parent="." index="0" unique_id=547647707]
+[node name="GPUParticles2D" parent="." index="0" unique_id=1250868859]
 texture = ExtResource("2_as7y7")
 lifetime = 2.0
-process_material = ExtResource("3_is1bv")
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, 1)
+spread = 5.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 30.0
+initial_velocity_max = 60.0
+angle_min = -4.9999895
+angle_max = 5.000011
 
 [node name="Sprite2D" parent="RotationPivot" parent_id_path=PackedInt32Array(1457828604) index="0" unique_id=514892687]
 position = Vector2(-65, 57)

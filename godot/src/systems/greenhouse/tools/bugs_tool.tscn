@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="1_af6re"]
 [ext_resource type="Texture2D" uid="uid://x33pa1ji2nj5" path="res://assets/gfx/tools/bugs_tool.png" id="2_sn44t"]
 [ext_resource type="Texture2D" uid="uid://bdw6ubq6w3euv" path="res://assets/gfx/tools/bugs_particle.png" id="2_y3eat"]
-[ext_resource type="Material" uid="uid://cduumv4buxiau" path="res://src/systems/greenhouse/tools/bug_particles_material.tres" id="3_elbmr"]
 [ext_resource type="AudioStream" uid="uid://c1u2ti5hccjjj" path="res://assets/sfx/Spray_Bugs_1.ogg" id="5_ljvjx"]
 [ext_resource type="AudioStream" uid="uid://bn285jguyxtsg" path="res://assets/sfx/Spray_Bugs_2.ogg" id="6_avheh"]
 [ext_resource type="AudioStream" uid="uid://ba4xqny6qg17f" path="res://assets/sfx/Spray_Bugs_3.ogg" id="7_gegl5"]
@@ -27,11 +26,20 @@ stream_2/stream = ExtResource("7_gegl5")
 stat = 7
 pour_speed = 30.0
 
-[node name="GPUParticles2D" parent="." index="0" unique_id=547647707]
+[node name="GPUParticles2D" parent="." index="0" unique_id=1250868859]
 material = SubResource("CanvasItemMaterial_af6re")
 texture = ExtResource("2_y3eat")
-lifetime = 4.0
-process_material = ExtResource("3_elbmr")
+lifetime = 1.2
+emission_shape = 1
+emission_sphere_radius = 73.92
+direction = Vector2(0, 1)
+spread = 5.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 30.0
+initial_velocity_max = 60.0
+angle_min = -4.9999895
+angle_max = 5.000011
+anim_offset_max = 1.0
 
 [node name="Sprite2D" parent="RotationPivot" parent_id_path=PackedInt32Array(1457828604) index="0" unique_id=514892687]
 position = Vector2(0, 0)
