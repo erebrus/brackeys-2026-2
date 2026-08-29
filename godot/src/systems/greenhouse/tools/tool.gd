@@ -3,12 +3,15 @@ class_name Tool extends Node2D
 
 @export var stat: Types.Stats
 @export var pour_speed: float
+@export_range(-180, 180, 0.001, "radians_as_degrees") var pour_rotation: float = 0.0
+
+@export var particles: Array[GPUParticles2D]
 
 var plant: Plant
 
 @onready var pickable_area: PickableArea = $PickableArea
 @onready var interaction_area: InteractionArea = $InteractionArea
-@onready var particles: GPUParticles2D = %GPUParticles2D
+@onready var pivot: Node2D = %RotationPivot
 
 
 func _ready() -> void:
@@ -22,30 +25,35 @@ func _physics_process(delta: float) -> void:
 	plant.increase_stat(stat, pour_speed * delta)
 	
 
-func _pour() -> void:
-	var plant_area := interaction_area.get_hover_area()
-	plant = plant_area.target as Plant if plant_area != null else null
+func start_pouring() -> void:
+	toggle_particles(true)
+	pivot.rotation = pour_rotation
 	
-	if plant == null:
-		rotation = 0
-		particles.emitting = false
-	else:
-		particles.emitting = true
-		if plant_area.global_position.x > global_position.x:
-			scale.x = -1
-			rotation = PI / 6
-		else:
-			scale.x = 1
-			rotation = -PI / 6
+
+func stop_pouring() -> void:
+	pivot.rotation = 0
+	toggle_particles(false)
+	
+
+func toggle_particles(on: bool) -> void:
+	for particle in particles:
+		particle.emitting = on
 	
 
 func _on_dragged() -> void:
-	_pour()
+	var plant_area := interaction_area.get_hover_area()
+	var new_plant = plant_area.target as Plant if plant_area != null else null
 	
+	if new_plant != plant:
+		plant = new_plant
+		if plant:
+			start_pouring()
+		else:
+			stop_pouring()
+	
+
 
 func _on_dropped(_area: DropArea) -> void:
 	plant = null
-	scale.x = 1
-	rotation = 0
-	particles.emitting = false
+	stop_pouring()
 	

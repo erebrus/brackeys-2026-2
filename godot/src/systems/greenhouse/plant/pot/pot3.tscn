@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yc2fs"]
 size = Vector2(175, 118)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l3w5d"]
+polygon = PackedVector2Array(-93, -119, 92, -119, 88, 1, -91, -1)
+
 [node name="Pot" unique_id=1368794325 instance=ExtResource("1_xc0le")]
 
 [node name="Sprite2D" parent="." index="0" unique_id=120685414]
@@ -18,3 +21,6 @@ position = Vector2(0, -115)
 [node name="CollisionShape2D" parent="PickableArea" parent_id_path=PackedInt32Array(94634173) index="0" unique_id=886985971]
 position = Vector2(-0.5, -59)
 shape = SubResource("RectangleShape2D_yc2fs")
+
+[node name="LightOccluder2D" parent="." index="3" unique_id=397770072]
+occluder = SubResource("OccluderPolygon2D_l3w5d")

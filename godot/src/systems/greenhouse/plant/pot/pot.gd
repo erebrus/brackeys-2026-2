@@ -40,7 +40,9 @@ func get_plant_base() -> Vector2:
 
 func _on_dropped(area: DropArea) -> void:
 	if area == null:
-		return
-		
-	assert(area.target is PlantSlot)
-	dropped.emit(area.target)
+		dropped.emit(null)
+	elif area.target is PlantSlot:
+		dropped.emit(area.target)
+	else:
+		dropped.emit(null)
+	

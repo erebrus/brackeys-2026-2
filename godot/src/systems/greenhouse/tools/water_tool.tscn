@@ -9,13 +9,20 @@ size = Vector2(116, 139.5)
 [node name="WaterTool" unique_id=1737244878 instance=ExtResource("1_yk1i2")]
 stat = 3
 pour_speed = 30.0
+pour_rotation = -0.438356894930896
 
-[node name="Sprite2D" parent="." index="0" unique_id=514892687]
+[node name="GPUParticles2D" parent="." index="0" unique_id=547647707]
+amount = 200
+lifetime = 2.0
+process_material = ExtResource("2_l3c1f")
+
+[node name="Sprite2D" parent="RotationPivot" parent_id_path=PackedInt32Array(1457828604) index="0" unique_id=514892687]
 position = Vector2(70, 13)
 
-[node name="CollisionShape2D" parent="PickableArea" parent_id_path=PackedInt32Array(94634173) index="0" unique_id=283360304]
+[node name="PickableArea" parent="." index="2" unique_id=94634173]
+is_clickable = false
+snap_on_hover = false
+
+[node name="CollisionShape2D" parent="PickableArea" index="0" unique_id=283360304]
 position = Vector2(20, 3.75)
 shape = SubResource("RectangleShape2D_l3c1f")
-
-[node name="GPUParticles2D" parent="." index="3" unique_id=547647707]
-process_material = ExtResource("2_l3c1f")

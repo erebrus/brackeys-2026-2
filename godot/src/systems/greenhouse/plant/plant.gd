@@ -104,7 +104,6 @@ func _setup_stats() -> void:
 func _setup_pot() -> void:
 	pot = Pot.create(self)
 	pot.clicked.connect(_on_clicked)
-	pot.picked.connect(_on_picked)
 	pot.dropped.connect(_on_dropped)
 	add_child(pot)
 	
@@ -172,13 +171,9 @@ func _on_clicked() -> void:
 		queue_free()
 	
 
-func _on_picked() -> void:
-	z_index = 10
-	
-
 func _on_dropped(new_slot: PlantSlot) -> void:
-	z_index = 0
-	new_slot.set_plant(self)
+	if new_slot != null:
+		new_slot.set_plant(self)
 	
 
 func _on_hp_changed(_type: Types.Stats, current_hp: float) -> void:
