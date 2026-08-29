@@ -4,10 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://bkiq0lvw30bhw" path="res://assets/gfx/tools/blood_can.png" id="2_157ip"]
 [ext_resource type="Texture2D" uid="uid://fe1pxvomtwtk" path="res://assets/gfx/tools/blood_particle.png" id="2_as7y7"]
 [ext_resource type="Material" uid="uid://cs4x5753wyllp" path="res://src/systems/greenhouse/tools/water_particles_material.tres" id="3_is1bv"]
+[ext_resource type="AudioStream" uid="uid://cns6ry0vr1y4v" path="res://assets/sfx/Spray_Blood_1.ogg" id="5_jd0lo"]
+[ext_resource type="AudioStream" uid="uid://c6tulja3mtqxq" path="res://assets/sfx/Spray_Blood_2.ogg" id="6_f21m5"]
+[ext_resource type="AudioStream" uid="uid://cyeq85l24wyk6" path="res://assets/sfx/Spray_Blood_3.ogg" id="7_7w6xf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6epxv"]
 radius = 22.575504
 height = 176.4891
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_63em6"]
+streams_count = 3
+stream_0/stream = ExtResource("5_jd0lo")
+stream_1/stream = ExtResource("6_f21m5")
+stream_2/stream = ExtResource("7_7w6xf")
 
 [node name="BloodTool" unique_id=1737244878 instance=ExtResource("1_7tgqr")]
 stat = 5
@@ -31,3 +40,6 @@ snap_on_hover = false
 position = Vector2(-129, 51.000004)
 rotation = 0.7557276
 shape = SubResource("CapsuleShape2D_6epxv")
+
+[node name="sfx" parent="." index="4" unique_id=1609069050]
+stream = SubResource("AudioStreamRandomizer_63em6")

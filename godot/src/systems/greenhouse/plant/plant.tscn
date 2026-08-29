@@ -3,14 +3,54 @@
 [ext_resource type="Script" uid="uid://cghwtalb80dud" path="res://src/systems/greenhouse/plant/plant.gd" id="1_bjxm2"]
 [ext_resource type="Texture2D" uid="uid://cq0qib44jv30o" path="res://assets/gfx/plants/plant.png" id="2_7pfcx"]
 [ext_resource type="PackedScene" uid="uid://miodiicp4en1" path="res://src/systems/interaction_area/interaction_area.tscn" id="5_sul5p"]
+[ext_resource type="AudioStream" uid="uid://c0jewg1wal2va" path="res://assets/sfx/Drop_Plant_Cart_1.ogg" id="5_ysi82"]
 [ext_resource type="PackedScene" uid="uid://bbhtmhighmqjy" path="res://src/systems/greenhouse/plant/health_icon.tscn" id="6_ed5tb"]
+[ext_resource type="AudioStream" uid="uid://dpur0to62i7pe" path="res://assets/sfx/Drop_Plant_Cart_2.ogg" id="6_mqoql"]
+[ext_resource type="AudioStream" uid="uid://xlq5yjl84ala" path="res://assets/sfx/Drop_Plant_Cart_3.ogg" id="7_h8i2k"]
+[ext_resource type="AudioStream" uid="uid://bgnxngaai2jdn" path="res://assets/sfx/Drop_Plant_Invalid_1.ogg" id="8_ve5cv"]
+[ext_resource type="AudioStream" uid="uid://c467e0cwfn7qh" path="res://assets/sfx/Drop_Plant_Invalid_2.ogg" id="9_pl42h"]
+[ext_resource type="AudioStream" uid="uid://is1y0r7rj1jc" path="res://assets/sfx/Drop_Plant_Invalid_3.ogg" id="10_kcp8l"]
+[ext_resource type="AudioStream" uid="uid://tjhqn31adp3f" path="res://assets/sfx/Drop_Plant_Slot_1.ogg" id="11_xv5ol"]
+[ext_resource type="AudioStream" uid="uid://rq2bce60ahbp" path="res://assets/sfx/Drop_Plant_Slot_2.ogg" id="12_uoj5d"]
+[ext_resource type="AudioStream" uid="uid://d04vuschr5yp" path="res://assets/sfx/Drop_Plant_Slot_3.ogg" id="13_uqnmk"]
+[ext_resource type="AudioStream" uid="uid://bxns3jcyqohau" path="res://assets/sfx/Pickup_Plant_1.ogg" id="14_83qgu"]
+[ext_resource type="AudioStream" uid="uid://vk2bqr55xenb" path="res://assets/sfx/Pickup_Plant_2.ogg" id="15_0bn41"]
+[ext_resource type="AudioStream" uid="uid://cpoc6llppo3vg" path="res://assets/sfx/Pickup_Plant_3.ogg" id="16_174ae"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1al4v"]
 radius = 81.0
 height = 288.0
 
-[node name="Plant" type="Node2D" unique_id=1928706633]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c2n20"]
+streams_count = 3
+stream_0/stream = ExtResource("5_ysi82")
+stream_1/stream = ExtResource("6_mqoql")
+stream_2/stream = ExtResource("7_h8i2k")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y06p4"]
+streams_count = 3
+stream_0/stream = ExtResource("8_ve5cv")
+stream_1/stream = ExtResource("9_pl42h")
+stream_2/stream = ExtResource("10_kcp8l")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tyq17"]
+streams_count = 3
+stream_0/stream = ExtResource("11_xv5ol")
+stream_1/stream = ExtResource("12_uoj5d")
+stream_2/stream = ExtResource("13_uqnmk")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ebdrl"]
+streams_count = 3
+stream_0/stream = ExtResource("14_83qgu")
+stream_1/stream = ExtResource("15_0bn41")
+stream_2/stream = ExtResource("16_174ae")
+
+[node name="Plant" type="Node2D" unique_id=1928706633 node_paths=PackedStringArray("drop_plant_cart_sfx", "drop_plant_invalid_sfx", "drop_plant_slot_sfx", "pickup_plant_sfx")]
 script = ExtResource("1_bjxm2")
+drop_plant_cart_sfx = NodePath("sfx/drop_plant_cart_sfx")
+drop_plant_invalid_sfx = NodePath("sfx/drop_plant_invalid_sfx")
+drop_plant_slot_sfx = NodePath("sfx/drop_plant_slot_sfx")
+pickup_plant_sfx = NodePath("sfx/pickup_plant_sfx")
 
 [node name="Plant" type="Sprite2D" parent="." unique_id=101030399]
 unique_name_in_owner = true
@@ -43,3 +83,25 @@ offset_top = -51.0
 offset_right = 146.0
 offset_bottom = -28.0
 plant = NodePath("..")
+
+[node name="sfx" type="Node" parent="." unique_id=1396712888]
+
+[node name="drop_plant_cart_sfx" type="AudioStreamPlayer" parent="sfx" unique_id=1348471812]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_c2n20")
+bus = &"Sfx"
+
+[node name="drop_plant_invalid_sfx" type="AudioStreamPlayer" parent="sfx" unique_id=982543475]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_y06p4")
+bus = &"Sfx"
+
+[node name="drop_plant_slot_sfx" type="AudioStreamPlayer" parent="sfx" unique_id=563597342]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_tyq17")
+bus = &"Sfx"
+
+[node name="pickup_plant_sfx" type="AudioStreamPlayer" parent="sfx" unique_id=1049361633]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_ebdrl")
+bus = &"Sfx"

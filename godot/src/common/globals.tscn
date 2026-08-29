@@ -7,8 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://bvpqsosr4w600" path="res://src/common/metric_manager/metrics_manager.tscn" id="3_i6p1b"]
 [ext_resource type="AudioStream" uid="uid://bxrc4c7inujhh" path="res://assets/music/kennys/Farm Frolics.ogg" id="4_v6ulc"]
 [ext_resource type="Script" uid="uid://04681mljvxoh" path="res://src/common/ui_sfx.gd" id="5_fmvy8"]
-[ext_resource type="AudioStream" uid="uid://vdr7ewrp5m01" path="res://assets/sfx/kenneys/select_001.ogg" id="5_kyxtr"]
-[ext_resource type="AudioStream" uid="uid://dcowjg8y0gyjd" path="res://assets/sfx/kenneys/select_002.ogg" id="6_7sypx"]
+[ext_resource type="AudioStream" uid="uid://bsu1wn4sldcn8" path="res://assets/sfx/UI_Validate_1.ogg" id="8_le8b3"]
+[ext_resource type="AudioStream" uid="uid://xgehpb0ogs2n" path="res://assets/sfx/UI_Validate_2.ogg" id="9_i01vm"]
+[ext_resource type="AudioStream" uid="uid://nh8q581t0kvq" path="res://assets/sfx/UI_Validate_3.ogg" id="10_k8e2b"]
+[ext_resource type="AudioStream" uid="uid://c8m6aoul3jblj" path="res://assets/sfx/UI_Hover_1.ogg" id="11_xcs8h"]
+[ext_resource type="AudioStream" uid="uid://c8vkflhdbv05w" path="res://assets/sfx/UI_Hover_2.ogg" id="12_gbdmu"]
+[ext_resource type="AudioStream" uid="uid://cv0rxmcay7oyr" path="res://assets/sfx/UI_Hover_3.ogg" id="13_5ktbi"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q1nu8"]
 stream_count = 3
@@ -18,6 +22,18 @@ stream_1/stream = ExtResource("3_gfpot")
 stream_1/volume = -60.0
 stream_2/stream = ExtResource("3_gfpot")
 stream_2/volume = 0.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mqoql"]
+streams_count = 3
+stream_0/stream = ExtResource("8_le8b3")
+stream_1/stream = ExtResource("9_i01vm")
+stream_2/stream = ExtResource("10_k8e2b")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ysi82"]
+streams_count = 3
+stream_0/stream = ExtResource("11_xcs8h")
+stream_1/stream = ExtResource("12_gbdmu")
+stream_2/stream = ExtResource("13_5ktbi")
 
 [node name="Globals" type="Node" unique_id=771231313]
 process_mode = 3
@@ -46,10 +62,10 @@ script = ExtResource("5_fmvy8")
 
 [node name="click_sfx" type="AudioStreamPlayer" parent="UiSfx" unique_id=2080094242]
 process_mode = 3
-stream = ExtResource("6_7sypx")
+stream = SubResource("AudioStreamRandomizer_mqoql")
 bus = &"Sfx"
 
 [node name="hover_sfx" type="AudioStreamPlayer" parent="UiSfx" unique_id=1335897115]
 process_mode = 3
-stream = ExtResource("5_kyxtr")
+stream = SubResource("AudioStreamRandomizer_ysi82")
 bus = &"Sfx"

@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://lvqr7cgn7shw" path="res://assets/gfx/tools/affection_particle.png" id="2_ckvly"]
 [ext_resource type="Texture2D" uid="uid://dlw53l042lwk8" path="res://assets/gfx/tools/affection_tool.png" id="2_ng23m"]
 [ext_resource type="Material" uid="uid://c6fh68r6obw0q" path="res://src/systems/greenhouse/tools/affection_particles_material.tres" id="3_ckvly"]
+[ext_resource type="AudioStream" uid="uid://2rs2hnthoc4x" path="res://assets/sfx/Give_Affection_1.ogg" id="5_2617p"]
+[ext_resource type="AudioStream" uid="uid://bpo4den1aantg" path="res://assets/sfx/Give_Affection_2.ogg" id="6_uy5xl"]
+[ext_resource type="AudioStream" uid="uid://1xj4h5xxt8t5" path="res://assets/sfx/Give_Affection_3.ogg" id="7_4xjwj"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ng23m"]
 particles_animation = true
@@ -13,6 +16,12 @@ particles_anim_loop = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l3c1f"]
 radius = 64.00781
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_45j17"]
+streams_count = 3
+stream_0/stream = ExtResource("5_2617p")
+stream_1/stream = ExtResource("6_uy5xl")
+stream_2/stream = ExtResource("7_4xjwj")
 
 [node name="AffectionTool" unique_id=1737244878 instance=ExtResource("1_5bvys")]
 stat = 6
@@ -35,3 +44,6 @@ position = Vector2(0, 0)
 [node name="CollisionShape2D" parent="PickableArea" index="0" unique_id=283360304]
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_l3c1f")
+
+[node name="sfx" parent="." index="4" unique_id=1609069050]
+stream = SubResource("AudioStreamRandomizer_45j17")
