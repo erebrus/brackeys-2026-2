@@ -12,7 +12,10 @@ stats = Dictionary[int, float]({
 2: 100.0
 })
 
-[node name="Window" type="Sprite2D" parent="." index="1" unique_id=1631746985]
+[node name="PlantsBlur" parent="." index="1" unique_id=474453901]
+position = Vector2(961, 751)
+
+[node name="Window" type="Sprite2D" parent="." index="2" unique_id=1631746985]
 texture_repeat = 3
 position = Vector2(960, 540)
 texture = ExtResource("2_isobh")
