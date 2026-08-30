@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://bbhtmhighmqjy"]
 
 [ext_resource type="Script" uid="uid://ddvnq1mtepod1" path="res://src/systems/greenhouse/plant/health_icon.gd" id="1_uoix4"]
-[ext_resource type="Texture2D" uid="uid://f8dtyghq38m4" path="res://assets/gfx/ui/hp/+1.png" id="2_ovbdj"]
-[ext_resource type="Texture2D" uid="uid://kwq1ohgxydwg" path="res://assets/gfx/ui/hp/+2.png" id="3_65j4n"]
-[ext_resource type="Texture2D" uid="uid://cqun23ksgenjv" path="res://assets/gfx/ui/hp/+3.png" id="4_0a88h"]
-[ext_resource type="Texture2D" uid="uid://bpf3nkrdokc0y" path="res://assets/gfx/ui/hp/-1.png" id="5_vbgk0"]
-[ext_resource type="Texture2D" uid="uid://cyfs02guykd3u" path="res://assets/gfx/ui/hp/-2.png" id="6_pa17j"]
-[ext_resource type="Texture2D" uid="uid://3br08qkrowtd" path="res://assets/gfx/ui/hp/-3.png" id="7_nfgqf"]
+[ext_resource type="Texture2D" uid="uid://belaj71kd5tv3" path="res://assets/gfx/ui/hp/+1.png" id="2_ovbdj"]
+[ext_resource type="Texture2D" uid="uid://chefgttfvborq" path="res://assets/gfx/ui/hp/+2.png" id="3_65j4n"]
+[ext_resource type="Texture2D" uid="uid://cw3a5py7qnydk" path="res://assets/gfx/ui/hp/+3.png" id="4_0a88h"]
+[ext_resource type="Texture2D" uid="uid://3sbueq7j2hpj" path="res://assets/gfx/ui/hp/=.png" id="5_65j4n"]
+[ext_resource type="Texture2D" uid="uid://cyo7n6a6ekwr0" path="res://assets/gfx/ui/hp/-1.png" id="5_vbgk0"]
+[ext_resource type="Texture2D" uid="uid://b4umbgjrssuwp" path="res://assets/gfx/ui/hp/-2.png" id="6_pa17j"]
+[ext_resource type="Texture2D" uid="uid://clf2586n18gpy" path="res://assets/gfx/ui/hp/-3.png" id="7_nfgqf"]
 
 [node name="HealthIcon" type="Control" unique_id=793457665]
 custom_minimum_size = Vector2(137, 60)
@@ -44,7 +45,7 @@ texture = ExtResource("5_vbgk0")
 layout_mode = 0
 offset_right = 137.0
 offset_bottom = 60.0
-texture = ExtResource("2_ovbdj")
+texture = ExtResource("5_65j4n")
 
 [node name="plus1" type="TextureRect" parent="." unique_id=1118933534]
 visible = false
