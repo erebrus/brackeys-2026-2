@@ -7,6 +7,7 @@ var fact: Fact
 
 var draggable: bool = true
 var is_preview: bool = false
+@onready var fact_pickup_sfx: AudioStreamPlayer = $fact_pickup_sfx
 
 
 @warning_ignore("shadowed_variable")
@@ -30,8 +31,10 @@ func _ready() -> void:
 func _get_drag_data(_at_position: Vector2) -> CatalogPlantFact:
 	if not draggable:
 		return null
-	
+			
 	set_drag_preview(create_preview())
+	fact_pickup_sfx.play()
+	
 	return self
 	
 
