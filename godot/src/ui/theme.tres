@@ -10,6 +10,38 @@
 [ext_resource type="Texture2D" uid="uid://dxnxycvgfbcw4" path="res://assets/gfx/ui/sliders/slider_grabber_highlight.png" id="3_r2kde"]
 [ext_resource type="FontFile" uid="uid://by60l0usvx22l" path="res://assets/fonts/quintessential/Quintessential-Regular.ttf" id="9_jc0sv"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynm0y"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.49019608, 0.4745098, 0.52156866, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.36078432, 0.32941177, 0.42745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b66wi"]
+bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.60784316, 0.56078434, 0.7019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc0sv"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.36078432, 0.32941177, 0.42745098, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ty3yj"]
 texture = ExtResource("1_r7xqo")
 texture_margin_left = 3.0
@@ -48,6 +80,21 @@ border_color = Color(0.6784314, 0.6784314, 0.6784314, 1)
 [resource]
 default_font = ExtResource("9_jc0sv")
 default_font_size = 26
+Button/colors/font_color = Color(0.36078432, 0.32941177, 0.42745098, 1)
+Button/colors/font_disabled_color = Color(0.29803923, 0.28235295, 0.32941177, 1)
+Button/colors/font_hover_color = Color(0.60784316, 0.56078434, 0.7019608, 1)
+Button/colors/font_hover_pressed_color = Color(0.36078432, 0.32941177, 0.42745098, 1)
+Button/colors/font_pressed_color = Color(0.60784316, 0.56078434, 0.7019608, 1)
+Button/colors/icon_disabled_color = Color(0.29803923, 0.28235295, 0.32941177, 1)
+Button/colors/icon_hover_color = Color(0.60784316, 0.56078434, 0.7019608, 1)
+Button/colors/icon_hover_pressed_color = Color(0.36078432, 0.32941177, 0.42745098, 1)
+Button/colors/icon_normal_color = Color(0.36078432, 0.32941177, 0.42745098, 1)
+Button/colors/icon_pressed_color = Color(0.60784316, 0.56078434, 0.7019608, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_ynm0y")
+Button/styles/hover = SubResource("StyleBoxFlat_b66wi")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_jc0sv")
+Button/styles/normal = SubResource("StyleBoxFlat_jc0sv")
+Button/styles/pressed = SubResource("StyleBoxFlat_b66wi")
 CheckBox/icons/checked = ExtResource("1_r2kde")
 CheckBox/icons/unchecked = ExtResource("2_jc0sv")
 HSlider/icons/grabber = ExtResource("1_ty3yj")
@@ -56,6 +103,7 @@ HSlider/icons/grabber_highlight = ExtResource("3_r2kde")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_ty3yj")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_o7re1")
 HSlider/styles/slider = SubResource("StyleBoxTexture_r2kde")
+Label/colors/font_color = Color(0.9254902, 0.9137255, 0.9490196, 1)
 MarginContainerLarge/base_type = &"MarginContainer"
 MarginContainerLarge/constants/margin_bottom = 40
 MarginContainerLarge/constants/margin_left = 80

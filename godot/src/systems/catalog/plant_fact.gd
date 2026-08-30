@@ -8,6 +8,7 @@ var fact: Fact
 var draggable: bool = true
 var is_preview: bool = false
 
+@export var disabled_stylebox: StyleBox
 
 @warning_ignore("shadowed_variable")
 static func create(fact: Fact, plant: PlantType) -> CatalogPlantFact:
@@ -42,6 +43,10 @@ func _exit_tree() -> void:
 
 func disable() -> void:
 	draggable = false
+	%DragIcon.hide()
+	remove_theme_stylebox_override("panel")
+	add_theme_stylebox_override("panel", disabled_stylebox)
+	
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	MouseController.mouse_exited_pickable(self)
 	

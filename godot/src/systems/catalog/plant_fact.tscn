@@ -1,17 +1,55 @@
 [gd_scene format=3 uid="uid://dmk74ill31lem"]
 
 [ext_resource type="Script" uid="uid://cda1i3a3n7rm8" path="res://src/systems/catalog/plant_fact.gd" id="1_fl257"]
+[ext_resource type="Texture2D" uid="uid://cmmrr6yhgin18" path="res://assets/gfx/ui/catalogue/grabber.png" id="2_6m04y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6m04y"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.36078432, 0.32941177, 0.42745098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sd40g"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.29803923, 0.28235295, 0.32941177, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="PlantFact" type="PanelContainer" unique_id=1923659573]
 texture_filter = 2
 mouse_filter = 1
 mouse_default_cursor_shape = 13
+theme_override_styles/panel = SubResource("StyleBoxFlat_6m04y")
 script = ExtResource("1_fl257")
+disabled_stylebox = SubResource("StyleBoxFlat_sd40g")
 
-[node name="Label" type="Label" parent="." unique_id=50262524]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1176637070]
+layout_mode = 2
+
+[node name="DragIcon" type="TextureRect" parent="HBoxContainer" unique_id=1709430852]
+unique_name_in_owner = true
+modulate = Color(0.9254902, 0.9137255, 0.9490196, 1)
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_6m04y")
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=50262524]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "test fact"
 vertical_alignment = 1
 autowrap_mode = 3

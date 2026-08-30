@@ -16,6 +16,9 @@ func _ready() -> void:
 	
 
 func create_page() -> void:
+	%PreviousPage.disabled = current_page == 0
+	%NextPage.disabled = current_page == Globals.pages.size() -1
+	
 	var page = Globals.pages[current_page]
 	%SolvedLabel.visible = page.is_solved
 	
@@ -57,9 +60,6 @@ func _on_fact_added(plant: CatalogPlant, fact: CatalogPlantFact) -> void:
 	fact.plant = plant.plant
 	var page = Globals.pages[current_page]
 	page.move_fact(fact.fact.id, old_plant, plant.plant)
-	
-	if page.is_solved:
-		%SolvedLabel.show()
 	
 	if Globals.pages.all(func(x): return x.is_solved):
 		solved.emit()
