@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Planting Lies - Brackeys 2026-2"
-config/version="0.0.6"
+config/version="0.0.10"
 run/main_scene="res://src/start_screen/start_screen.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
@@ -40,8 +40,6 @@ MouseController="*uid://dak70rut8i2i0"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/window_width_override=1440
-window/size/window_height_override=810
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -58,6 +56,10 @@ folder_colors={
 "res://src/resources/": "green",
 "res://src/systems/": "purple"
 }
+
+[gui]
+
+theme/custom="uid://k0yx4w2osxxx"
 
 [input]
 

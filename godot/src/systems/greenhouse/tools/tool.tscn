@@ -25,12 +25,14 @@ stream_2/stream = ExtResource("8_6ijl0")
 script = ExtResource("1_ice2y")
 particles = [NodePath("GPUParticles2D")]
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=547647707]
+[node name="GPUParticles2D" type="CPUParticles2D" parent="." unique_id=1250868859]
 unique_name_in_owner = true
 emitting = false
 amount = 32
 texture = ExtResource("5_xu32q")
 lifetime = 1.5
+fixed_fps = 30
+draw_order = 1
 
 [node name="RotationPivot" type="Node2D" parent="." unique_id=1457828604]
 unique_name_in_owner = true

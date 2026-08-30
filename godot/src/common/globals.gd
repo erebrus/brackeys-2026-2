@@ -32,8 +32,6 @@ func _ready():
 	
 	GSLogger.info("Game version: %s" % game_version)
 	
-	_load_plants()
-	
 	if get_tree().current_scene.scene_file_path == GAME_SCENE_PATH:
 		start_game()
 	
@@ -43,6 +41,8 @@ func go_to_main_menu():
 	
 
 func start_game():
+	_load_plants()
+	
 	GSLogger.info("Starting Game")
 	in_game=true
 	
@@ -68,8 +68,11 @@ func _init_logger():
 	
 
 func _load_plants() -> void:
+	GSLogger.info("Loading catalog pages")
 	var resources = GameUtils.load_resources("res://src/resources/plants")
-	var page_size := 4.0
+	resources.shuffle()
+	
+	var page_size := 6.0
 	var num_pages = int(ceil(resources.size() / page_size))
 	for i in num_pages:
 		var plants: Array[PlantType]
@@ -81,10 +84,15 @@ func _load_plants() -> void:
 			continue
 		for fact in plant.facts:
 			facts[fact.id] = fact
+	GSLogger.info("Catalog pages loaded")
 	
 
 func do_lose():
 	go_to_main_menu()
 
 func do_win():
-	go_to_main_menu()
+	if game == null:
+		go_to_main_menu()
+	else:
+		game._on_catalog_solved()
+		

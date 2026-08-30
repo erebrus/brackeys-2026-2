@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dei07vw678a71" path="res://src/systems/greenhouse/tools/tool.tscn" id="1_5bvys"]
 [ext_resource type="Texture2D" uid="uid://lvqr7cgn7shw" path="res://assets/gfx/tools/affection_particle.png" id="2_ckvly"]
 [ext_resource type="Texture2D" uid="uid://dlw53l042lwk8" path="res://assets/gfx/tools/affection_tool.png" id="2_ng23m"]
-[ext_resource type="Material" uid="uid://c6fh68r6obw0q" path="res://src/systems/greenhouse/tools/affection_particles_material.tres" id="3_ckvly"]
 [ext_resource type="AudioStream" uid="uid://2rs2hnthoc4x" path="res://assets/sfx/Give_Affection_1.ogg" id="5_2617p"]
 [ext_resource type="AudioStream" uid="uid://bpo4den1aantg" path="res://assets/sfx/Give_Affection_2.ogg" id="6_uy5xl"]
 [ext_resource type="AudioStream" uid="uid://1xj4h5xxt8t5" path="res://assets/sfx/Give_Affection_3.ogg" id="7_4xjwj"]
@@ -13,6 +12,10 @@ particles_animation = true
 particles_anim_h_frames = 2
 particles_anim_v_frames = 2
 particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_cimc2"]
+offsets = PackedFloat32Array(0, 0.6989247, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l3c1f"]
 radius = 64.00781
@@ -27,12 +30,20 @@ stream_2/stream = ExtResource("7_4xjwj")
 stat = 6
 pour_speed = 30.0
 
-[node name="GPUParticles2D" parent="." index="0" unique_id=547647707]
+[node name="GPUParticles2D" parent="." index="0" unique_id=1250868859]
 material = SubResource("CanvasItemMaterial_ng23m")
 amount = 20
 texture = ExtResource("2_ckvly")
 lifetime = 3.0
-process_material = ExtResource("3_ckvly")
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(0, 0)
+radial_accel_min = 1.0
+radial_accel_max = 5.0
+angle_min = -30.0
+angle_max = 30.0
+color_ramp = SubResource("Gradient_cimc2")
+anim_offset_max = 1.0
 
 [node name="Sprite2D" parent="RotationPivot" parent_id_path=PackedInt32Array(1457828604) index="0" unique_id=514892687]
 position = Vector2(0, 0)

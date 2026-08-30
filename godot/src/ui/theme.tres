@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://pp4u141ndyrg" path="res://assets/gfx/ui/sliders/slider_grabber_disabled.png" id="2_o7re1"]
 [ext_resource type="Texture2D" uid="uid://3b6b1pq730jr" path="res://assets/gfx/ui/sliders/slider_area_normal.png" id="3_cwe5m"]
 [ext_resource type="Texture2D" uid="uid://dxnxycvgfbcw4" path="res://assets/gfx/ui/sliders/slider_grabber_highlight.png" id="3_r2kde"]
+[ext_resource type="FontFile" uid="uid://by60l0usvx22l" path="res://assets/fonts/quintessential/Quintessential-Regular.ttf" id="9_jc0sv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ty3yj"]
 texture = ExtResource("1_r7xqo")
@@ -45,6 +46,8 @@ border_width_bottom = 2
 border_color = Color(0.6784314, 0.6784314, 0.6784314, 1)
 
 [resource]
+default_font = ExtResource("9_jc0sv")
+default_font_size = 26
 CheckBox/icons/checked = ExtResource("1_r2kde")
 CheckBox/icons/unchecked = ExtResource("2_jc0sv")
 HSlider/icons/grabber = ExtResource("1_ty3yj")

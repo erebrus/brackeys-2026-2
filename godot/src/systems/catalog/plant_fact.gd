@@ -42,6 +42,8 @@ func _exit_tree() -> void:
 
 func disable() -> void:
 	draggable = false
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	MouseController.mouse_exited_pickable(self)
 	
 
 func create_preview() -> CatalogPlantFact:

@@ -13,14 +13,17 @@ stats = Dictionary[int, float]({
 2: 0.0
 })
 
-[node name="Window" type="Sprite2D" parent="." index="1" unique_id=1094140479]
+[node name="PlantsBlur" parent="." index="1" unique_id=474453901]
+position = Vector2(961, 762)
+
+[node name="Window" type="Sprite2D" parent="." index="2" unique_id=1094140479]
 texture_repeat = 3
 position = Vector2(960, 540)
 texture = ExtResource("2_flfol")
 region_enabled = true
 region_rect = Rect2(80, 0, 1920, 1080)
 
-[node name="Termometer" parent="." index="2" unique_id=523048815]
+[node name="Termometer" parent="." index="3" unique_id=523048815]
 texture = ExtResource("3_w6wxh")
 
 [node name="LargeDouble" type="Sprite2D" parent="." index="4" unique_id=432067536]

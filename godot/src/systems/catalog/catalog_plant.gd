@@ -40,5 +40,6 @@ func _on_fact_added(fact: CatalogPlantFact) -> void:
 func _on_solved() -> void:
 	solved_overlay.show()
 	
+	facts_container.solved = true
 	for fact: CatalogPlantFact in facts_container.get_children():
 		fact.disable()

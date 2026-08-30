@@ -12,14 +12,17 @@ stats = Dictionary[int, float]({
 2: 100.0
 })
 
-[node name="Window" type="Sprite2D" parent="." index="1" unique_id=1920611121]
+[node name="PlantsBlur" parent="." index="1" unique_id=474453901]
+position = Vector2(961, 752)
+
+[node name="Window" type="Sprite2D" parent="PlantsBlur" index="0" unique_id=1920611121]
 texture_repeat = 3
-position = Vector2(960, 540)
+position = Vector2(-1, -212)
 texture = ExtResource("2_yx5ov")
 region_enabled = true
 region_rect = Rect2(80, 0, 1920, 1080)
 
-[node name="LargeDouble" type="Sprite2D" parent="." index="4" unique_id=732997101]
+[node name="LargeDouble" type="Sprite2D" parent="." index="3" unique_id=732997101]
 position = Vector2(629, 901)
 texture = ExtResource("3_pdulh")
 
@@ -32,7 +35,7 @@ position = Vector2(-207, -502)
 [node name="PlantSlot3" parent="LargeDouble" index="2" unique_id=2106054976 instance=ExtResource("4_ww42o")]
 position = Vector2(194, -502)
 
-[node name="SmallTall" type="Sprite2D" parent="." index="5" unique_id=1085576254]
+[node name="SmallTall" type="Sprite2D" parent="." index="4" unique_id=1085576254]
 position = Vector2(1574, 903)
 texture = ExtResource("5_nicho")
 

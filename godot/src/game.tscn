@@ -23,12 +23,11 @@ level_container = NodePath("../Level")
 [node name="Level" type="Node2D" parent="." unique_id=1708604477]
 
 [node name="ToolTray" parent="." unique_id=73056497 instance=ExtResource("6_wqvko")]
+unique_name_in_owner = true
 position = Vector2(1266, 882)
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=10557319]
 process_mode = 3
-
-[node name="Catalog" parent="HUDLayer" unique_id=1178810471 instance=ExtResource("5_pk08u")]
 
 [node name="MarginContainer" type="MarginContainer" parent="HUDLayer" unique_id=1883856253]
 anchors_preset = 15
@@ -54,6 +53,43 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 text = ">"
 
+[node name="Catalog" parent="HUDLayer" unique_id=1178810471 instance=ExtResource("5_pk08u")]
+
+[node name="WinPanel" type="MarginContainer" parent="HUDLayer" unique_id=1617871485]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.5
+offset_top = -146.0
+offset_right = 368.5
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HUDLayer/WinPanel" unique_id=18410881]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/WinPanel/PanelContainer" unique_id=1624294139]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUDLayer/WinPanel/PanelContainer/VBoxContainer" unique_id=274961269]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "Thank you"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="HUDLayer/WinPanel/PanelContainer/VBoxContainer" unique_id=2074197119]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "for fighting false information"
+horizontal_alignment = 1
+
 [node name="OverlayLayer" type="CanvasLayer" parent="." unique_id=1990209073]
 layer = 5
 
@@ -66,3 +102,5 @@ metadata/_edit_lock_ = true
 [connection signal="level_unloaded" from="LevelManager" to="." method="_on_level_manager_level_unloaded"]
 [connection signal="pressed" from="HUDLayer/MarginContainer/LeftButton" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="HUDLayer/MarginContainer/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="solved" from="HUDLayer/Catalog" to="." method="_on_catalog_solved"]
+[connection signal="gui_input" from="HUDLayer/WinPanel" to="." method="_on_win_panel_gui_input"]
