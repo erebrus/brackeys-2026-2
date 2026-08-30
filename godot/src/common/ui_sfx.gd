@@ -27,14 +27,14 @@ func _connect_all_buttons(node: Node) -> void:
 
 func _connect_node(node: Node) -> void:
 	if node is Button:
-		if button_press_auto_connect:
+		if button_press_auto_connect and not node.is_in_group("click_sfx"):
 			node.pressed.connect(_on_button_pressed)
-		if button_hover_auto_connect:
+		if button_hover_auto_connect and not node.is_in_group("hover_sfx"):
 			node.mouse_entered.connect(_on_button_entered)
 	if node is TextureButton:
-		if texture_button_press_auto_connect:
+		if texture_button_press_auto_connect and not node.is_in_group("click_sfx"):
 			node.pressed.connect(_on_button_pressed)
-		if texture_button_hover_auto_connect:
+		if texture_button_hover_auto_connect and not node.is_in_group("hover_sfx"):
 			node.mouse_entered.connect(_on_button_entered)
 		
 

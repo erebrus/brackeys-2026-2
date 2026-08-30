@@ -27,10 +27,13 @@ var unmet_requirements: int
 
 @onready var debug_stat_container: Container = %DebugStatsContainer
 @onready var plant_sprite: Sprite2D = %Plant
-@export var drop_plant_cart_sfx: AudioStreamPlayer
-@export var drop_plant_invalid_sfx: AudioStreamPlayer
-@export var drop_plant_slot_sfx: AudioStreamPlayer
-@export var pickup_plant_sfx: AudioStreamPlayer
+@onready var pickup_plant_sfx: AudioStreamPlayer = $sfx/pickup_plant_sfx
+
+@onready var drop_plant_cart_sfx: AudioStreamPlayer = $sfx/drop_plant_cart_sfx
+@onready var drop_plant_invalid_sfx: AudioStreamPlayer = $sfx/drop_plant_invalid_sfx
+@onready var drop_plant_slot_sfx: AudioStreamPlayer = $sfx/drop_plant_slot_sfx
+@onready var blossom_sfx: AudioStreamPlayer = $sfx/blossom_sfx
+@onready var death_sfx: AudioStreamPlayer = $sfx/death_sfx
 
 
 @warning_ignore("shadowed_variable")
@@ -193,4 +196,8 @@ func _on_hp_changed(_type: Types.Stats, current_hp: float) -> void:
 
 func _on_state_changed(_state: PlantState) -> void:
 	_update_plant_sprite()
+	if _state == PlantState.THRIVING:
+		blossom_sfx.play()
+	elif _state == PlantState.DEAD:
+		death_sfx.play()
 	

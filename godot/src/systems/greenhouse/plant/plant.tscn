@@ -16,6 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://bxns3jcyqohau" path="res://assets/sfx/Pickup_Plant_1.ogg" id="14_83qgu"]
 [ext_resource type="AudioStream" uid="uid://vk2bqr55xenb" path="res://assets/sfx/Pickup_Plant_2.ogg" id="15_0bn41"]
 [ext_resource type="AudioStream" uid="uid://cpoc6llppo3vg" path="res://assets/sfx/Pickup_Plant_3.ogg" id="16_174ae"]
+[ext_resource type="AudioStream" uid="uid://dgyo1s83qxe5v" path="res://assets/sfx/Plant_Blossom.ogg" id="17_mqoql"]
+[ext_resource type="AudioStream" uid="uid://mupf8csct2cm" path="res://assets/sfx/Plant_Died.ogg" id="18_h8i2k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1al4v"]
 radius = 81.0
@@ -45,12 +47,8 @@ stream_0/stream = ExtResource("14_83qgu")
 stream_1/stream = ExtResource("15_0bn41")
 stream_2/stream = ExtResource("16_174ae")
 
-[node name="Plant" type="Node2D" unique_id=1928706633 node_paths=PackedStringArray("drop_plant_cart_sfx", "drop_plant_invalid_sfx", "drop_plant_slot_sfx", "pickup_plant_sfx")]
+[node name="Plant" type="Node2D" unique_id=1928706633]
 script = ExtResource("1_bjxm2")
-drop_plant_cart_sfx = NodePath("sfx/drop_plant_cart_sfx")
-drop_plant_invalid_sfx = NodePath("sfx/drop_plant_invalid_sfx")
-drop_plant_slot_sfx = NodePath("sfx/drop_plant_slot_sfx")
-pickup_plant_sfx = NodePath("sfx/pickup_plant_sfx")
 
 [node name="Plant" type="Sprite2D" parent="." unique_id=101030399]
 unique_name_in_owner = true
@@ -104,4 +102,14 @@ bus = &"Sfx"
 [node name="pickup_plant_sfx" type="AudioStreamPlayer" parent="sfx" unique_id=1049361633]
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_ebdrl")
+bus = &"Sfx"
+
+[node name="blossom_sfx" type="AudioStreamPlayer" parent="sfx" unique_id=502558989]
+process_mode = 3
+stream = ExtResource("17_mqoql")
+bus = &"Sfx"
+
+[node name="death_sfx" type="AudioStreamPlayer" parent="sfx" unique_id=1012453225]
+process_mode = 3
+stream = ExtResource("18_h8i2k")
 bus = &"Sfx"
