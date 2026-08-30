@@ -6,6 +6,10 @@ signal draggable_exited(draggable: DropArea)
 
 @export var target: Node
 
+var disabled: bool = false:
+	set(value):
+		disabled = value
+		$CollisionShape2D.disabled = disabled
 
 func _ready() -> void:
 	mouse_entered.connect(MouseController.mouse_entered.bind(self))

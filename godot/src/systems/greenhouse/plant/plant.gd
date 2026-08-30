@@ -176,6 +176,8 @@ func _update_plant_sprite() -> void:
 
 func _on_clicked() -> void:
 	if state == PlantState.DEAD:
+		if slot != null:
+			slot.remove_plant()
 		queue_free()
 		
 
