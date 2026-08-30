@@ -15,6 +15,7 @@ enum PlantState { DEAD, WILTING, NORMAL, THRIVING}
 
 @export var type: PlantType
 
+@onready var destroy_sfx: AudioStreamPlayer = $sfx/destroy_sfx
 
 var slot: PlantSlot
 var pot: Pot
@@ -176,6 +177,9 @@ func _update_plant_sprite() -> void:
 
 func _on_clicked() -> void:
 	if state == PlantState.DEAD:
+		destroy_sfx.play()
+		destroy_sfx.finished.connect(destroy_sfx.queue_free)
+		destroy_sfx.reparent(get_parent())
 		queue_free()
 		
 
