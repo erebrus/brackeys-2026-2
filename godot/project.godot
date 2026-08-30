@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Planting Lies - Brackeys 2026-2"
-config/version="0.0.10"
+config/version="0.1.4"
 run/main_scene="res://src/start_screen/start_screen.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
@@ -115,4 +115,5 @@ debug={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.40784314, 0.42745098, 0.43137255, 1)

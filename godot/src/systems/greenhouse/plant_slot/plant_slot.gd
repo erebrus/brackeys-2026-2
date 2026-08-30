@@ -18,6 +18,7 @@ func remove_plant() -> void:
 	
 	plant.slot = null
 	plant = null
+	drop_area.disabled = false
 	plant_changed.emit(null)
 	
 
@@ -29,6 +30,7 @@ func set_plant(value: Plant) -> void:
 	assert(value != null)
 	
 	plant = value
+	drop_area.disabled = true
 	
 	if plant.slot != null:
 		plant.slot.remove_plant()

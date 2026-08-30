@@ -2,26 +2,17 @@
 
 [ext_resource type="Script" uid="uid://dodm85vhrwagf" path="res://src/common/globals.gd" id="1_noqpm"]
 [ext_resource type="PackedScene" uid="uid://cegox3dcovjjg" path="res://src/common/feedback/feedback_manager.tscn" id="2_q26s1"]
-[ext_resource type="AudioStream" uid="uid://bjfe8j08byxx4" path="res://assets/music/kennys/Cheerful Annoyance.ogg" id="3_gfpot"]
 [ext_resource type="Script" uid="uid://c3gbbvoifoygf" path="res://src/common/music_manager.gd" id="3_h14hn"]
 [ext_resource type="PackedScene" uid="uid://bvpqsosr4w600" path="res://src/common/metric_manager/metrics_manager.tscn" id="3_i6p1b"]
-[ext_resource type="AudioStream" uid="uid://bxrc4c7inujhh" path="res://assets/music/kennys/Farm Frolics.ogg" id="4_v6ulc"]
 [ext_resource type="Script" uid="uid://04681mljvxoh" path="res://src/common/ui_sfx.gd" id="5_fmvy8"]
+[ext_resource type="AudioStream" uid="uid://c8xgbt6snb002" path="res://assets/music/Main Loop.ogg" id="5_le8b3"]
+[ext_resource type="AudioStream" uid="uid://dpsq5kfhpx7mm" path="res://assets/music/Main Menu loop.ogg" id="6_i01vm"]
 [ext_resource type="AudioStream" uid="uid://bsu1wn4sldcn8" path="res://assets/sfx/UI_Validate_1.ogg" id="8_le8b3"]
 [ext_resource type="AudioStream" uid="uid://xgehpb0ogs2n" path="res://assets/sfx/UI_Validate_2.ogg" id="9_i01vm"]
 [ext_resource type="AudioStream" uid="uid://nh8q581t0kvq" path="res://assets/sfx/UI_Validate_3.ogg" id="10_k8e2b"]
 [ext_resource type="AudioStream" uid="uid://c8m6aoul3jblj" path="res://assets/sfx/UI_Hover_1.ogg" id="11_xcs8h"]
 [ext_resource type="AudioStream" uid="uid://c8vkflhdbv05w" path="res://assets/sfx/UI_Hover_2.ogg" id="12_gbdmu"]
 [ext_resource type="AudioStream" uid="uid://cv0rxmcay7oyr" path="res://assets/sfx/UI_Hover_3.ogg" id="13_5ktbi"]
-
-[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q1nu8"]
-stream_count = 3
-stream_0/stream = ExtResource("3_gfpot")
-stream_0/volume = 0.0
-stream_1/stream = ExtResource("3_gfpot")
-stream_1/volume = -60.0
-stream_2/stream = ExtResource("3_gfpot")
-stream_2/volume = 0.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mqoql"]
 streams_count = 3
@@ -49,12 +40,12 @@ script = ExtResource("3_h14hn")
 
 [node name="game_music" type="AudioStreamPlayer" parent="MusicManager" unique_id=409761952]
 process_mode = 3
-stream = SubResource("AudioStreamSynchronized_q1nu8")
+stream = ExtResource("5_le8b3")
 bus = &"Music"
 
 [node name="menu_music" type="AudioStreamPlayer" parent="MusicManager" unique_id=793786919]
 process_mode = 3
-stream = ExtResource("4_v6ulc")
+stream = ExtResource("6_i01vm")
 bus = &"Music"
 
 [node name="UiSfx" type="Node" parent="." unique_id=316360251]

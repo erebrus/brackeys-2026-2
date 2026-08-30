@@ -2,9 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://donq353cys03w" path="res://src/systems/greenhouse/greenhouses/greenhouse.tscn" id="1_erego"]
 [ext_resource type="Texture2D" uid="uid://mhyuxah3cfih" path="res://assets/gfx/background/window_with_shade.png" id="2_isobh"]
-[ext_resource type="Texture2D" uid="uid://84cov1iei8se" path="res://assets/gfx/background/tables/large_double.png" id="3_isobh"]
+[ext_resource type="Texture2D" uid="uid://cfofp2l3a6lg" path="res://assets/gfx/background/tables/medium_double.png" id="3_b057c"]
 [ext_resource type="PackedScene" uid="uid://bfuiqklb1hxev" path="res://src/systems/greenhouse/plant_slot/plant_slot.tscn" id="4_xcd8s"]
-[ext_resource type="Texture2D" uid="uid://h6bglhckvhwt" path="res://assets/gfx/background/tables/small_tall.png" id="5_bag6s"]
 
 [node name="ShadeWarmGreenhouse" unique_id=1650797564 instance=ExtResource("1_erego")]
 stats = Dictionary[int, float]({
@@ -22,22 +21,25 @@ texture = ExtResource("2_isobh")
 region_enabled = true
 region_rect = Rect2(80, 0, 1920, 1080)
 
-[node name="LargeDouble" type="Sprite2D" parent="." index="4" unique_id=901751798]
-position = Vector2(629, 901)
-texture = ExtResource("3_isobh")
+[node name="MediumDouble" type="Sprite2D" parent="." index="5" unique_id=308355838]
+position = Vector2(502, 1034)
+texture = ExtResource("3_b057c")
 
-[node name="PlantSlot" parent="LargeDouble" index="0" unique_id=1520109860 instance=ExtResource("4_xcd8s")]
-position = Vector2(-207, -11)
+[node name="PlantSlot" parent="MediumDouble" index="0" unique_id=1502158210 instance=ExtResource("4_xcd8s")]
+position = Vector2(-71, -9)
 
-[node name="PlantSlot2" parent="LargeDouble" index="1" unique_id=247036068 instance=ExtResource("4_xcd8s")]
-position = Vector2(-207, -502)
+[node name="PlantSlot3" parent="MediumDouble" index="1" unique_id=587241314 instance=ExtResource("4_xcd8s")]
+position = Vector2(158, -501)
 
-[node name="PlantSlot3" parent="LargeDouble" index="2" unique_id=1609605480 instance=ExtResource("4_xcd8s")]
-position = Vector2(194, -502)
+[node name="PlantSlot4" parent="MediumDouble" index="2" unique_id=420028278 instance=ExtResource("4_xcd8s")]
+position = Vector2(-169, -501)
 
-[node name="SmallTall" type="Sprite2D" parent="." index="5" unique_id=54378646]
-position = Vector2(1574, 903)
-texture = ExtResource("5_bag6s")
+[node name="MediumDouble2" type="Sprite2D" parent="." index="6" unique_id=491883476]
+position = Vector2(1418, 1028)
+texture = ExtResource("3_b057c")
 
-[node name="PlantSlot4" parent="SmallTall" index="0" unique_id=191601380 instance=ExtResource("4_xcd8s")]
-position = Vector2(-1, -368)
+[node name="PlantSlot3" parent="MediumDouble2" index="0" unique_id=1520109860 instance=ExtResource("4_xcd8s")]
+position = Vector2(158, -501)
+
+[node name="PlantSlot4" parent="MediumDouble2" index="1" unique_id=481165143 instance=ExtResource("4_xcd8s")]
+position = Vector2(-169, -501)
