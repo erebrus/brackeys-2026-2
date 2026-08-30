@@ -8,7 +8,7 @@ on:
 env:
   GODOT_VERSION: 4.7.2.stable
   EXPORT_NAME: replace_export_name
-  ITCH_GAME: brackeys-2026-2
+  ITCH_GAME: planting_lies
   ITCH_USER: erebrus
 
 jobs:
