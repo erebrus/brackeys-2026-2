@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://rfmiwfh32h36" path="res://assets/sfx/Drop_Fact_Invalid_1.ogg" id="12_741dd"]
 [ext_resource type="AudioStream" uid="uid://bu16iyi4sjcjh" path="res://assets/sfx/Drop_Fact_Invalid_2.ogg" id="13_boydh"]
 [ext_resource type="AudioStream" uid="uid://b65ffy1cvfjrq" path="res://assets/sfx/Drop_Fact_Invalid_3.ogg" id="14_vbln5"]
+[ext_resource type="Texture2D" uid="uid://cx77pm01vt0sr" path="res://assets/gfx/ui/catalogue/plant_border.png" id="3_e77e7"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_63h0j"]
 streams_count = 3
@@ -23,7 +24,6 @@ streams_count = 3
 stream_0/stream = ExtResource("12_741dd")
 stream_1/stream = ExtResource("13_boydh")
 stream_2/stream = ExtResource("14_vbln5")
-[ext_resource type="Texture2D" uid="uid://cx77pm01vt0sr" path="res://assets/gfx/ui/catalogue/plant_border.png" id="3_e77e7"]
 
 [sub_resource type="FontVariation" id="FontVariation_m63dw"]
 variation_embolden = 1.29
