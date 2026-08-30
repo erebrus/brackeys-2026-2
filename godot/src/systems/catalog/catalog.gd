@@ -4,6 +4,8 @@ signal solved
 
 var current_page:= 0
 
+var tutorial_tween: Tween
+
 @onready var toggle_button: BaseButton = %Button
 @onready var plant_container: Container = %PlantContainer
 @onready var buy_sfx: AudioStreamPlayer = $buy_sfx
@@ -34,6 +36,15 @@ func _on_button_toggled(toggled_on: bool) -> void:
 	%PanelContainer.visible = toggled_on
 	
 	get_tree().paused = toggled_on
+	
+	if toggled_on:
+		%TutorialPanel.modulate.a = 1
+		await get_tree().create_timer(5).timeout
+		
+		if is_instance_valid(tutorial_tween):
+			tutorial_tween.kill()
+		tutorial_tween = create_tween()
+		tutorial_tween.tween_property(%TutorialPanel, "modulate:a", 0, 0.5)
 	
 
 func _on_previous_page_pressed() -> void:

@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c7bym6o5f3nlt" path="res://assets/gfx/plants/thorny-healthy.png" id="1_gsltv"]
 [ext_resource type="PackedScene" uid="uid://dmk74ill31lem" path="res://src/systems/catalog/plant_fact.tscn" id="2_haasm"]
 [ext_resource type="Script" uid="uid://bdvjssr5p54df" path="res://src/systems/catalog/facts_container.gd" id="3_1imef"]
+[ext_resource type="Texture2D" uid="uid://cx77pm01vt0sr" path="res://assets/gfx/ui/catalogue/plant_border.png" id="3_e77e7"]
+[ext_resource type="FontVariation" uid="uid://cv3746117b4s4" path="res://src/ui/bold_foont.tres" id="3_uuo2v"]
 [ext_resource type="AudioStream" uid="uid://chaqakfmxbnw0" path="res://assets/sfx/Plant_Instructions_Correct.ogg" id="5_e77e7"]
 [ext_resource type="AudioStream" uid="uid://c35qaqqlxo6gm" path="res://assets/sfx/Drop_Fact_Valid_1.ogg" id="9_i8sdj"]
 [ext_resource type="AudioStream" uid="uid://dr4jmy7iud4d" path="res://assets/sfx/Drop_Fact_Valid_2.ogg" id="10_lexph"]
@@ -11,7 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://rfmiwfh32h36" path="res://assets/sfx/Drop_Fact_Invalid_1.ogg" id="12_741dd"]
 [ext_resource type="AudioStream" uid="uid://bu16iyi4sjcjh" path="res://assets/sfx/Drop_Fact_Invalid_2.ogg" id="13_boydh"]
 [ext_resource type="AudioStream" uid="uid://b65ffy1cvfjrq" path="res://assets/sfx/Drop_Fact_Invalid_3.ogg" id="14_vbln5"]
-[ext_resource type="Texture2D" uid="uid://cx77pm01vt0sr" path="res://assets/gfx/ui/catalogue/plant_border.png" id="3_e77e7"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_63h0j"]
 streams_count = 3
@@ -24,9 +25,6 @@ streams_count = 3
 stream_0/stream = ExtResource("12_741dd")
 stream_1/stream = ExtResource("13_boydh")
 stream_2/stream = ExtResource("14_vbln5")
-
-[sub_resource type="FontVariation" id="FontVariation_m63dw"]
-variation_embolden = 1.29
 
 [node name="CatalogPlant" type="MarginContainer" unique_id=887097199]
 size_flags_horizontal = 3
@@ -72,7 +70,7 @@ offset_transform_rotation = -0.5532694
 theme_override_colors/font_color = Color(0.9254902, 0.9137255, 0.9490196, 1)
 theme_override_colors/font_outline_color = Color(0.16862746, 0.14117648, 0.23137255, 1)
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = SubResource("FontVariation_m63dw")
+theme_override_fonts/font = ExtResource("3_uuo2v")
 text = "SOLVED"
 horizontal_alignment = 1
 
@@ -95,7 +93,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.168705, 0.1403, 0.23, 1)
-theme_override_fonts/font = SubResource("FontVariation_m63dw")
+theme_override_fonts/font = ExtResource("3_uuo2v")
 theme_override_font_sizes/font_size = 28
 text = "Solmandra Wulkwither"
 
