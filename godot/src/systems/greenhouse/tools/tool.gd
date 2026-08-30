@@ -5,7 +5,7 @@ class_name Tool extends Node2D
 @export var pour_speed: float
 @export_range(-180, 180, 0.001, "radians_as_degrees") var pour_rotation: float = 0.0
 
-@export var particles: Array[GPUParticles2D]
+@export var particles: Array[CPUParticles2D]
 
 var plant: Plant
 

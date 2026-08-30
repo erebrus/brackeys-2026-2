@@ -35,16 +35,6 @@ func _on_level_manager_level_unloaded() -> void:
 	
 
 func _on_level_manager_level_ready() -> void:
-	await get_tree().process_frame
-	
-	GSLogger.info("Starting all particles")
-	%ToolTray.toggle_particles(true)
-	await get_tree().process_frame
-	
-	GSLogger.info("Stopping all particles")
-	%ToolTray.toggle_particles(false)
-	await get_tree().process_frame
-	
 	fade_panel.fade_in()
 	
 	if get_level().override_game_state:
@@ -65,7 +55,7 @@ func _on_left_button_pressed() -> void:
 
 func _on_win_panel_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		Globals.do_win()
+		Globals.go_to_main_menu()
 	
 
 func _on_catalog_solved() -> void:
