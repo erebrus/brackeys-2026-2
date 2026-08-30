@@ -1,18 +1,18 @@
 id,text,stat_type,decay,min,max
-cold,"Requires a cool environment to thrive.",temperature,1,0,20
-hot,"Requires a warm environment to thrive.",temperature,1,80,100
-light,"Requires a lot of sunlight to grow.",sunlight,1,80,100
-darkness,"Thrives in low light conditions.",sunlight,1,0,20
-needy,"Requires care and affecton to grow properly.",affection,1,80,100
-no_touch,"Hates being touched or handled.",affection,1,0,20
-water,"Requires a lot of water to grow.",water,1,80,100
-no_water,"Is allergic to water",water,1,0,20
-blood,"Requires blood to grow.",blood,1,80,100
-slime,"Requires proper lubrification to grow.",slime,1,80,100
-bugs,"Feeds on little critters and bugs.",bugs,1,80,100
-frail,"Cannot handle pesky pests or bugs.",bugs,1,0,20
-pearl_fruits,"Produces beautiful pearl-like fruits.",,1,0,0
-smile_death,"When happy, it has a smile to die for.",,1,0,0
+cold,"Requires a cool environment to thrive.",temperature,0,0,20
+hot,"Requires a warm environment to thrive.",temperature,0,80,100
+light,"Requires a lot of sunlight to grow.",sunlight,0,80,100
+darkness,"Thrives in low light conditions.",sunlight,0,0,20
+needy,"Requires care and affecton to grow properly.",affection,1,50,100
+no_touch,"Hates being touched or handled.",affection,1,0,50
+water,"Requires a lot of water to grow.",water,1,50,100
+no_water,"Is allergic to water",water,1,0,50
+blood,"Requires blood to grow.",blood,1,50,100
+slime,"Requires proper lubrification to grow.",slime,1,50,100
+bugs,"Feeds on little critters and bugs.",bugs,1,50,100
+frail,"Cannot handle pesky pests or bugs.",bugs,1,0,50
+pearl_fruits,"Produces beautiful pearl-like fruits.",,0,0,0
+smile_death,"When happy, it has a smile to die for.",,0,0,0
 stare,"Stares into your sould when satisfied.",,0,0,0
 thorn_poison,"Its thorns produce poison.",,0,0,0
 theethy,"Its leaves have a sharp, tooth-like texture.",,0,0,0
