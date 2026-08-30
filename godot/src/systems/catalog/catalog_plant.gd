@@ -21,6 +21,7 @@ func _ready() -> void:
 	if plant == null:
 		return
 	
+	%NameLabel.text = plant.name
 	%PlantPortrait.texture = plant.textures[Plant.PlantState.NORMAL]
 	%BuyButton.pressed.connect(Events.plant_bought.emit.bind(plant))
 	Events.free_tray_slots_changed.connect(func(x): buy_button.disabled = x == 0)

@@ -4,7 +4,21 @@
 [ext_resource type="Script" uid="uid://cq7tr822tcyo3" path="res://src/systems/catalog/catalog.gd" id="1_h3bwt"]
 [ext_resource type="AudioStream" uid="uid://dxicq4ivhtojy" path="res://assets/sfx/Buy_Plant.ogg" id="3_0by23"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3bwt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1imef"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.5766533, 0.5612, 0.61, 0.80784315)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.36078432, 0.32941177, 0.42745098, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Catalog" type="MarginContainer" unique_id=673141459]
 anchors_preset = 15
@@ -32,10 +46,9 @@ text = "CATALOGUE"
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1714695431]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_h3bwt")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1imef")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=833787458]
 layout_mode = 2
@@ -43,15 +56,16 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=998472400]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="PlantContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer" unique_id=1190752867]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/h_separation = 30
 columns = 2
 
 [node name="CatalogPlant" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/PlantContainer" unique_id=887097199 instance=ExtResource("1_4wji7")]
@@ -77,15 +91,20 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="PreviousPage" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=96273255]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "<"
 
 [node name="NextPage" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1690982683]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = ">"
 
 [node name="SolvedLabel" type="Label" parent="VBoxContainer/PanelContainer" unique_id=2068643907]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 160
 text = "SOLVED"

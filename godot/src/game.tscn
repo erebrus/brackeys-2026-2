@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cdm2fhla0kigd" path="res://src/common/fade_panel.tscn" id="4_wqvko"]
 [ext_resource type="PackedScene" uid="uid://clcmxlwpfkqo0" path="res://src/systems/catalog/catalog.tscn" id="5_pk08u"]
 [ext_resource type="PackedScene" uid="uid://bjmvg3njhibl2" path="res://src/systems/greenhouse/tools/tool_tray.tscn" id="6_wqvko"]
+[ext_resource type="StyleBox" uid="uid://dtlu6lbpfjdek" path="res://src/ui/big_panel.tres" id="7_cdx1q"]
 
 [sub_resource type="Resource" id="Resource_5q4o7"]
 metadata/__load_path__ = "res://src/tutorial_state.tres"
@@ -76,18 +77,28 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
+theme_override_styles/panel = ExtResource("7_cdx1q")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/WinPanel/PanelContainer" unique_id=1624294139]
+[node name="MarginContainer" type="MarginContainer" parent="HUDLayer/WinPanel/PanelContainer" unique_id=1904178446]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/WinPanel/PanelContainer/MarginContainer" unique_id=1624294139]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HUDLayer/WinPanel/PanelContainer/VBoxContainer" unique_id=274961269]
+[node name="Label" type="Label" parent="HUDLayer/WinPanel/PanelContainer/MarginContainer/VBoxContainer" unique_id=274961269]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.36078432, 0.32941177, 0.42745098, 1)
 theme_override_font_sizes/font_size = 120
 text = "Thank you"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="HUDLayer/WinPanel/PanelContainer/VBoxContainer" unique_id=2074197119]
+[node name="Label2" type="Label" parent="HUDLayer/WinPanel/PanelContainer/MarginContainer/VBoxContainer" unique_id=2074197119]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.36078432, 0.32941177, 0.42745098, 1)
 theme_override_font_sizes/font_size = 64
 text = "for fighting false information"
 horizontal_alignment = 1
