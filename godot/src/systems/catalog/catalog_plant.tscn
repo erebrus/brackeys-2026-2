@@ -34,7 +34,7 @@ offset_transform_rotation = -0.5532694
 text = "SOLVED"
 horizontal_alignment = 1
 
-[node name="BuyButton" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=604977271]
+[node name="BuyButton" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=604977271 groups=["click_sfx"]]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Buy"

@@ -57,6 +57,11 @@ folder_colors={
 "res://src/systems/": "purple"
 }
 
+[global_group]
+
+click_sfx=""
+hover_sfx=""
+
 [gui]
 
 theme/custom="uid://k0yx4w2osxxx"
