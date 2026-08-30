@@ -6,7 +6,7 @@ class_name MusicManager extends Node
 @onready var game_music_node: Node = $game_music
 
 
-@onready var game_music_stream:AudioStreamSynchronized = game_music_stream_player.stream if game_music_stream_player else null
+@onready var game_music_stream:AudioStreamSynchronized = null #game_music_stream_player.stream if game_music_stream_player else null
 
 var current_game_music_id = 0#Types.GameMusic.EASY
 var default_music_volume:float = 0.0 
