@@ -30,10 +30,13 @@ texture = ExtResource("3_pdulh")
 position = Vector2(-207, -11)
 
 [node name="PlantSlot2" parent="LargeDouble" index="1" unique_id=1334398861 instance=ExtResource("4_ww42o")]
-position = Vector2(-207, -502)
+position = Vector2(-268, -502)
 
 [node name="PlantSlot3" parent="LargeDouble" index="2" unique_id=2106054976 instance=ExtResource("4_ww42o")]
-position = Vector2(194, -502)
+position = Vector2(280, -502)
+
+[node name="PlantSlot4" parent="LargeDouble" index="3" unique_id=611736027 instance=ExtResource("4_ww42o")]
+position = Vector2(13, -502)
 
 [node name="SmallTall" type="Sprite2D" parent="." index="4" unique_id=1085576254]
 position = Vector2(1574, 903)
