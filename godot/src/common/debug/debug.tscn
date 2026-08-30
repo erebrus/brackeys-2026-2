@@ -7,6 +7,7 @@
 process_mode = 3
 layer = 128
 script = ExtResource("1_k56ks")
+debug_build = false
 
 [node name="DebugPanel" parent="." unique_id=2000728996 instance=ExtResource("2_j5q3p")]
 unique_name_in_owner = true
