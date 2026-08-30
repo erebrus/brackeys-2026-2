@@ -6,7 +6,9 @@ var plant: PlantType
 
 @onready var solved_overlay: Control = %Solved
 @onready var facts_container: PlantFactsContainer = %FactsContainer
-@onready var buy_button: BaseButton = %BuyButton
+@onready var buy_button: Button = %BuyButton
+@onready var solved_sfx: AudioStreamPlayer = $sfx/solved_sfx
+@onready var fact_drop_valid_sfx: AudioStreamPlayer = $sfx/fact_drop_valid_sfx
 
 @warning_ignore("shadowed_variable")
 static func create(plant: PlantType) -> CatalogPlant:
@@ -22,7 +24,6 @@ func _ready() -> void:
 	%NameLabel.text = plant.name
 	%PlantPortrait.texture = plant.textures[Plant.PlantState.NORMAL]
 	%BuyButton.pressed.connect(Events.plant_bought.emit.bind(plant))
-	
 	Events.free_tray_slots_changed.connect(func(x): buy_button.disabled = x == 0)
 	
 	plant.solved.connect(_on_solved)
@@ -36,11 +37,11 @@ func _ready() -> void:
 
 func _on_fact_added(fact: CatalogPlantFact) -> void:
 	fact_added.emit(self, fact)
-	
+	fact_drop_valid_sfx.play()
 
 func _on_solved() -> void:
 	solved_overlay.show()
-	
+	solved_sfx.play()
 	facts_container.solved = true
 	for fact: CatalogPlantFact in facts_container.get_children():
 		fact.disable()
