@@ -2,7 +2,10 @@
 
 [ext_resource type="Theme" uid="uid://k0yx4w2osxxx" path="res://src/ui/theme.tres" id="1_15q2y"]
 [ext_resource type="Script" uid="uid://d0qhvgualhiwk" path="res://src/start_screen/start_screen.gd" id="1_yk0mb"]
+[ext_resource type="Texture2D" uid="uid://ccjmwl73mb288" path="res://assets/gfx/title/start.png" id="2_1wdge"]
 [ext_resource type="PackedScene" uid="uid://dl8v2fu2m6iq5" path="res://src/systems/settings/settings_menu.tscn" id="4_1wdge"]
+[ext_resource type="Texture2D" uid="uid://b2ksw0yx3sqoe" path="res://assets/gfx/title/startbox.png" id="4_esdhr"]
+[ext_resource type="Script" uid="uid://cscphxmp12r35" path="res://src/start_screen/menu_button.gd" id="5_1wl0k"]
 
 [node name="StartScreen" type="TextureRect" unique_id=1789025817]
 anchors_preset = 15
@@ -11,32 +14,68 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_15q2y")
+texture = ExtResource("2_1wdge")
 script = ExtResource("1_yk0mb")
 
-[node name="Buttons" type="VBoxContainer" parent="." unique_id=922063281]
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=269776772]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -420.0
-offset_top = -117.5
-offset_right = -60.0
-offset_bottom = 117.5
+offset_left = -1550.0
+offset_top = 71.0
+offset_right = -1290.0
+offset_bottom = 301.5
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_constants/separation = 20
 
-[node name="StartButton" type="Button" parent="Buttons" unique_id=1324112190]
-custom_minimum_size = Vector2(420, 200)
+[node name="StartButton" type="TextureButton" parent="Buttons" unique_id=877642743]
 layout_mode = 2
-theme_override_font_sizes/font_size = 96
-text = "START"
+texture_normal = ExtResource("4_esdhr")
+texture_pressed = ExtResource("4_esdhr")
+texture_hover = ExtResource("4_esdhr")
+texture_disabled = ExtResource("4_esdhr")
+texture_focused = ExtResource("4_esdhr")
+script = ExtResource("5_1wl0k")
 
-[node name="SettingsButton" type="Button" parent="Buttons" unique_id=933515076]
+[node name="Label" type="Label" parent="Buttons/StartButton" unique_id=846202241]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21960784, 0.15686275, 0.25882354, 1)
+theme_override_font_sizes/font_size = 64
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="Buttons" unique_id=1842113906]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_vertical = 3
+texture_normal = ExtResource("4_esdhr")
+texture_pressed = ExtResource("4_esdhr")
+texture_hover = ExtResource("4_esdhr")
+texture_disabled = ExtResource("4_esdhr")
+texture_focused = ExtResource("4_esdhr")
+script = ExtResource("5_1wl0k")
+
+[node name="Label" type="Label" parent="Buttons/SettingsButton" unique_id=20409149]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.21960784, 0.15686275, 0.25882354, 1)
+theme_override_font_sizes/font_size = 48
 text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SettingsMenu" parent="." unique_id=1230211766 instance=ExtResource("4_1wdge")]
 unique_name_in_owner = true
