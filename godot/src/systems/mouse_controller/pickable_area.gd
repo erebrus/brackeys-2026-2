@@ -41,6 +41,9 @@ func _exit_tree() -> void:
 
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
+		if event.button_index != MouseButton.MOUSE_BUTTON_LEFT:
+			return
+		
 		if event.is_pressed():
 			if is_clickable:
 				MouseController.mouse_pressed(self)

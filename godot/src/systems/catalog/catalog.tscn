@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://e83ma3nckg3" path="res://src/systems/catalog/catalog_plant.tscn" id="1_4wji7"]
 [ext_resource type="Script" uid="uid://cq7tr822tcyo3" path="res://src/systems/catalog/catalog.gd" id="1_h3bwt"]
+[ext_resource type="AudioStream" uid="uid://dxicq4ivhtojy" path="res://assets/sfx/Buy_Plant.ogg" id="3_0by23"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3bwt"]
 
@@ -89,6 +90,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 160
 text = "SOLVED"
 horizontal_alignment = 1
+
+[node name="buy_sfx" type="AudioStreamPlayer" parent="." unique_id=1480857766]
+stream = ExtResource("3_0by23")
+bus = &"Sfx"
 
 [connection signal="toggled" from="VBoxContainer/Button" to="." method="_on_button_toggled"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/PreviousPage" to="." method="_on_previous_page_pressed"]

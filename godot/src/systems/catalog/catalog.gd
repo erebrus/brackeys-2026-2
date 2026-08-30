@@ -6,6 +6,7 @@ var current_page:= 0
 
 @onready var toggle_button: BaseButton = %Button
 @onready var plant_container: Container = %PlantContainer
+@onready var buy_sfx: AudioStreamPlayer = $buy_sfx
 
 
 func _ready() -> void:
@@ -66,4 +67,4 @@ func _on_fact_added(plant: CatalogPlant, fact: CatalogPlantFact) -> void:
 
 func _on_plant_bought(_plant: PlantType) -> void:
 	toggle_button.button_pressed = false
-	
+	buy_sfx.play()	

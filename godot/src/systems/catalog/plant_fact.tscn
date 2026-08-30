@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://dmk74ill31lem"]
 
 [ext_resource type="Script" uid="uid://cda1i3a3n7rm8" path="res://src/systems/catalog/plant_fact.gd" id="1_fl257"]
+[ext_resource type="AudioStream" uid="uid://d5xgfkh7abej" path="res://assets/sfx/Pickup_Fact_1.ogg" id="2_fcjfy"]
+[ext_resource type="AudioStream" uid="uid://d04xlbqrkomgs" path="res://assets/sfx/Pickup_Fact_2.ogg" id="3_y3sch"]
+[ext_resource type="AudioStream" uid="uid://cw5agfgysowrf" path="res://assets/sfx/Pickup_Fact_3.ogg" id="4_bj3q4"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8mssv"]
+streams_count = 3
+stream_0/stream = ExtResource("2_fcjfy")
+stream_1/stream = ExtResource("3_y3sch")
+stream_2/stream = ExtResource("4_bj3q4")
 
 [node name="PlantFact" type="PanelContainer" unique_id=1923659573]
 texture_filter = 2
@@ -15,3 +24,7 @@ layout_mode = 2
 text = "test fact"
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="fact_pickup_sfx" type="AudioStreamPlayer" parent="." unique_id=296600582]
+stream = SubResource("AudioStreamRandomizer_8mssv")
+bus = &"Sfx"

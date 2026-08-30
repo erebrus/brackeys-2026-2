@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 	
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and not event.is_pressed():
+	if event is InputEventMouseButton and not event.is_pressed() and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
 		_stop_drag()
 		
 	if event is InputEventMouseMotion and _is_drag_pre_armed() and not _drag_armed:
