@@ -103,6 +103,7 @@ HSlider/icons/grabber_highlight = ExtResource("3_r2kde")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_ty3yj")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_o7re1")
 HSlider/styles/slider = SubResource("StyleBoxTexture_r2kde")
+HeaderMedium/font_sizes/font_size = 36
 Label/colors/font_color = Color(0.9254902, 0.9137255, 0.9490196, 1)
 MarginContainerLarge/base_type = &"MarginContainer"
 MarginContainerLarge/constants/margin_bottom = 40
